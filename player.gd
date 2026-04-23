@@ -34,33 +34,41 @@ extends CharacterBody3D
 @export var bob_freq     : float = 8.0
 @export var bob_amp      : float = 0.022
 
+## Third-person scroll
+@export var min_zoom     : float = 0.0    # 0 = first person
+@export var max_zoom     : float = 8.0    # max pull-back in metres
+@export var zoom_step    : float = 0.6    # distance per scroll tick
+@export var zoom_speed   : float = 8.0    # smoothing speed
+
 # ─────────────────────────────────────────────
 #  NODE REFERENCES
 # ─────────────────────────────────────────────
-@onready var camera_rig : Node3D   = $CameraRig
-@onready var camera     : Camera3D = $CameraRig/Camera3D
+@onready var camera_rig  : Node3D      = $CameraRig
+@onready var spring_arm  : SpringArm3D = $CameraRig/SpringArm
+@onready var camera      : Camera3D    = $CameraRig/SpringArm/Camera3D
 
 # ─────────────────────────────────────────────
 #  INTERNAL STATE
 # ─────────────────────────────────────────────
 var _gravity      : float = ProjectSettings.get_setting("physics/3d/default_gravity")
-var _jump_vel     : float                    # computed from jump_height
+var _jump_vel     : float
 
 var _coyote_timer  : float = 0.0
 var _buffer_timer  : float = 0.0
 var _was_grounded  : bool  = false
 var _jump_held     : bool  = false
 
-var _dashing       : bool  = false
-var _dash_timer    : float = 0.0
-var _dash_cd_timer : float = 0.0
+var _dashing       : bool    = false
+var _dash_timer    : float   = 0.0
+var _dash_cd_timer : float   = 0.0
 var _dash_dir      : Vector3 = Vector3.ZERO
 
 var _bob_t         : float = 0.0
-var _cam_base_y    : float = 0.0   # camera's rest local Y
+var _cam_base_y    : float = 0.0
 
-var _yaw   : float = 0.0   # horizontal look (applied to root)
-var _pitch : float = 0.0   # vertical look   (applied to camera_rig)
+var _yaw         : float = 0.0
+var _pitch       : float = 0.0
+var _target_zoom : float = 0.0
 
 
 # ─────────────────────────────────────────────
@@ -68,16 +76,18 @@ var _pitch : float = 0.0   # vertical look   (applied to camera_rig)
 # ─────────────────────────────────────────────
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	_jump_vel  = sqrt(2.0 * (_gravity * gravity_scale) * jump_height)
+	_jump_vel   = sqrt(2.0 * (_gravity * gravity_scale) * jump_height)
 	_cam_base_y = camera_rig.position.y
 
+	spring_arm.spring_length = 0.0
+	spring_arm.position      = Vector3.ZERO
+	spring_arm.add_excluded_object(self.get_rid())
+
 
 # ─────────────────────────────────────────────
-#  INPUT  (mouse look + shift-lock toggle)
+#  INPUT
 # ─────────────────────────────────────────────
 func _input(event: InputEvent) -> void:
-	# Mouse look — always active in 1st-person (shift-lock is moot here,
-	# but the toggle is wired so you can extend it to 3rd-person later)
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		_yaw   -= event.relative.x * mouse_sensitivity * 0.01
 		_pitch  = clamp(
@@ -85,12 +95,18 @@ func _input(event: InputEvent) -> void:
 			deg_to_rad(-pitch_clamp),
 			deg_to_rad( pitch_clamp)
 		)
-		# Rotate the CharacterBody3D for yaw so the movement basis stays correct
-		rotation.y = _yaw
+		rotation.y            = _yaw
 		camera_rig.rotation.x = _pitch
 
-	# Escape / pause releases cursor
-	if event.is_action_pressed("ui_cancel"):
+	# Scroll to zoom in/out between 1st and 3rd person
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			_target_zoom = max(_target_zoom - zoom_step, min_zoom)
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			_target_zoom = min(_target_zoom + zoom_step, max_zoom)
+
+# Escape releases / recaptures cursor
+	if event.is_action_pressed("ui_cancel") and not event is InputEventMouseMotion:
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else:
@@ -103,16 +119,25 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	var grounded := is_on_floor()
 
+	# ── Smooth zoom ─────────────────────────
+	spring_arm.spring_length = lerp(spring_arm.spring_length, _target_zoom, zoom_speed * delta)
+
+	# Hide crosshair in 3rd person
+	var is_first_person := spring_arm.spring_length < 0.25
+	var overlay := get_node_or_null("CameraRig/SpringArm/Camera3D/ShiftLockOverlay")
+	if overlay:
+		overlay.visible = is_first_person
+
 	# ── Timers ──────────────────────────────
 	_coyote_timer  = max(_coyote_timer  - delta, 0.0)
 	_buffer_timer  = max(_buffer_timer  - delta, 0.0)
 	_dash_cd_timer = max(_dash_cd_timer - delta, 0.0)
 
 	if _was_grounded and not grounded:
-		_coyote_timer = coyote_time    # fell off edge — grace window starts
+		_coyote_timer = coyote_time
 
 	if grounded:
-		_coyote_timer = coyote_time    # refresh while standing
+		_coyote_timer = coyote_time
 
 	# ── Jump buffering ───────────────────────
 	if Input.is_action_just_pressed("jump"):
@@ -126,7 +151,6 @@ func _physics_process(delta: float) -> void:
 		_buffer_timer = 0.0
 		_jump_held    = true
 
-	# Short-hop: early release cuts vertical speed
 	if _jump_held and Input.is_action_just_released("jump") and velocity.y > 0.0:
 		velocity.y /= short_hop_div
 		_jump_held  = false
@@ -138,7 +162,7 @@ func _physics_process(delta: float) -> void:
 	if not grounded:
 		var g := _gravity * gravity_scale
 		if velocity.y < 0.0:
-			g *= fall_multiplier         # heavier fall
+			g *= fall_multiplier
 		velocity.y -= g * delta
 		velocity.y = max(velocity.y, -max_fall_speed)
 
@@ -149,37 +173,35 @@ func _physics_process(delta: float) -> void:
 	if not _dashing:
 		_handle_movement(delta, grounded)
 
-	# ── Head-bob ────────────────────────────
-	if bob_enabled:
+	# ── Head-bob (1st person only) ───────────
+	if bob_enabled and is_first_person:
 		_update_bob(delta, grounded)
+	else:
+		camera_rig.position.y = _cam_base_y
 
 	move_and_slide()
 	_was_grounded = grounded
 
 
 # ─────────────────────────────────────────────
-#  MOVEMENT  (WASD / analogue, run modifier)
+#  MOVEMENT
 # ─────────────────────────────────────────────
 func _handle_movement(delta: float, grounded: bool) -> void:
 	var wish_dir := Vector3.ZERO
 	wish_dir.x = Input.get_axis("move_left",    "move_right")
 	wish_dir.z = Input.get_axis("move_forward", "move_back")
 
-	# Clamp diagonal so you don't move faster than max_speed at 45°
 	if wish_dir.length_squared() > 1.0:
 		wish_dir = wish_dir.normalized()
 
-	# Transform relative to where we're looking (horizontal plane only)
 	wish_dir = (transform.basis * wish_dir).normalized() * wish_dir.length()
 	wish_dir.y = 0.0
 
 	var target_speed := run_speed if Input.is_action_pressed("run") else max_speed
 	var target_vel   := wish_dir * target_speed
-
-	var accel := acceleration if grounded else air_acceleration
+	var accel        := acceleration if grounded else air_acceleration
 
 	if wish_dir == Vector3.ZERO and grounded:
-		# Friction: blend towards zero
 		var horizontal := Vector3(velocity.x, 0.0, velocity.z)
 		horizontal = horizontal.move_toward(Vector3.ZERO, friction * delta)
 		velocity.x = horizontal.x
@@ -190,14 +212,13 @@ func _handle_movement(delta: float, grounded: bool) -> void:
 
 
 # ─────────────────────────────────────────────
-#  DASH  (8-directional, horizontal only)
+#  DASH
 # ─────────────────────────────────────────────
 func _handle_dash(delta: float) -> void:
 	if _dashing:
 		_dash_timer -= delta
 		if _dash_timer <= 0.0:
-			_dashing = false
-			# Bleed off dash speed so it doesn't feel snappy
+			_dashing   = false
 			velocity.x *= 0.35
 			velocity.z *= 0.35
 		else:
@@ -211,7 +232,6 @@ func _handle_dash(delta: float) -> void:
 			0.0,
 			Input.get_axis("move_forward", "move_back")
 		)
-		# Dash in look direction if no input held
 		if raw.length_squared() < 0.1:
 			raw = Vector3(0, 0, -1)
 
@@ -230,7 +250,6 @@ func _update_bob(delta: float, grounded: bool) -> void:
 	if grounded and horizontal_speed > 0.5:
 		_bob_t += delta * bob_freq * (horizontal_speed / max_speed)
 	else:
-		# Smoothly return to rest
 		_bob_t = lerp(_bob_t, round(_bob_t / PI) * PI, delta * 8.0)
 
 	camera_rig.position.y = _cam_base_y + sin(_bob_t) * bob_amp
