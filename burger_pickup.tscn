@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://detb76mk3kscn"]
+
+[ext_resource type="Script" uid="uid://ds2miovr824b8" path="res://burger_pickup.gd" id="1_gx4nq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ejlhg"]
+radius = 0.6
+
+[sub_resource type="SphereMesh" id="SphereMesh_0duc7"]
+
+[node name="BurgerPickup" type="Area3D" unique_id=461418647]
+script = ExtResource("1_gx4nq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=385228794]
+shape = SubResource("SphereShape3D_ejlhg")
+
+[node name="(Place Holder)" type="MeshInstance3D" parent="." unique_id=1372378515]
+mesh = SubResource("SphereMesh_0duc7")

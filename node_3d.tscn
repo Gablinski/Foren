@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c2c076r4ocxsd"]
+
+[ext_resource type="PackedScene" uid="uid://b5dwugt7kykfk" path="res://floor_(test).tscn" id="1_r3fl7"]
+[ext_resource type="PackedScene" uid="uid://chk4v6gak7614" path="res://player.tscn" id="2_jka67"]
+[ext_resource type="PackedScene" uid="uid://detb76mk3kscn" path="res://burger_pickup.tscn" id="3_i5arm"]
+[ext_resource type="Script" uid="uid://c3tldjwrcb7ot" path="res://level_manager.gd" id="4_wc5p8"]
+
+[node name="Node3D" type="Node3D" unique_id=1001239712]
+
+[node name="Floor (test)" parent="." unique_id=464303266 instance=ExtResource("1_r3fl7")]
+
+[node name="Player" parent="." unique_id=1082028449 instance=ExtResource("2_jka67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43067098, 0)
+
+[node name="BurgerPickup" parent="." unique_id=461418647 instance=ExtResource("3_i5arm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8473846, 0.4552126, 0)
+
+[node name="LevelManager" type="Node" parent="." unique_id=928059233]
+script = ExtResource("4_wc5p8")
