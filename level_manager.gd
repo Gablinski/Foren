@@ -21,7 +21,6 @@ func _ready() -> void:
 	var pickups := get_tree().get_nodes_in_group("burger_pickup")
 	for pickup in pickups:
 		pickup.collected.connect(_on_burger_collected)
-		pickup.activated.connect(_on_burger_activated)
 
 
 # ─────────────────────────────────────────────

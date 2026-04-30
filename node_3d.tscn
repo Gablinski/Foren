@@ -4,16 +4,37 @@
 [ext_resource type="PackedScene" uid="uid://chk4v6gak7614" path="res://player.tscn" id="2_jka67"]
 [ext_resource type="PackedScene" uid="uid://detb76mk3kscn" path="res://burger_pickup.tscn" id="3_i5arm"]
 [ext_resource type="Script" uid="uid://c3tldjwrcb7ot" path="res://level_manager.gd" id="4_wc5p8"]
+[ext_resource type="Script" uid="uid://qcq60aetsacd" path="res://game_manager.gd" id="5_i5arm"]
+[ext_resource type="Script" uid="uid://y62hmxvcic30" path="res://hud.gd" id="6_wc5p8"]
 
 [node name="Node3D" type="Node3D" unique_id=1001239712]
 
 [node name="Floor (test)" parent="." unique_id=464303266 instance=ExtResource("1_r3fl7")]
 
-[node name="Player" parent="." unique_id=1082028449 instance=ExtResource("2_jka67")]
+[node name="Player" parent="." unique_id=1082028449 groups=["player"] instance=ExtResource("2_jka67")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43067098, 0)
 
-[node name="BurgerPickup" parent="." unique_id=461418647 instance=ExtResource("3_i5arm")]
+[node name="BurgerPickup" parent="." unique_id=461418647 groups=["burger_pickup"] instance=ExtResource("3_i5arm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8473846, 0.4552126, 0)
+collision_layer = 2
 
 [node name="LevelManager" type="Node" parent="." unique_id=928059233]
 script = ExtResource("4_wc5p8")
+
+[node name="GameManager" type="Node" parent="." unique_id=1486230476 groups=["game_manager"]]
+script = ExtResource("5_i5arm")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=2005732275]
+script = ExtResource("6_wc5p8")
+
+[node name="BurgerCounter" type="Label" parent="HUD" unique_id=1315027889]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="TimerLabel" type="Label" parent="HUD" unique_id=1987531519]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
