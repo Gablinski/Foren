@@ -6,6 +6,18 @@
 [ext_resource type="Script" uid="uid://c3tldjwrcb7ot" path="res://level_manager.gd" id="4_wc5p8"]
 [ext_resource type="Script" uid="uid://qcq60aetsacd" path="res://game_manager.gd" id="5_i5arm"]
 [ext_resource type="Script" uid="uid://y62hmxvcic30" path="res://hud.gd" id="6_wc5p8"]
+[ext_resource type="Script" uid="uid://re16kidftmvc" path="res://win_lose_green.gd" id="7_jsk3o"]
+[ext_resource type="PackedScene" uid="uid://0pusmkcmxmh" path="res://rising_platform.tscn" id="8_4arys"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i5arm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wc5p8"]
+albedo_color = Color(0.4614938, 0.70217776, 0.33365488, 1)
+emission_enabled = true
+emission = Color(0, 0.3764706, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jsk3o"]
+material = SubResource("StandardMaterial3D_wc5p8")
 
 [node name="Node3D" type="Node3D" unique_id=1001239712]
 
@@ -38,3 +50,47 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 23.0
 grow_horizontal = 0
+
+[node name="WinLoseGreen" type="CanvasLayer" parent="." unique_id=42042863]
+script = ExtResource("7_jsk3o")
+
+[node name="Panel" type="Panel" parent="WinLoseGreen" unique_id=272343350]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -125.0
+offset_right = 200.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="WinLoseGreen/Panel" unique_id=38902600]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="SubLabel" type="Label" parent="WinLoseGreen/Panel" unique_id=1067900973]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="RestartButton" type="Button" parent="WinLoseGreen/Panel" unique_id=1150224423]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="WinZone" type="Area3D" parent="." unique_id=1546917394 groups=["win_zone"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9676492, 7.60793)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WinZone" unique_id=165940296]
+shape = SubResource("BoxShape3D_i5arm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WinZone" unique_id=1232463696]
+mesh = SubResource("BoxMesh_jsk3o")
+
+[node name="RisingPlatform" parent="." unique_id=645753205 instance=ExtResource("8_4arys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3062, -2.4372878, 0)

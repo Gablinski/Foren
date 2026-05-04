@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://0pusmkcmxmh"]
+
+[ext_resource type="Script" uid="uid://b3nuv64vi28us" path="res://rising_platform.gd" id="1_0yydv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hdvlr"]
+size = Vector3(20, 0.5, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pgeub"]
+size = Vector3(20, 0.5, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t2an0"]
+size = Vector3(20, 0.5, 20)
+
+[node name="RisingPlatform" type="StaticBody3D" unique_id=645753205]
+script = ExtResource("1_0yydv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1558410717]
+shape = SubResource("BoxShape3D_hdvlr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=408511091]
+mesh = SubResource("BoxMesh_pgeub")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=358951821]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=361224625]
+shape = SubResource("BoxShape3D_t2an0")

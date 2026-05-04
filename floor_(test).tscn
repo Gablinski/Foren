@@ -3,7 +3,13 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_p5xj3"]
 size = Vector3(20, 0.5, 20)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1nuxu"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.5
+
 [sub_resource type="BoxMesh" id="BoxMesh_y27lc"]
+material = SubResource("StandardMaterial3D_1nuxu")
 size = Vector3(20, 0.5, 20)
 
 [node name="Floor (test)" type="StaticBody3D" unique_id=464303266]
