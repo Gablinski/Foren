@@ -1,5 +1,3 @@
-## game_manager.gd
-## Attach to your main scene root node.
 ## Handles: burger collection count, countdown timer, win/lose state.
 ##
 ## Scene expects:
@@ -78,10 +76,8 @@ func _process(delta: float) -> void:
 func _on_burger_collected(_id: String) -> void:
 	if not game_active:
 		return
-
 	burgers_collected += 1
 	emit_signal("burger_count_changed", burgers_collected, total_burgers)
-
 
 # ─────────────────────────────────────────────
 #  WIN / LOSE

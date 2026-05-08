@@ -21,14 +21,39 @@ material = SubResource("StandardMaterial3D_wc5p8")
 
 [node name="Node3D" type="Node3D" unique_id=1001239712]
 
-[node name="Floor (test)" parent="." unique_id=464303266 instance=ExtResource("1_r3fl7")]
-
 [node name="Player" parent="." unique_id=1082028449 groups=["player"] instance=ExtResource("2_jka67")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43067098, 0)
 
-[node name="BurgerPickup" parent="." unique_id=461418647 groups=["burger_pickup"] instance=ExtResource("3_i5arm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8473846, 0.4552126, 0)
-collision_layer = 2
+[node name="TestingObjects" type="Node" parent="." unique_id=1146520545]
+
+[node name="Floor (test)" parent="TestingObjects" unique_id=464303266 instance=ExtResource("1_r3fl7")]
+
+[node name="Floor (test)2" parent="TestingObjects" unique_id=1192771561 groups=["platform_burger_01"] instance=ExtResource("1_r3fl7")]
+transform = Transform3D(0.2, 0, 0, 0, -0.19439219, -0.047028437, 0, 0.047028437, -0.19439219, 0, 0.7701621, 14.252069)
+visible = false
+
+[node name="Floor (test)3" parent="TestingObjects" unique_id=1407943833 instance=ExtResource("1_r3fl7")]
+transform = Transform3D(0.19999999, 0, 0, 0, -0.19273163, -0.05342749, 0, 0.05342749, -0.19273163, -6.8817167, 2.1825137, 19.355295)
+visible = false
+
+[node name="Floor (test)4" parent="TestingObjects" unique_id=749615128 instance=ExtResource("1_r3fl7")]
+transform = Transform3D(0.19999999, 0, 0, 0, -0.19273163, -0.05342749, 0, 0.05342749, -0.19273163, -1.1701024, 3.612555, 24.893879)
+visible = false
+
+[node name="Floor (test)5" parent="TestingObjects" unique_id=1254723120 instance=ExtResource("1_r3fl7")]
+transform = Transform3D(0.19999234, -0.0016318586, 0.00062320376, 0.0016236505, 0.19997653, 0.0025926041, -0.00064428645, -0.0025874455, 0.19998215, -6.147586, 4.5428343, 32.16483)
+visible = false
+
+[node name="Floor (test)6" parent="TestingObjects" unique_id=2070721813 instance=ExtResource("1_r3fl7")]
+transform = Transform3D(0.19999234, -0.0016318586, 0.00062320376, 0.0016236505, 0.19997653, 0.0025926041, -0.00064428645, -0.0025874455, 0.19998215, -1.287818, 4.5428343, 38.84461)
+visible = false
+
+[node name="Floor (test)7" parent="TestingObjects" unique_id=1270351707 instance=ExtResource("1_r3fl7")]
+transform = Transform3D(0.19999234, -0.0016318586, 0.00062320376, 0.0016236505, 0.19997653, 0.0025926041, -0.00064428645, -0.0025874455, 0.19998215, -6.147586, 4.5428343, 47.435623)
+visible = false
+
+[node name="BurgerPickup" parent="TestingObjects" unique_id=461418647 groups=["burger_pickup"] instance=ExtResource("3_i5arm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51779735, 1.1028306, 8.5800905)
 
 [node name="LevelManager" type="Node" parent="." unique_id=928059233]
 script = ExtResource("4_wc5p8")
@@ -87,10 +112,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9676492, 7.60793)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WinZone" unique_id=165940296]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.11, 4.277, 41.13)
 shape = SubResource("BoxShape3D_i5arm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WinZone" unique_id=1232463696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1114235, 4.2772064, 41.136444)
 mesh = SubResource("BoxMesh_jsk3o")
 
 [node name="RisingPlatform" parent="." unique_id=645753205 instance=ExtResource("8_4arys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3062, -2.4372878, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0754452, -2.4372878, 18.721394)

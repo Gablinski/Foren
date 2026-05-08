@@ -6,13 +6,14 @@
 size = Vector3(20, 0.5, 20)
 
 [sub_resource type="BoxMesh" id="BoxMesh_pgeub"]
-size = Vector3(20, 0.5, 20)
+size = Vector3(100, 0.5, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t2an0"]
-size = Vector3(20, 0.5, 20)
+size = Vector3(100, 0.5, 100)
 
 [node name="RisingPlatform" type="StaticBody3D" unique_id=645753205]
 script = ExtResource("1_0yydv")
+rise_speed = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1558410717]
 shape = SubResource("BoxShape3D_hdvlr")

@@ -1,13 +1,3 @@
-## hud.gd
-## Attach to a CanvasLayer node called HUD in your main scene.
-## Draws the burger counter (top left) and countdown timer (top right).
-## Connects to game_manager.gd signals automatically.
-##
-## Scene structure:
-##   HUD (CanvasLayer)  ← this script
-##   ├── BurgerCounter (Label)
-##   └── TimerLabel (Label)
-
 extends CanvasLayer
 
 # ─────────────────────────────────────────────

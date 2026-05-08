@@ -1,14 +1,3 @@
-## win_lose_screen.gd
-## Attach to a CanvasLayer called WinLoseScreen in your main scene.
-## Listens to game_manager signals and shows the appropriate screen.
-##
-## Scene structure:
-##   WinLoseScreen (CanvasLayer)  ← this script
-##   └── Panel
-##       ├── TitleLabel  (Label)
-##       ├── SubLabel    (Label)
-##       └── RestartButton (Button)
-
 extends CanvasLayer
 
 # ─────────────────────────────────────────────

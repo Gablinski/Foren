@@ -60,6 +60,9 @@ func _process(delta: float) -> void:
 #  COLLECTION
 # ─────────────────────────────────────────────
 func _on_body_entered(body: Node3D) -> void:
+	print("body entered: ", body.name, " groups: ", body.get_groups())
+	if not body.is_in_group("player"):
+		return
 	# Only react to the player, and only once
 	if _collected:
 		return

@@ -1,14 +1,3 @@
-## rising_platform.gd
-## Attach to a StaticBody3D.
-## Rises upward at a set speed. When the player touches it, triggers game lost.
-##
-## Scene structure:
-##   RisingPlatform (StaticBody3D)  ← this script
-##   ├── CollisionShape3D           ← BoxShape3D, make it wide
-##   ├── MeshInstance3D             ← BoxMesh, add your texture here
-##   └── Area3D                     ← detects player contact
-##       └── CollisionShape3D       ← same size as the platform
-
 extends StaticBody3D
 
 # ─────────────────────────────────────────────
