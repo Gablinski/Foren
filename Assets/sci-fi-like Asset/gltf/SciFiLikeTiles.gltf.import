@@ -1,0 +1,115 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cysrc0a382ue5"
+path="res://.godot/imported/SciFiLikeTiles.gltf-433c1154e80b9668c4b57c7a24c6c498.scn"
+
+[deps]
+
+source_file="res://Assets/sci-fi-like Asset/gltf/SciFiLikeTiles.gltf"
+dest_files=["res://.godot/imported/SciFiLikeTiles.gltf-433c1154e80b9668c4b57c7a24c6c498.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"DoorEmission": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/materials/TilesMaterials/InstancedEmissionShader_Material.tres",
+"use_external/path": "uid://cpeilnjoelfqd"
+},
+"DoubleDoorMat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/materials/TilesMaterials/DoubleDoor_Mat.tres",
+"use_external/path": "uid://dcijeoksw2skr"
+},
+"GLass_Mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/materials/TilesMaterials/Glass_Mat.tres",
+"use_external/path": "uid://slrra324af5h"
+},
+"LightsEmission": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/materials/TilesMaterials/InstancedEmissionShader_Material.tres",
+"use_external/path": "uid://cpeilnjoelfqd"
+},
+"MTN_Floor_Mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/materials/TilesMaterials/MT_Floor_Mat.tres",
+"use_external/path": "uid://stb6i23b14ed"
+},
+"MTN_Walls_Mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/materials/TilesMaterials/MT_Wall_mat.tres",
+"use_external/path": "uid://djvvict3u7qy5"
+},
+"MtnDoor": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/materials/TilesMaterials/MT_Door_Mat.tres",
+"use_external/path": "uid://bi62scg31jl3x"
+},
+"PanelCeiling_Mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/materials/TilesMaterials/PanelCeiling_Mat.tres",
+"use_external/path": "uid://dim0q2qs8rx0f"
+},
+"PanelFloor_Mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/materials/TilesMaterials/PanelFloor_Mat.tres",
+"use_external/path": "uid://bvcqqdj8bnwhq"
+},
+"PanelSitcker_Mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/materials/TilesMaterials/PanelSticker_Mat.tres",
+"use_external/path": "uid://c3fv2ys7o2jel"
+},
+"PanelWall_Mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/materials/TilesMaterials/PanelWall_mat.tres",
+"use_external/path": "uid://dwcxwvjvkxai2"
+},
+"PanelsEmission": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/materials/TilesMaterials/InstancedEmissionShader_Material.tres",
+"use_external/path": "uid://cpeilnjoelfqd"
+},
+"PanelsTrim_Mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/materials/TilesMaterials/PanelTrim_Mat.tres",
+"use_external/path": "uid://q8qbbdouiwvy"
+},
+"SingleDoor": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/materials/TilesMaterials/SingleDoor_mat.tres",
+"use_external/path": "uid://dmijl1xag0bfa"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

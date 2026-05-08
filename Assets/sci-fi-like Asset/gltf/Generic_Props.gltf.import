@@ -1,0 +1,125 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://ce71bt1lo8j30"
+path="res://.godot/imported/Generic_Props.gltf-c829eb8d89a38d23aaff775727f513fb.scn"
+
+[deps]
+
+source_file="res://Assets/sci-fi-like Asset/gltf/Generic_Props.gltf"
+dest_files=["res://.godot/imported/Generic_Props.gltf-c829eb8d89a38d23aaff775727f513fb.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"Barrel_mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/PropMaterials/Barrel_Mat.tres",
+"use_external/path": "uid://2he8gxwalof1"
+},
+"Box_mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/PropMaterials/Box_Mat.tres",
+"use_external/path": "uid://dnt3orj4xjhyi"
+},
+"Chair_mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/PropMaterials/Chair_Mat.tres",
+"use_external/path": "uid://64b2t8dk5k5o"
+},
+"Chest_MAT": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/PropMaterials/Chest_Mat.tres",
+"use_external/path": "uid://bbvmhlpig6wnq"
+},
+"Couch_mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/PropMaterials/Couch_Mat.tres",
+"use_external/path": "uid://bx0y5lrh3irx5"
+},
+"Crowbar_mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/PropMaterials/CrowBar_Mat.tres",
+"use_external/path": "uid://bdjqu6jpu2gvu"
+},
+"DIsplayCase_1_glass": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/PropMaterials/DisplayCase_1_Glass.tres",
+"use_external/path": "uid://cxfbp1ugca55g"
+},
+"DIsplayCase_1_mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/PropMaterials/DisplayCase_1.tres",
+"use_external/path": "uid://cdu2awyctrae8"
+},
+"DisplayCase_2_glass": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/PropMaterials/DisplayCase_2_Glass_Mat.tres",
+"use_external/path": "uid://45v7ss4ybamm"
+},
+"DisplayCase_2_mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/PropMaterials/DisplayCase_2_Mat.tres",
+"use_external/path": "uid://cmegvgccg8dkp"
+},
+"Locker_mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/PropMaterials/Locker_Mat.tres",
+"use_external/path": "uid://defyg21thlulm"
+},
+"Spanner_mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/PropMaterials/Spanner_Mat.tres",
+"use_external/path": "uid://ds7tvao7h8k7w"
+},
+"Table_1_mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/PropMaterials/Table1_Mat.tres",
+"use_external/path": "uid://df21j5gat6vwq"
+},
+"Table_2_mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/PropMaterials/Table2_Mat.tres",
+"use_external/path": "uid://je53gdq76sna"
+},
+"ToolBox_mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/PropMaterials/ToolBox_Mat.tres",
+"use_external/path": "uid://gi850a2vm6fc"
+},
+"Tray_mat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/sci-fi-like Asset/PropMaterials/Tray_Mat.tres",
+"use_external/path": "uid://cmy2j67jjpi17"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1

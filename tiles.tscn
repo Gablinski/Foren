@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b4i5dyg4bej7p"]
+
+[ext_resource type="MeshLibrary" uid="uid://d0kh00ywmpydi" path="res://Assets/sci-fi-like Asset/scenes/GridMaps/Walls.tres" id="1_k6t24"]
+[ext_resource type="MeshLibrary" uid="uid://vxyw47ulyu6b" path="res://Assets/sci-fi-like Asset/scenes/GridMaps/Rooms.tres" id="2_d6bvg"]
+
+[node name="Tiles" type="Node3D" unique_id=1232835174]
+
+[node name="Walls" type="GridMap" parent="." unique_id=1605022476]
+mesh_library = ExtResource("1_k6t24")
+
+[node name="Rooms" type="GridMap" parent="." unique_id=1733246766]
+mesh_library = ExtResource("2_d6bvg")
+cell_size = Vector3(6, 2, 6)
+data = {
+"cells": PackedInt32Array(0, 65535, 1, 0, 0, 1, 65535, 1, 1048577, 0, 1, 655361, 65535, 0, 1048578)
+}
