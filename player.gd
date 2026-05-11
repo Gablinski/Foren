@@ -7,13 +7,13 @@ extends CharacterBody3D
 ## Ground movement
 @export var max_speed        : float = 8.0
 @export var run_speed        : float = 14.0
-@export var acceleration     : float = 60.0   # high = snappy direction changes
-@export var friction         : float = 55.0   # high = stops almost instantly
-@export var air_acceleration : float = 8.0    # low = committed jumps, less air steering
+@export var acceleration     : float = 60.0
+@export var friction         : float = 55.0
+@export var air_acceleration : float = 8.0
 
 ## Jump / gravity
 @export var jump_height      : float = 1.1
-@export var gravity_scale    : float = 3.0    # heavier gravity = less floaty
+@export var gravity_scale    : float = 3.0
 @export var fall_multiplier  : float = 1.8
 @export var short_hop_div    : float = 2.5
 @export var coyote_time      : float = 0.10
@@ -32,26 +32,19 @@ extends CharacterBody3D
 ## Head-bob
 @export var bob_enabled : bool  = true
 @export var bob_freq    : float = 9.0
-@export var bob_amp     : float = 0.018   # subtle — CrossFire isn't very bobby
-
-## Third-person scroll
-@export var min_zoom    : float = 0.0
-@export var max_zoom    : float = 8.0
-@export var zoom_step   : float = 0.6
-@export var zoom_speed  : float = 8.0
+@export var bob_amp     : float = 0.018
 
 # ─────────────────────────────────────────────
 #  NODE REFERENCES
 # ─────────────────────────────────────────────
-@onready var camera_rig : Node3D       = $CameraRig
-@onready var spring_arm : SpringArm3D  = $CameraRig/SpringArm
-@onready var camera     : Camera3D     = $CameraRig/SpringArm/Camera3D
+@onready var camera_rig : Node3D   = $CameraRig
+@onready var camera     : Camera3D = $CameraRig/Camera3D
 
 # ─────────────────────────────────────────────
 #  INTERNAL STATE
 # ─────────────────────────────────────────────
-var _gravity       : float = ProjectSettings.get_setting("physics/3d/default_gravity")
-var _jump_vel      : float
+var _gravity      : float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var _jump_vel     : float
 
 var _coyote_timer  : float = 0.0
 var _buffer_timer  : float = 0.0
@@ -66,9 +59,8 @@ var _dash_dir      : Vector3 = Vector3.ZERO
 var _bob_t         : float = 0.0
 var _cam_base_y    : float = 0.0
 
-var _yaw           : float = 0.0
-var _pitch         : float = 0.0
-var _target_zoom   : float = 0.0
+var _yaw   : float = 0.0
+var _pitch : float = 0.0
 
 
 # ─────────────────────────────────────────────
@@ -78,10 +70,6 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	_jump_vel   = sqrt(2.0 * (_gravity * gravity_scale) * jump_height)
 	_cam_base_y = camera_rig.position.y
-
-	spring_arm.spring_length = 0.0
-	spring_arm.position      = Vector3.ZERO
-	spring_arm.add_excluded_object(self.get_rid())
 
 
 # ─────────────────────────────────────────────
@@ -98,13 +86,6 @@ func _input(event: InputEvent) -> void:
 		rotation.y            = _yaw
 		camera_rig.rotation.x = _pitch
 
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			_target_zoom = max(_target_zoom - zoom_step, min_zoom)
-		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			_target_zoom = min(_target_zoom + zoom_step, max_zoom)
-
-	# Escape releases / recaptures cursor
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode == KEY_ESCAPE:
 			if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -119,14 +100,6 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	var grounded := is_on_floor()
 
-	# ── Smooth zoom ─────────────────────────
-	spring_arm.spring_length = lerp(spring_arm.spring_length, _target_zoom, zoom_speed * delta)
-
-	var is_first_person := spring_arm.spring_length < 0.25
-	var overlay := get_node_or_null("CameraRig/SpringArm/Camera3D/ShiftLockOverlay")
-	if overlay:
-		overlay.visible = is_first_person
-
 	# ── Timers ──────────────────────────────
 	_coyote_timer  = max(_coyote_timer  - delta, 0.0)
 	_buffer_timer  = max(_buffer_timer  - delta, 0.0)
@@ -134,7 +107,6 @@ func _physics_process(delta: float) -> void:
 
 	if _was_grounded and not grounded:
 		_coyote_timer = coyote_time
-
 	if grounded:
 		_coyote_timer = coyote_time
 
@@ -173,10 +145,8 @@ func _physics_process(delta: float) -> void:
 		_handle_movement(delta, grounded)
 
 	# ── Head-bob ────────────────────────────
-	if bob_enabled and is_first_person:
+	if bob_enabled:
 		_update_bob(delta, grounded)
-	else:
-		camera_rig.position.y = _cam_base_y
 
 	move_and_slide()
 	_was_grounded = grounded
@@ -184,8 +154,6 @@ func _physics_process(delta: float) -> void:
 
 # ─────────────────────────────────────────────
 #  MOVEMENT
-#  CrossFire feel: instant acceleration into full speed,
-#  direction changes snap immediately, stops dead on release
 # ─────────────────────────────────────────────
 func _handle_movement(delta: float, grounded: bool) -> void:
 	var wish_dir := Vector3.ZERO
@@ -198,21 +166,17 @@ func _handle_movement(delta: float, grounded: bool) -> void:
 	wish_dir = (transform.basis * wish_dir).normalized() * wish_dir.length()
 	wish_dir.y = 0.0
 
-	# Run only works on the ground — airborne speed is whatever you launched with
 	var target_speed := run_speed if (Input.is_action_pressed("run") and grounded) else max_speed
 	var target_vel   := wish_dir * target_speed
 
 	if grounded:
 		if wish_dir == Vector3.ZERO:
-			# Dead stop — bleed off fast
 			velocity.x = move_toward(velocity.x, 0.0, friction * delta)
 			velocity.z = move_toward(velocity.z, 0.0, friction * delta)
 		else:
-			# Snap into the new direction immediately — no momentum carry
 			velocity.x = move_toward(velocity.x, target_vel.x, acceleration * delta)
 			velocity.z = move_toward(velocity.z, target_vel.z, acceleration * delta)
 	else:
-		# Air: much lower control, preserves most momentum
 		velocity.x = move_toward(velocity.x, target_vel.x, air_acceleration * delta)
 		velocity.z = move_toward(velocity.z, target_vel.z, air_acceleration * delta)
 

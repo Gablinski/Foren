@@ -13,12 +13,9 @@ shape = SubResource("CapsuleShape3D_hqtel")
 
 [node name="CameraRig" type="Node3D" parent="." unique_id=1771516033]
 
-[node name="SpringArm" type="SpringArm3D" parent="CameraRig" unique_id=1565924688]
-margin = 0.1
-
-[node name="Camera3D" type="Camera3D" parent="CameraRig/SpringArm" unique_id=1671524970]
+[node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=1671524970]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 fov = 85.0
 
-[node name="ShiftLockOverlay" type="CanvasLayer" parent="CameraRig/SpringArm/Camera3D" unique_id=1002063528]
+[node name="ShiftLockOverlay" type="CanvasLayer" parent="CameraRig/Camera3D" unique_id=1002063528]
 script = ExtResource("2_i3pqv")

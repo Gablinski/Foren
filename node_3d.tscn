@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://y62hmxvcic30" path="res://hud.gd" id="6_wc5p8"]
 [ext_resource type="Script" uid="uid://re16kidftmvc" path="res://win_lose_green.gd" id="7_jsk3o"]
 [ext_resource type="PackedScene" uid="uid://0pusmkcmxmh" path="res://rising_platform.tscn" id="8_4arys"]
+[ext_resource type="Script" uid="uid://b517vh0hug1o" path="res://canvas_layer.gd" id="8_6iypd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i5arm"]
 
@@ -32,23 +33,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43067098, 0)
 transform = Transform3D(0.2, 0, 0, 0, -0.19439219, -0.047028437, 0, 0.047028437, -0.19439219, 0, 0.7701621, 14.252069)
 visible = false
 
-[node name="Floor (test)3" parent="TestingObjects" unique_id=1407943833 instance=ExtResource("1_r3fl7")]
+[node name="Floor (test)3" parent="TestingObjects" unique_id=1407943833 groups=["platform_burger_01"] instance=ExtResource("1_r3fl7")]
 transform = Transform3D(0.19999999, 0, 0, 0, -0.19273163, -0.05342749, 0, 0.05342749, -0.19273163, -6.8817167, 2.1825137, 19.355295)
 visible = false
 
-[node name="Floor (test)4" parent="TestingObjects" unique_id=749615128 instance=ExtResource("1_r3fl7")]
+[node name="Floor (test)4" parent="TestingObjects" unique_id=749615128 groups=["platform_burger_01"] instance=ExtResource("1_r3fl7")]
 transform = Transform3D(0.19999999, 0, 0, 0, -0.19273163, -0.05342749, 0, 0.05342749, -0.19273163, -1.1701024, 3.612555, 24.893879)
 visible = false
 
-[node name="Floor (test)5" parent="TestingObjects" unique_id=1254723120 instance=ExtResource("1_r3fl7")]
+[node name="Floor (test)5" parent="TestingObjects" unique_id=1254723120 groups=["platform_burger_01"] instance=ExtResource("1_r3fl7")]
 transform = Transform3D(0.19999234, -0.0016318586, 0.00062320376, 0.0016236505, 0.19997653, 0.0025926041, -0.00064428645, -0.0025874455, 0.19998215, -6.147586, 4.5428343, 32.16483)
 visible = false
 
-[node name="Floor (test)6" parent="TestingObjects" unique_id=2070721813 instance=ExtResource("1_r3fl7")]
+[node name="Floor (test)6" parent="TestingObjects" unique_id=2070721813 groups=["platform_burger_01"] instance=ExtResource("1_r3fl7")]
 transform = Transform3D(0.19999234, -0.0016318586, 0.00062320376, 0.0016236505, 0.19997653, 0.0025926041, -0.00064428645, -0.0025874455, 0.19998215, -1.287818, 4.5428343, 38.84461)
 visible = false
 
-[node name="Floor (test)7" parent="TestingObjects" unique_id=1270351707 instance=ExtResource("1_r3fl7")]
+[node name="Floor (test)7" parent="TestingObjects" unique_id=1270351707 groups=["platform_burger_01"] instance=ExtResource("1_r3fl7")]
 transform = Transform3D(0.19999234, -0.0016318586, 0.00062320376, 0.0016236505, 0.19997653, 0.0025926041, -0.00064428645, -0.0025874455, 0.19998215, -6.147586, 4.5428343, 47.435623)
 visible = false
 
@@ -103,6 +104,43 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="RestartButton" type="Button" parent="WinLoseGreen/Panel" unique_id=1150224423]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2012220508]
+layer = 10
+script = ExtResource("8_6iypd")
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1077884289]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 380.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IllustrationRect" type="TextureRect" parent="CanvasLayer/Panel" unique_id=1729146556]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/Panel" unique_id=2044333605]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ResumeButton" type="Button" parent="CanvasLayer/Panel" unique_id=298917195]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/Panel" unique_id=1586076812]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0

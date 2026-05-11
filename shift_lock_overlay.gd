@@ -1,9 +1,6 @@
 ## shift_lock.gd
-## Roblox-style shift-lock:
-## - Cursor is always captured during play
-## - Left Shift toggles shift-lock ON/OFF
-## - Shift-lock ON  → crosshair visible, body rotates with camera (1st-person coupled)
-## - Shift-lock OFF → crosshair hidden, cursor free (for future 3rd-person use)
+## Simple first-person crosshair. No shift-lock toggle, no 3rd person.
+## Attach to a CanvasLayer called ShiftLockOverlay inside Camera3D.
 
 extends CanvasLayer
 
@@ -16,11 +13,6 @@ extends CanvasLayer
 @export var crosshair_thick : float = 1.5
 
 # ─────────────────────────────────────────────
-#  STATE
-# ─────────────────────────────────────────────
-var shift_locked : bool = true
-
-# ─────────────────────────────────────────────
 #  NODES
 # ─────────────────────────────────────────────
 var _draw_node : Control
@@ -31,26 +23,6 @@ func _ready() -> void:
 	_draw_node.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_draw_node.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_draw_node)
-	_apply_lock_state()
-
-
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		return
-
-	# Left Shift toggles shift-lock (tap, not hold — matches Roblox behaviour)
-	if event is InputEventKey and event.keycode == KEY_SHIFT and event.pressed and not event.echo:
-		shift_locked = !shift_locked
-		_apply_lock_state()
-
-
-func _apply_lock_state() -> void:
-	# Cursor always stays captured — shift-lock only affects crosshair
-	# and whether the body couples to the camera (handled in player.gd)
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
-	if _draw_node:
-		_draw_node.queue_redraw()
 
 
 # ─────────────────────────────────────────────
@@ -60,7 +32,7 @@ class _CrosshairDraw extends Control:
 	var owner_ref : Node
 
 	func _draw() -> void:
-		if not owner_ref or not owner_ref.shift_locked:
+		if not owner_ref:
 			return
 
 		var center : Vector2 = size / 2.0

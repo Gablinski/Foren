@@ -59,7 +59,7 @@ func _start_game() -> void:
 
 
 func _process(delta: float) -> void:
-	if not game_active:
+	if not game_active or get_tree().paused:
 		return
 
 	time_left -= delta
