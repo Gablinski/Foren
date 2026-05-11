@@ -280,9 +280,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.4567, 0.7, 28.6283)
 [node name="Door_Hallway2" parent="Doors" unique_id=263008890 instance=ExtResource("27_73vi6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5164, 0.7, 28.6283)
 
-[node name="FirstPersonCharacterBody3D" parent="." unique_id=730619507]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 3, 31)
-
 [node name="Stickers" type="Node3D" parent="." unique_id=579446449]
 
 [node name="Stickers_9" parent="Stickers" unique_id=74532916 instance=ExtResource("30_0tgvk")]

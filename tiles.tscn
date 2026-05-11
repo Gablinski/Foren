@@ -7,10 +7,14 @@
 
 [node name="Walls" type="GridMap" parent="." unique_id=1605022476]
 mesh_library = ExtResource("1_k6t24")
+data = {
+"cells": PackedInt32Array(1, 1, 0, 1, 4, 655360, 4, 7, 1048577, 1, 7, 655360, 1, 10, 655388, 65534, 10, 31, 1, 13, 0, 1, 16, 0, 65534, 19, 1048588, 1, 19, 655383, 65534, 65534, 1048588, 4, 65531, 0, 1, 65534, 1, 262139, 16, 1441793, 262142, 16, 655360, 262142, 19, 655360)
+}
+metadata/_editor_floor_ = Vector3(0, 3, 0)
 
 [node name="Rooms" type="GridMap" parent="." unique_id=1733246766]
 mesh_library = ExtResource("2_d6bvg")
 cell_size = Vector3(6, 2, 6)
 data = {
-"cells": PackedInt32Array(0, 65535, 1, 0, 0, 1, 65535, 1, 1048577, 0, 1, 655361, 65535, 0, 1048578)
+"cells": PackedInt32Array(0, 0, 1441795, 0, 1, 1441795, 0, 2, 1441795, 65535, 4, 655364, 0, 3, 1441797, 65535, 3, 1048578, 65535, 6, 1048576, 0, 6, 1048576)
 }
