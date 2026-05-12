@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://y62hmxvcic30" path="res://hud.gd" id="6_wc5p8"]
 [ext_resource type="Script" uid="uid://re16kidftmvc" path="res://win_lose_green.gd" id="7_jsk3o"]
 [ext_resource type="PackedScene" uid="uid://0pusmkcmxmh" path="res://rising_platform.tscn" id="8_4arys"]
-[ext_resource type="Script" uid="uid://b517vh0hug1o" path="res://canvas_layer.gd" id="8_6iypd"]
+[ext_resource type="Script" uid="uid://rtfm16fkr3ux" path="res://pause_menu.gd" id="8_6iypd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i5arm"]
 
@@ -93,57 +93,79 @@ offset_bottom = 125.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TitleLabel" type="Label" parent="WinLoseGreen/Panel" unique_id=38902600]
+[node name="WinLoseImage" type="TextureRect" parent="WinLoseGreen/Panel" unique_id=1949840048]
+layout_mode = 0
+offset_left = -231.0
+offset_top = -113.0
+offset_right = -183.0
+offset_bottom = -73.0
+
+[node name="WinLoseTitle" type="Label" parent="WinLoseGreen/Panel" unique_id=1067900973]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="SubLabel" type="Label" parent="WinLoseGreen/Panel" unique_id=1067900973]
+[node name="ResumeButton" type="Button" parent="WinLoseGreen/Panel" unique_id=618297359]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 8.0
+offset_bottom = 8.0
 
 [node name="RestartButton" type="Button" parent="WinLoseGreen/Panel" unique_id=1150224423]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2012220508]
+[node name="QuitButton" type="Button" parent="WinLoseGreen/Panel" unique_id=1805276859]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=2012220508]
+process_mode = 3
 layer = 10
 script = ExtResource("8_6iypd")
 
-[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1077884289]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 380.0
-offset_bottom = 280.0
+[node name="Panel" type="Panel" parent="PauseMenu" unique_id=1077884289]
+process_mode = 3
+custom_minimum_size = Vector2(400, 300)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="IllustrationRect" type="TextureRect" parent="CanvasLayer/Panel" unique_id=1729146556]
+[node name="PauseImage" type="TextureRect" parent="PauseMenu/Panel" unique_id=1729146556]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 145.0
+offset_top = 86.0
+offset_right = 193.0
+offset_bottom = 126.0
 
-[node name="TitleLabel" type="Label" parent="CanvasLayer/Panel" unique_id=2044333605]
+[node name="PauseTitle" type="Label" parent="PauseMenu/Panel" unique_id=2044333605]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 562.0
+offset_top = 227.0
+offset_right = 625.0
+offset_bottom = 250.0
+text = "???"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="ResumeButton" type="Button" parent="CanvasLayer/Panel" unique_id=298917195]
+[node name="ResumeButton" type="Button" parent="PauseMenu/Panel" unique_id=298917195]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 538.0
+offset_top = 295.0
+offset_right = 643.0
+offset_bottom = 324.0
+text = "RESUME"
 
-[node name="RestartButton" type="Button" parent="CanvasLayer/Panel" unique_id=1586076812]
+[node name="RestartButton" type="Button" parent="PauseMenu/Panel" unique_id=1586076812]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 528.0
+offset_top = 247.0
+offset_right = 610.0
+offset_bottom = 278.0
+text = "RESTART"
 
 [node name="WinZone" type="Area3D" parent="." unique_id=1546917394 groups=["win_zone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9676492, 7.60793)

@@ -86,14 +86,6 @@ func _input(event: InputEvent) -> void:
 		rotation.y            = _yaw
 		camera_rig.rotation.x = _pitch
 
-	if event is InputEventKey and event.pressed and not event.echo:
-		if event.keycode == KEY_ESCAPE:
-			if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-			else:
-				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
-
 # ─────────────────────────────────────────────
 #  PHYSICS PROCESS
 # ─────────────────────────────────────────────

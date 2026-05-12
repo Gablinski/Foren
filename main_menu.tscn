@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dod5gtapxv4v"]
+
+[ext_resource type="Script" uid="uid://bf8ctpe8cyav6" path="res://main_menu.gd" id="1_06t4h"]
+
+[node name="MainMenu" type="CanvasLayer" unique_id=1710865201]
+script = ExtResource("1_06t4h")
+
+[node name="Panel" type="Panel" parent="." unique_id=340444821]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenuImage" type="TextureRect" parent="Panel" unique_id=439687027]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainMenuTitle" type="Label" parent="Panel" unique_id=2094737615]
+layout_mode = 0
+offset_left = 508.0
+offset_top = 122.0
+offset_right = 548.0
+offset_bottom = 145.0
+text = "TITLE"
+
+[node name="StartButton" type="Button" parent="Panel" unique_id=800574051]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 215.0
+offset_right = 557.0
+offset_bottom = 260.0
+text = "START"
+
+[node name="SettingsButton" type="Button" parent="Panel" unique_id=174609315]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 273.0
+offset_right = 550.0
+offset_bottom = 314.0
+text = "SETTINGS"
+
+[node name="QuitButton" type="Button" parent="Panel" unique_id=1280882278]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 331.0
+offset_right = 558.0
+offset_bottom = 380.0
+text = "QUIT"
