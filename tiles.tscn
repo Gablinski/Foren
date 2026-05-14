@@ -2,8 +2,7 @@
 
 [ext_resource type="MeshLibrary" uid="uid://d0kh00ywmpydi" path="res://Assets/sci-fi-like Asset/scenes/GridMaps/Walls.tres" id="1_k6t24"]
 [ext_resource type="MeshLibrary" uid="uid://vxyw47ulyu6b" path="res://Assets/sci-fi-like Asset/scenes/GridMaps/Rooms.tres" id="2_d6bvg"]
-
-[sub_resource type="MeshLibrary" id="MeshLibrary_k6t24"]
+[ext_resource type="MeshLibrary" uid="uid://dwgcye1ndkp2a" path="res://Assets/Props.meshlib" id="3_d6bvg"]
 
 [node name="Tiles" type="Node3D" unique_id=1232835174]
 
@@ -22,5 +21,10 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="GridMap" type="GridMap" parent="." unique_id=99479953]
-mesh_library = SubResource("MeshLibrary_k6t24")
+[node name="props" type="GridMap" parent="." unique_id=99479953]
+mesh_library = ExtResource("3_d6bvg")
+cell_size = Vector3(2, 2.5, 2)
+data = {
+"cells": PackedInt32Array(1, 17, 1048577, 1, 18, 1048577, 0, 6, 1048584, 0, 4, 1048584, 1, 65533, 5)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)

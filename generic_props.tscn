@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://nk1iky76w788"]
+
+[ext_resource type="PackedScene" uid="uid://ce71bt1lo8j30" path="res://Assets/sci-fi-like Asset/gltf/Generic_Props.gltf" id="1_bquxo"]
+
+[node name="Generic_Props" unique_id=736855736 instance=ExtResource("1_bquxo")]
