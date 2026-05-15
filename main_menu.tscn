@@ -17,7 +17,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="MainMenuTitle" type="Label" parent="Panel" unique_id=2094737615]
+[node name="TitleLabel" type="Label" parent="Panel" unique_id=2094737615]
 layout_mode = 0
 offset_left = 508.0
 offset_top = 122.0
@@ -43,8 +43,8 @@ text = "SETTINGS"
 
 [node name="QuitButton" type="Button" parent="Panel" unique_id=1280882278]
 layout_mode = 0
-offset_left = 446.0
-offset_top = 331.0
-offset_right = 558.0
-offset_bottom = 380.0
+offset_left = 444.0
+offset_top = 347.0
+offset_right = 556.0
+offset_bottom = 396.0
 text = "QUIT"
