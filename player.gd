@@ -6,7 +6,6 @@ extends CharacterBody3D
 
 ## Ground movement
 @export var max_speed        : float = 8.0
-@export var run_speed        : float = 14.0
 @export var acceleration     : float = 60.0
 @export var friction         : float = 55.0
 @export var air_acceleration : float = 8.0
@@ -19,6 +18,13 @@ extends CharacterBody3D
 @export var coyote_time      : float = 0.10
 @export var jump_buffer_time : float = 0.12
 @export var max_fall_speed   : float = 32.0
+
+## Slide
+@export var slide_speed        : float = 16.0
+@export var slide_duration     : float = 0.6
+@export var slide_decay        : float = 6.0   # how fast speed bleeds off
+@export var slide_height_full  : float = 1.8   # normal capsule height
+@export var slide_height_crouch: float = 0.9   # crouched capsule height
 
 ## Dash
 @export var dash_speed       : float = 24.0
@@ -39,6 +45,7 @@ extends CharacterBody3D
 # ─────────────────────────────────────────────
 @onready var camera_rig : Node3D   = $CameraRig
 @onready var camera     : Camera3D = $CameraRig/Camera3D
+@onready var collision : CollisionShape3D = $CollisionShape3D
 
 # ─────────────────────────────────────────────
 #  INTERNAL STATE
@@ -50,6 +57,11 @@ var _coyote_timer  : float = 0.0
 var _buffer_timer  : float = 0.0
 var _was_grounded  : bool  = false
 var _jump_held     : bool  = false
+var _jump_was_pressed : bool = false
+
+var _sliding      : bool  = false
+var _slide_timer  : float = 0.0
+var _slide_dir    : Vector3 = Vector3.ZERO
 
 var _dashing       : bool    = false
 var _dash_timer    : float   = 0.0
@@ -103,8 +115,10 @@ func _physics_process(delta: float) -> void:
 		_coyote_timer = coyote_time
 
 	# ── Jump buffering ───────────────────────
-	if Input.is_action_just_pressed("jump"):
+	var jump_pressed := Input.is_action_pressed("jump")
+	if jump_pressed and not _jump_was_pressed:
 		_buffer_timer = jump_buffer_time
+	_jump_was_pressed = jump_pressed
 
 	# ── Jump execution ───────────────────────
 	var can_jump := grounded or _coyote_timer > 0.0
@@ -148,6 +162,10 @@ func _physics_process(delta: float) -> void:
 #  MOVEMENT
 # ─────────────────────────────────────────────
 func _handle_movement(delta: float, grounded: bool) -> void:
+	if _sliding:
+		_handle_slide(delta, grounded)
+		return
+
 	var wish_dir := Vector3.ZERO
 	wish_dir.x = Input.get_axis("move_left",    "move_right")
 	wish_dir.z = Input.get_axis("move_forward", "move_back")
@@ -158,8 +176,7 @@ func _handle_movement(delta: float, grounded: bool) -> void:
 	wish_dir = (transform.basis * wish_dir).normalized() * wish_dir.length()
 	wish_dir.y = 0.0
 
-	var target_speed := run_speed if (Input.is_action_pressed("run") and grounded) else max_speed
-	var target_vel   := wish_dir * target_speed
+	var target_vel := wish_dir * max_speed
 
 	if grounded:
 		if wish_dir == Vector3.ZERO:
@@ -171,6 +188,38 @@ func _handle_movement(delta: float, grounded: bool) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, target_vel.x, air_acceleration * delta)
 		velocity.z = move_toward(velocity.z, target_vel.z, air_acceleration * delta)
+
+	# Start slide
+	if Input.is_action_just_pressed("run") and grounded and \
+			Vector3(velocity.x, 0, velocity.z).length() > 1.0:
+		_sliding = true
+		_slide_timer = slide_duration
+		_slide_dir = Vector3(velocity.x, 0, velocity.z).normalized()
+		_set_crouch(true)
+
+
+func _handle_slide(delta: float, grounded: bool) -> void:
+	_slide_timer -= delta
+
+	if _slide_timer <= 0.0 or Input.is_action_just_pressed("run") or not grounded:
+		_sliding = false
+		_set_crouch(false)
+		return
+
+	var current_speed := slide_speed * (_slide_timer / slide_duration)
+	current_speed = max(current_speed, max_speed * 0.4)
+	velocity.x = _slide_dir.x * current_speed
+	velocity.z = _slide_dir.z * current_speed
+
+
+func _set_crouch(crouching: bool) -> void:
+	var shape := collision.shape as CapsuleShape3D
+	if shape:
+		shape.height = slide_height_crouch if crouching else slide_height_full
+	var target_y := _cam_base_y - 0.5 if crouching else _cam_base_y
+	var tween := create_tween()
+	tween.tween_property(camera_rig, "position:y", target_y, 0.12) \
+		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 
 # ─────────────────────────────────────────────

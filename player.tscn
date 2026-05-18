@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://chb0pajrdwj8x" path="res://shift_lock_overlay.gd" id="2_i3pqv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hqtel"]
+height = 1.8
 
 [node name="Player" type="CharacterBody3D" unique_id=1082028449]
 script = ExtResource("1_onrkg")
