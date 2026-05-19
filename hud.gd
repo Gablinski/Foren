@@ -31,7 +31,7 @@ func _ready() -> void:
 #  BURGER COUNTER
 # ─────────────────────────────────────────────
 func _on_burger_count_changed(current: int, total: int) -> void:
-	burger_label.text = "Burgers: %d / %d" % [current, total]
+	burger_label.text = "BURGERS: %d/%d" % [current, total]
 	_pop_label(burger_label)
 
 

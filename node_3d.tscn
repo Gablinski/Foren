@@ -66,30 +66,42 @@ script = ExtResource("5_i5arm")
 script = ExtResource("6_wc5p8")
 
 [node name="BurgerCounter" type="Label" parent="HUD" unique_id=1315027889]
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -174.0
+offset_top = -87.0
+offset_right = 24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "BURGERS: 0/5
+"
 
 [node name="TimerLabel" type="Label" parent="HUD" unique_id=1987531519]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 43.0
+offset_top = -87.0
+offset_right = 94.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "TTT"
 
 [node name="WinLoseGreen" type="CanvasLayer" parent="." unique_id=42042863]
 script = ExtResource("7_jsk3o")
 
 [node name="Panel" type="Panel" parent="WinLoseGreen" unique_id=272343350]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -125.0
-offset_right = 200.0
-offset_bottom = 125.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -101,36 +113,60 @@ offset_right = -183.0
 offset_bottom = -73.0
 
 [node name="TitleLabel" type="Label" parent="WinLoseGreen/Panel" unique_id=1067900973]
-layout_mode = 0
-offset_left = 141.0
-offset_top = 73.0
-offset_right = 181.0
-offset_bottom = 96.0
-text = "???"
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 146.0
+offset_right = 100.0
+offset_bottom = 215.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "you lose"
 
 [node name="SubLabel" type="Label" parent="WinLoseGreen/Panel" unique_id=295846634]
-layout_mode = 0
-offset_left = 135.0
-offset_top = 51.0
-offset_right = 189.0
-offset_bottom = 74.0
-text = "??"
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.0
+offset_top = 230.0
+offset_right = -12.0
+offset_bottom = 253.0
+grow_horizontal = 2
+text = ":D"
 
 [node name="RestartButton" type="Button" parent="WinLoseGreen/Panel" unique_id=1150224423]
-layout_mode = 0
-offset_left = 140.0
-offset_top = 98.0
-offset_right = 213.0
-offset_bottom = 124.0
-text = "restart"
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -25.0
+offset_right = 55.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RESTART"
+metadata/_edit_use_anchors_ = true
 
 [node name="QuitButton" type="Button" parent="WinLoseGreen/Panel" unique_id=1805276859]
-layout_mode = 0
-offset_left = 136.0
-offset_top = 134.0
-offset_right = 191.0
-offset_bottom = 157.0
-text = "quit"
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = 31.0
+offset_right = 55.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT"
 
 [node name="PauseMenu" type="CanvasLayer" parent="." unique_id=2012220508]
 process_mode = 3
@@ -154,38 +190,64 @@ offset_right = 193.0
 offset_bottom = 126.0
 
 [node name="TitleLabel" type="Label" parent="PauseMenu/Panel" unique_id=2044333605]
-layout_mode = 0
-offset_left = 562.0
-offset_top = 227.0
-offset_right = 625.0
-offset_bottom = 250.0
-text = "???"
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -146.5
+offset_top = 101.0
+offset_right = 146.5
+offset_bottom = 170.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Game Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ResumeButton" type="Button" parent="PauseMenu/Panel" unique_id=298917195]
-layout_mode = 0
-offset_left = 538.0
-offset_top = 295.0
-offset_right = 643.0
-offset_bottom = 324.0
-text = "RESUME"
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.5
+offset_top = -22.5
+offset_right = 77.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "RESUME GAME"
 
 [node name="RestartButton" type="Button" parent="PauseMenu/Panel" unique_id=1586076812]
-layout_mode = 0
-offset_left = 528.0
-offset_top = 247.0
-offset_right = 610.0
-offset_bottom = 278.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.5
+offset_top = -72.0
+offset_right = 77.5
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "RESTART"
 
 [node name="QuitButton" type="Button" parent="PauseMenu/Panel" unique_id=648960005]
-layout_mode = 0
-offset_left = 523.0
-offset_top = 345.0
-offset_right = 578.0
-offset_bottom = 368.0
-text = "Quit to main menu
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.5
+offset_top = 28.0
+offset_right = 77.5
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT TO TITLE
 "
 
 [node name="WinZone" type="Area3D" parent="." unique_id=1546917394 groups=["win_zone"]]

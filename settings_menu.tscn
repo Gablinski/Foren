@@ -6,21 +6,39 @@
 script = ExtResource("1_ufg0w")
 
 [node name="Panel" type="Panel" parent="." unique_id=2044406538]
-offset_right = 982.0
-offset_bottom = 575.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="SettingsLabel" type="Label" parent="Panel" unique_id=1239178212]
-layout_mode = 0
-offset_left = 519.0
-offset_top = 243.0
-offset_right = 567.0
-offset_bottom = 266.0
-text = "TABLE"
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -47.5
+offset_right = 24.0
+offset_bottom = -24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "no settings  
+         :)"
 
 [node name="BackButton" type="Button" parent="Panel" unique_id=2050959279]
-layout_mode = 0
-offset_left = 709.0
-offset_top = 353.0
-offset_right = 842.0
-offset_bottom = 412.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -115.0
+offset_top = -55.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
 text = "BACK"
