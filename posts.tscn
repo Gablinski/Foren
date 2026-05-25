@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dbtycu57y780x"]
+
+[ext_resource type="PackedScene" uid="uid://cvqg61htsxi6o" path="res://Assets/sci-fi-like Asset/scenes/Posts/post_wide.tscn" id="1_g1go4"]
+[ext_resource type="PackedScene" uid="uid://cpewjwfa3cpne" path="res://Assets/sci-fi-like Asset/scenes/Posts/post_weird.tscn" id="2_vktf2"]
+
+[node name="posts" type="Node3D" unique_id=630879043]
+
+[node name="Post_Wide2" parent="." unique_id=1381069541 instance=ExtResource("1_g1go4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.4, 0, 21.7)
+
+[node name="Post_Weird" parent="." unique_id=101631123 instance=ExtResource("2_vktf2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9404, 6.7, 69.5549)
+
+[node name="Post_Weird2" parent="." unique_id=2106613677 instance=ExtResource("2_vktf2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.9404, 6.7, 69.5549)
+
+[node name="Post_Weird3" parent="." unique_id=1763268666 instance=ExtResource("2_vktf2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9404, 6.7, 75.5549)
+
+[node name="Post_Weird4" parent="." unique_id=790880598 instance=ExtResource("2_vktf2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.9404, 6.7, 75.5549)
+
+[node name="Post_Wide" parent="." unique_id=285797548 instance=ExtResource("1_g1go4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.5, 9.6)

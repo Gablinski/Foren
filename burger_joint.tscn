@@ -1,0 +1,49 @@
+[gd_scene format=4 uid="uid://kpj07raufm63"]
+
+[ext_resource type="PackedScene" uid="uid://cbar6jdse14vq" path="res://Assets/sci-fi-like Asset/gltf/brugerjoint.glb" id="1_khusv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_so0xu"]
+resource_name = "grey_crack"
+cull_mode = 2
+albedo_color = Color(0.4858667, 0.49603117, 0.53611076, 1)
+metallic = 0.044397864
+roughness = 0.6
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wy27n"]
+_surfaces = [{
+"aabb": AABB(-11.997896, 27.714151, 28.669298, 5.0755115, 4.0953617, 4.1076336),
+"format": 34896613377,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAAACAAQAAwAEAAIAAQAFAAMAAwAFAAQAAQAGAAUABgABAAAAAAAEAAcABgAAAAcABAAFAAgACQAFAAYABgAHAAkACQAIAAUACQAHAAQACQAEAAgA"),
+"name": "grey_crack",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 10,
+"vertex_data": PackedByteArray("4HquxpH2AACINf//qCAAAP//SLcOTAAA2oF2UAAAAAAQ0CcwYsAAANlrbxJmNQAAAAASaZWiAABXhQGL//8AAJZ6AABPbAAA0y2xRi26AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lrs2x"]
+resource_name = "brugerjoint_pCube222_grey_crack_0"
+_surfaces = [{
+"aabb": AABB(-11.997896, 27.714151, 28.669298, 5.0755115, 4.0953617, 4.1076336),
+"attribute_data": PackedByteArray("/1/+P/9f/3//n/8//58AAP/fZxbQ0AAA/9//P/+f/z//X/9//5//f/+f/z//H+QM/x//P/9f/j//X/4//58AAJtuAAD/n/8//18as5tu//9ucAPQBWL//25wA9D/n5ep/18as/+fLc//X/9//5+Xqf+f/3//XxqzbnAD0P+f/v//ny3Pm27//w=="),
+"format": 34896613399,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAEAAMABgADAAcACAAJAAoACwAMAA0ADgAPABAADgARAA8AEgATABQAEgAVABMAFgAXABgAFgAZABcAGgAbABwAGgAdABsAHgAfACAAHgAhAB8A"),
+"material": SubResource("StandardMaterial3D_so0xu"),
+"name": "grey_crack",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 34,
+"vertex_data": PackedByteArray("4HquxpH2wEKINf//qCDAQv//SLcOTMBCENAnMGLAHRvZa28SZjUfHpZ6AABPbB8e2oF2UAAA0hv//0i3DkwjGYg1//+oIFQQ2oF2UAAAVBD//0i3DkxUEAAAEmmVoohKiDX//6ggiErgeq7GkfaISuB6rsaR9lVcENAnMGLAP11XhQGL//8dVv//SLcOTD5dAAASaZWiZztXhQGL///KRNMtsUYturw14HquxpH200fTLbFGLbrxM9lrbxJmNUQzAAASaZWiJDSWegAAT2z1Mog1//+oINIV2WtvEmY17xbagXZQAADCGQAAEmmVojMU0y2xRi26xE8Q0CcwYsDDT5Z6AABPbD9QV4UBi///SE9w2RRBcNkUQXDZFEFriUcx8oLYKvKC2CoCiOAvEI3lNJ7NBVCezQVQns0FUDWdnL01nZy9NZ2cvdejjjajomwntqUUTiGkGh+7Z4uSTmg+l21nD5CFaPqYsS5vg4YuA4K+LtuDdC5ggQA2m5q2N36dQTwrpY0zeJZ4SQ5vfEkNb8FIWG8rSsZu")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_wy27n")
+
+[node name="brugerjoint" unique_id=277100519 instance=ExtResource("1_khusv")]
+
+[node name="pCube251" type="Node3D" parent="burger_joint/dd13d0785bf143c89cfcef057433aebc_fbx/RootNode/burger_cafe_scene/stones" parent_id_path=PackedInt32Array(411223343) index="9" unique_id=498310202]
+
+[node name="pCube222_grey_crack_0" type="MeshInstance3D" parent="burger_joint/dd13d0785bf143c89cfcef057433aebc_fbx/RootNode/burger_cafe_scene/stones/pCube251" index="0" unique_id=600991009]
+mesh = SubResource("ArrayMesh_lrs2x")

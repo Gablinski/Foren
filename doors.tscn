@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://du3obbeyb2jp0"]
+
+[ext_resource type="PackedScene" uid="uid://bob1pco5v246y" path="res://Assets/sci-fi-like Asset/scenes/Doors/door_mtn_frame.tscn" id="1_cb6k2"]
+[ext_resource type="PackedScene" uid="uid://donwqj0xol8yg" path="res://Assets/sci-fi-like Asset/scenes/Doors/door_frame.tscn" id="2_nmq8f"]
+[ext_resource type="PackedScene" uid="uid://bueiu6e3et5of" path="res://Assets/sci-fi-like Asset/scenes/Doors/door_hallway.tscn" id="3_hb01n"]
+
+[node name="Doors" type="Node3D" unique_id=1954847795]
+
+[node name="Door_MTN_Frame" parent="." unique_id=1372618729 instance=ExtResource("1_cb6k2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.9107376, 0.56085634, 0.48255348)
+
+[node name="Door_Fram" parent="." unique_id=1529782989 instance=ExtResource("2_nmq8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.18336, 0.76085633, 21.472754)
+
+[node name="Door_Fram2" parent="." unique_id=667284720 instance=ExtResource("2_nmq8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.214863, 0.76085633, 39.49095)
+
+[node name="Door_Hallway" parent="." unique_id=1490367829 instance=ExtResource("3_hb01n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.14596, 0.76085633, 28.610853)
+
+[node name="Door_Hallway2" parent="." unique_id=658540873 instance=ExtResource("3_hb01n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.205662, 0.76085633, 28.610853)
