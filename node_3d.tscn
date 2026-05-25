@@ -24,6 +24,7 @@ material = SubResource("StandardMaterial3D_wc5p8")
 
 [node name="Player" parent="." unique_id=1082028449 groups=["player"] instance=ExtResource("2_jka67")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43067098, 0)
+slide_duration = 1.4
 
 [node name="TestingObjects" type="Node" parent="." unique_id=1146520545]
 
@@ -94,6 +95,19 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 30
 text = "TTT"
+
+[node name="HealthBar" type="ProgressBar" parent="HUD" unique_id=1928750429]
+offset_left = 334.0
+offset_top = 567.0
+offset_right = 381.0
+offset_bottom = 596.0
+
+[node name="DamageFlash" type="ColorRect" parent="HUD" unique_id=1478104149]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="WinLoseGreen" type="CanvasLayer" parent="." unique_id=42042863]
 script = ExtResource("7_jsk3o")

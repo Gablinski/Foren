@@ -44,6 +44,12 @@ func _ready() -> void:
 	for zone in win_zones:
 		zone.body_entered.connect(_on_win_zone_entered)
 
+	var player := get_tree().get_first_node_in_group("player")
+	if player:
+		var health := player.get_node_or_null("PlayerHealth") as Node
+		if health:
+			health.connect("player_died", _trigger_lose)
+
 	# Small delay so the HUD is ready before we push first state
 	await get_tree().process_frame
 	_start_game()

@@ -20,11 +20,10 @@ extends CharacterBody3D
 @export var max_fall_speed   : float = 32.0
 
 ## Slide
-@export var slide_speed        : float = 16.0
-@export var slide_duration     : float = 0.6
-@export var slide_decay        : float = 6.0   # how fast speed bleeds off
-@export var slide_height_full  : float = 1.8   # normal capsule height
-@export var slide_height_crouch: float = 0.9   # crouched capsule height
+@export var slide_speed         : float = 18.0
+@export var slide_duration      : float = 2.5
+@export var slide_height_full   : float = 1.8
+@export var slide_height_crouch : float = 0.5
 
 ## Dash
 @export var dash_speed       : float = 24.0
@@ -43,9 +42,9 @@ extends CharacterBody3D
 # ─────────────────────────────────────────────
 #  NODE REFERENCES
 # ─────────────────────────────────────────────
-@onready var camera_rig : Node3D   = $CameraRig
-@onready var camera     : Camera3D = $CameraRig/Camera3D
-@onready var collision : CollisionShape3D = $CollisionShape3D
+@onready var camera_rig : Node3D          = $CameraRig
+@onready var camera     : Camera3D        = $CameraRig/Camera3D
+@onready var collision  : CollisionShape3D = $CollisionShape3D
 
 # ─────────────────────────────────────────────
 #  INTERNAL STATE
@@ -53,23 +52,23 @@ extends CharacterBody3D
 var _gravity      : float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var _jump_vel     : float
 
-var _coyote_timer  : float = 0.0
-var _buffer_timer  : float = 0.0
-var _was_grounded  : bool  = false
-var _jump_held     : bool  = false
-var _jump_was_pressed : bool = false
+var _coyote_timer     : float = 0.0
+var _buffer_timer     : float = 0.0
+var _was_grounded     : bool  = false
+var _jump_held        : bool  = false
+var _jump_was_pressed : bool  = false
 
-var _sliding      : bool  = false
-var _slide_timer  : float = 0.0
-var _slide_dir    : Vector3 = Vector3.ZERO
+var _sliding    : bool    = false
+var _slide_timer : float  = 0.0
+var _slide_dir  : Vector3 = Vector3.ZERO
 
 var _dashing       : bool    = false
 var _dash_timer    : float   = 0.0
 var _dash_cd_timer : float   = 0.0
 var _dash_dir      : Vector3 = Vector3.ZERO
 
-var _bob_t         : float = 0.0
-var _cam_base_y    : float = 0.0
+var _bob_t      : float = 0.0
+var _cam_base_y : float = 0.0
 
 var _yaw   : float = 0.0
 var _pitch : float = 0.0
@@ -97,6 +96,7 @@ func _input(event: InputEvent) -> void:
 		)
 		rotation.y            = _yaw
 		camera_rig.rotation.x = _pitch
+
 
 # ─────────────────────────────────────────────
 #  PHYSICS PROCESS
@@ -150,8 +150,8 @@ func _physics_process(delta: float) -> void:
 	if not _dashing:
 		_handle_movement(delta, grounded)
 
-	# ── Head-bob ────────────────────────────
-	if bob_enabled:
+	# ── Head-bob — only runs when NOT sliding ─
+	if bob_enabled and not _sliding:
 		_update_bob(delta, grounded)
 
 	move_and_slide()
@@ -192,12 +192,15 @@ func _handle_movement(delta: float, grounded: bool) -> void:
 	# Start slide
 	if Input.is_action_just_pressed("run") and grounded and \
 			Vector3(velocity.x, 0, velocity.z).length() > 1.0:
-		_sliding = true
+		_sliding     = true
 		_slide_timer = slide_duration
-		_slide_dir = Vector3(velocity.x, 0, velocity.z).normalized()
+		_slide_dir   = Vector3(velocity.x, 0, velocity.z).normalized()
 		_set_crouch(true)
 
 
+# ─────────────────────────────────────────────
+#  SLIDE
+# ─────────────────────────────────────────────
 func _handle_slide(delta: float, grounded: bool) -> void:
 	_slide_timer -= delta
 
@@ -206,20 +209,23 @@ func _handle_slide(delta: float, grounded: bool) -> void:
 		_set_crouch(false)
 		return
 
-	var current_speed := slide_speed * (_slide_timer / slide_duration)
-	current_speed = max(current_speed, max_speed * 0.4)
+	var t : float = _slide_timer / slide_duration
+	var current_speed : float = lerp(max_speed * 0.4, slide_speed, t)
 	velocity.x = _slide_dir.x * current_speed
 	velocity.z = _slide_dir.z * current_speed
 
-
+# ─────────────────────────────────────────────
+#  CROUCH
+# ─────────────────────────────────────────────
 func _set_crouch(crouching: bool) -> void:
 	var shape := collision.shape as CapsuleShape3D
 	if shape:
 		shape.height = slide_height_crouch if crouching else slide_height_full
-	var target_y := _cam_base_y - 0.5 if crouching else _cam_base_y
+
+	var target_y := _cam_base_y - 0.9 if crouching else _cam_base_y
 	var tween := create_tween()
-	tween.tween_property(camera_rig, "position:y", target_y, 0.12) \
-		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tween.tween_property(camera_rig, "position:y", target_y, 0.08) \
+		.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 
 
 # ─────────────────────────────────────────────
@@ -257,6 +263,9 @@ func _handle_dash(delta: float) -> void:
 #  HEAD-BOB
 # ─────────────────────────────────────────────
 func _update_bob(delta: float, grounded: bool) -> void:
+	if _sliding:
+		return
+
 	var horizontal_speed := Vector3(velocity.x, 0.0, velocity.z).length()
 	if grounded and horizontal_speed > 0.5:
 		_bob_t += delta * bob_freq * (horizontal_speed / max_speed)
