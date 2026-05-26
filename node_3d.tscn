@@ -24,7 +24,6 @@ material = SubResource("StandardMaterial3D_wc5p8")
 
 [node name="Player" parent="." unique_id=1082028449 groups=["player"] instance=ExtResource("2_jka67")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43067098, 0)
-slide_duration = 1.4
 
 [node name="TestingObjects" type="Node" parent="." unique_id=1146520545]
 
@@ -182,7 +181,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "QUIT"
 
-[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=2012220508]
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=2012220508 groups=["pause_menu"]]
 process_mode = 3
 layer = 10
 script = ExtResource("8_6iypd")

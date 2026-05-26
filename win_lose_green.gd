@@ -11,10 +11,10 @@ const COLOR_LOSE : Color = Color(1.0, 0.25, 0.25, 1.0)
 @onready var quit_button    : Button = $Panel/QuitButton
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	panel.visible = false
 	restart_button.pressed.connect(_on_restart)
 	quit_button.pressed.connect(_on_quit)
-
 	await get_tree().process_frame
 	var gm := get_tree().get_first_node_in_group("game_manager")
 	if gm:
@@ -32,6 +32,10 @@ func _on_game_lost() -> void:
 	_show_screen()
 
 func _show_screen() -> void:
+	get_tree().paused = true
+	var pm := get_tree().get_first_node_in_group("pause_menu")
+	if pm:
+		pm.set_game_over()
 	panel.visible = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	restart_button.grab_focus()
@@ -41,9 +45,11 @@ func _show_screen() -> void:
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 func _on_restart() -> void:
+	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	get_tree().reload_current_scene()
 
 func _on_quit() -> void:
+	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().change_scene_to_file(main_menu_scene)

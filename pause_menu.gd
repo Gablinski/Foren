@@ -2,7 +2,8 @@ extends CanvasLayer
 
 @export var main_menu_scene : String = "res://main_menu.tscn"
 
-var _paused : bool = false
+var _paused    : bool = false
+var _game_over : bool = false
 
 @onready var panel          : Panel  = $Panel
 @onready var resume_button  : Button = $Panel/ResumeButton
@@ -15,7 +16,12 @@ func _ready() -> void:
 	restart_button.pressed.connect(_on_restart)
 	quit_button.pressed.connect(_on_quit)
 
+func set_game_over() -> void:
+	_game_over = true
+
 func _input(event: InputEvent) -> void:
+	if _game_over:
+		return
 	if event is InputEventMouseMotion:
 		return
 	if event is InputEventKey and event.pressed and not event.echo:

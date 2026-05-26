@@ -19,12 +19,6 @@ extends CharacterBody3D
 @export var jump_buffer_time : float = 0.12
 @export var max_fall_speed   : float = 32.0
 
-## Slide
-@export var slide_speed         : float = 18.0
-@export var slide_duration      : float = 2.5
-@export var slide_height_full   : float = 1.8
-@export var slide_height_crouch : float = 0.5
-
 ## Dash
 @export var dash_speed       : float = 24.0
 @export var dash_duration    : float = 0.16
@@ -42,8 +36,8 @@ extends CharacterBody3D
 # ─────────────────────────────────────────────
 #  NODE REFERENCES
 # ─────────────────────────────────────────────
-@onready var camera_rig : Node3D          = $CameraRig
-@onready var camera     : Camera3D        = $CameraRig/Camera3D
+@onready var camera_rig : Node3D           = $CameraRig
+@onready var camera     : Camera3D         = $CameraRig/Camera3D
 @onready var collision  : CollisionShape3D = $CollisionShape3D
 
 # ─────────────────────────────────────────────
@@ -57,10 +51,6 @@ var _buffer_timer     : float = 0.0
 var _was_grounded     : bool  = false
 var _jump_held        : bool  = false
 var _jump_was_pressed : bool  = false
-
-var _sliding    : bool    = false
-var _slide_timer : float  = 0.0
-var _slide_dir  : Vector3 = Vector3.ZERO
 
 var _dashing       : bool    = false
 var _dash_timer    : float   = 0.0
@@ -147,11 +137,10 @@ func _physics_process(delta: float) -> void:
 	_handle_dash(delta)
 
 	# ── Horizontal movement ──────────────────
-	if not _dashing:
-		_handle_movement(delta, grounded)
+	_handle_movement(delta, grounded)
 
-	# ── Head-bob — only runs when NOT sliding ─
-	if bob_enabled and not _sliding:
+	# ── Head-bob ────────────────────────────
+	if bob_enabled:
 		_update_bob(delta, grounded)
 
 	move_and_slide()
@@ -162,10 +151,6 @@ func _physics_process(delta: float) -> void:
 #  MOVEMENT
 # ─────────────────────────────────────────────
 func _handle_movement(delta: float, grounded: bool) -> void:
-	if _sliding:
-		_handle_slide(delta, grounded)
-		return
-
 	var wish_dir := Vector3.ZERO
 	wish_dir.x = Input.get_axis("move_left",    "move_right")
 	wish_dir.z = Input.get_axis("move_forward", "move_back")
@@ -188,44 +173,6 @@ func _handle_movement(delta: float, grounded: bool) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, target_vel.x, air_acceleration * delta)
 		velocity.z = move_toward(velocity.z, target_vel.z, air_acceleration * delta)
-
-	# Start slide
-	if Input.is_action_just_pressed("run") and grounded and \
-			Vector3(velocity.x, 0, velocity.z).length() > 1.0:
-		_sliding     = true
-		_slide_timer = slide_duration
-		_slide_dir   = Vector3(velocity.x, 0, velocity.z).normalized()
-		_set_crouch(true)
-
-
-# ─────────────────────────────────────────────
-#  SLIDE
-# ─────────────────────────────────────────────
-func _handle_slide(delta: float, grounded: bool) -> void:
-	_slide_timer -= delta
-
-	if _slide_timer <= 0.0 or Input.is_action_just_pressed("run") or not grounded:
-		_sliding = false
-		_set_crouch(false)
-		return
-
-	var t : float = _slide_timer / slide_duration
-	var current_speed : float = lerp(max_speed * 0.4, slide_speed, t)
-	velocity.x = _slide_dir.x * current_speed
-	velocity.z = _slide_dir.z * current_speed
-
-# ─────────────────────────────────────────────
-#  CROUCH
-# ─────────────────────────────────────────────
-func _set_crouch(crouching: bool) -> void:
-	var shape := collision.shape as CapsuleShape3D
-	if shape:
-		shape.height = slide_height_crouch if crouching else slide_height_full
-
-	var target_y := _cam_base_y - 0.9 if crouching else _cam_base_y
-	var tween := create_tween()
-	tween.tween_property(camera_rig, "position:y", target_y, 0.08) \
-		.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
 
 
 # ─────────────────────────────────────────────
@@ -263,9 +210,6 @@ func _handle_dash(delta: float) -> void:
 #  HEAD-BOB
 # ─────────────────────────────────────────────
 func _update_bob(delta: float, grounded: bool) -> void:
-	if _sliding:
-		return
-
 	var horizontal_speed := Vector3(velocity.x, 0.0, velocity.z).length()
 	if grounded and horizontal_speed > 0.5:
 		_bob_t += delta * bob_freq * (horizontal_speed / max_speed)
