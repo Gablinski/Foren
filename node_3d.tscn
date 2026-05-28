@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://b5dwugt7kykfk" path="res://floor_(test).tscn" id="1_r3fl7"]
 [ext_resource type="PackedScene" uid="uid://chk4v6gak7614" path="res://player.tscn" id="2_jka67"]
-[ext_resource type="PackedScene" uid="uid://detb76mk3kscn" path="res://burger_pickup.tscn" id="3_i5arm"]
-[ext_resource type="Script" uid="uid://c3tldjwrcb7ot" path="res://level_manager.gd" id="4_wc5p8"]
+[ext_resource type="PackedScene" uid="uid://detb76mk3kscn" path="res://burger_pickup.tscn" id="3_4arys"]
+[ext_resource type="Script" uid="uid://c3tldjwrcb7ot" path="res://level_manager.gd" id="5_4arys"]
 [ext_resource type="Script" uid="uid://qcq60aetsacd" path="res://game_manager.gd" id="5_i5arm"]
 [ext_resource type="Script" uid="uid://y62hmxvcic30" path="res://hud.gd" id="6_wc5p8"]
 [ext_resource type="Script" uid="uid://re16kidftmvc" path="res://win_lose_green.gd" id="7_jsk3o"]
@@ -53,14 +53,14 @@ visible = false
 transform = Transform3D(0.19999234, -0.0016318586, 0.00062320376, 0.0016236505, 0.19997653, 0.0025926041, -0.00064428645, -0.0025874455, 0.19998215, -6.147586, 4.5428343, 47.435623)
 visible = false
 
-[node name="BurgerPickup" parent="TestingObjects" unique_id=461418647 groups=["burger_pickup"] instance=ExtResource("3_i5arm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51779735, 1.1028306, 8.5800905)
-
-[node name="LevelManager" type="Node" parent="." unique_id=928059233]
-script = ExtResource("4_wc5p8")
+[node name="burger_pickup" parent="TestingObjects" unique_id=461418647 groups=["burger_pickup", "platform_burger_01"] instance=ExtResource("3_4arys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5247011, 8.935295)
 
 [node name="GameManager" type="Node" parent="." unique_id=1486230476 groups=["game_manager"]]
 script = ExtResource("5_i5arm")
+
+[node name="LevelManager" type="Node" parent="." unique_id=997800945]
+script = ExtResource("5_4arys")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=2005732275]
 script = ExtResource("6_wc5p8")
@@ -96,10 +96,17 @@ theme_override_font_sizes/font_size = 30
 text = "TTT"
 
 [node name="HealthBar" type="ProgressBar" parent="HUD" unique_id=1928750429]
-offset_left = 334.0
-offset_top = 567.0
-offset_right = 381.0
-offset_bottom = 596.0
+offset_left = 368.0
+offset_top = 531.0
+offset_right = 683.0
+offset_bottom = 560.0
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="HUD" unique_id=468478452]
+offset_left = 344.0
+offset_top = 574.0
+offset_right = 384.0
+offset_bottom = 597.0
 
 [node name="DamageFlash" type="ColorRect" parent="HUD" unique_id=1478104149]
 anchors_preset = 15

@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var burger_label  : Label       = $BurgerCounter
 @onready var timer_label   : Label       = $TimerLabel
 @onready var health_bar    : ProgressBar = $HealthBar
+@onready var health_label  : Label       = $HealthLabel
 @onready var damage_flash  : ColorRect   = $DamageFlash
 
 const COLOR_NORMAL  : Color = Color(1.0, 1.0, 1.0, 1.0)
@@ -44,11 +45,9 @@ func _ready() -> void:
 func _on_health_changed(current: float, maximum: float) -> void:
 	health_bar.max_value = maximum
 	health_bar.value     = current
-
-	# Flash red if taking damage
+	health_label.text    = str(int(current)) + "%"
 	if current < _last_health:
 		_flash_damage()
-
 	_last_health = current
 
 

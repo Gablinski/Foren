@@ -1,6 +1,7 @@
 extends Node
 
 func _ready() -> void:
+	await get_tree().process_frame
 	var pickups := get_tree().get_nodes_in_group("burger_pickup")
 	print("Found ", pickups.size(), " burgers")
 	for pickup in pickups:

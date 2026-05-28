@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://k4fgx62uv10h"
-path="res://.godot/imported/burger.glb-933de2aab5581df6d33f4acb427490f4.scn"
+uid="uid://dqidxkxm53cqp"
+path="res://.godot/imported/Burger_low-poly.glb-636631faa0c95101f30d08003209a14a.scn"
 
 [deps]
 
-source_file="res://burger.glb"
-dest_files=["res://.godot/imported/burger.glb-933de2aab5581df6d33f4acb427490f4.scn"]
+source_file="res://Burger_low-poly.glb"
+dest_files=["res://.godot/imported/Burger_low-poly.glb-636631faa0c95101f30d08003209a14a.scn"]
 
 [params]
 

@@ -217,3 +217,5 @@ func _update_bob(delta: float, grounded: bool) -> void:
 		_bob_t = lerp(_bob_t, round(_bob_t / PI) * PI, delta * 8.0)
 
 	camera_rig.position.y = _cam_base_y + sin(_bob_t) * bob_amp
+	
+	
