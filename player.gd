@@ -24,6 +24,11 @@ extends CharacterBody3D
 @export var dash_duration    : float = 0.16
 @export var dash_cooldown    : float = 0.5
 
+## Ladder
+@export var climb_speed      : float = 5.0
+@export var climb_boost      : float = 9.0   # speed when jumping while climbing
+@export var dismount_force   : float = 6.0   # force when jumping off sideways
+
 ## Mouse look
 @export var mouse_sensitivity : float = 0.18
 @export var pitch_clamp       : float = 88.0
@@ -63,6 +68,10 @@ var _cam_base_y : float = 0.0
 var _yaw   : float = 0.0
 var _pitch : float = 0.0
 
+# Ladder state
+var _on_ladder       : bool      = false
+var _ladder_transform : Transform3D = Transform3D()
+
 
 # ─────────────────────────────────────────────
 #  READY
@@ -71,6 +80,18 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	_jump_vel   = sqrt(2.0 * (_gravity * gravity_scale) * jump_height)
 	_cam_base_y = camera_rig.position.y
+
+
+# ─────────────────────────────────────────────
+#  LADDER INTERFACE
+# ─────────────────────────────────────────────
+func enter_ladder(ladder_xform: Transform3D) -> void:
+	_on_ladder       = true
+	_ladder_transform = ladder_xform
+	velocity         = Vector3.ZERO
+
+func exit_ladder() -> void:
+	_on_ladder = false
 
 
 # ─────────────────────────────────────────────
@@ -92,6 +113,11 @@ func _input(event: InputEvent) -> void:
 #  PHYSICS PROCESS
 # ─────────────────────────────────────────────
 func _physics_process(delta: float) -> void:
+	if _on_ladder:
+		_handle_ladder(delta)
+		move_and_slide()
+		return
+
 	var grounded := is_on_floor()
 
 	# ── Timers ──────────────────────────────
@@ -148,8 +174,39 @@ func _physics_process(delta: float) -> void:
 
 
 # ─────────────────────────────────────────────
-#  MOVEMENT
+#  LADDER MOVEMENT
 # ─────────────────────────────────────────────
+func _handle_ladder(_delta: float) -> void:
+	var vertical   := Input.get_axis("move_back", "move_forward")   # W = up, S = down
+	var jump_just  := Input.is_action_just_pressed("jump")
+
+	# Dismount — jump while pressing a sideways/back direction
+	var lateral := Vector3(
+		Input.get_axis("move_left", "move_right"),
+		0.0,
+		Input.get_axis("move_forward", "move_back")
+	)
+	# If jumping while NOT pressing W (forward), dismount
+	if jump_just and lateral.length_squared() > 0.1 and not Input.is_action_pressed("move_forward"):
+		_on_ladder = false
+		# Launch in the direction the player is facing laterally
+		var launch := (transform.basis * lateral).normalized()
+		launch.y   = 0.4
+		velocity   = launch * dismount_force
+		return
+
+	# Boost jump — W + space while on ladder
+	if jump_just and Input.is_action_pressed("move_forward"):
+		velocity.y = climb_boost
+		velocity.x = 0.0
+		velocity.z = 0.0
+		return
+
+	# Normal climb — W moves up, S moves down, nothing = hang
+	velocity.x = 0.0
+	velocity.z = 0.0
+	velocity.y = vertical * climb_speed
+
 func _handle_movement(delta: float, grounded: bool) -> void:
 	var wish_dir := Vector3.ZERO
 	wish_dir.x = Input.get_axis("move_left",    "move_right")
@@ -205,7 +262,6 @@ func _handle_dash(delta: float) -> void:
 		_dash_timer    = dash_duration
 		_dash_cd_timer = dash_cooldown
 
-
 # ─────────────────────────────────────────────
 #  HEAD-BOB
 # ─────────────────────────────────────────────
@@ -217,5 +273,3 @@ func _update_bob(delta: float, grounded: bool) -> void:
 		_bob_t = lerp(_bob_t, round(_bob_t / PI) * PI, delta * 8.0)
 
 	camera_rig.position.y = _cam_base_y + sin(_bob_t) * bob_amp
-	
-	

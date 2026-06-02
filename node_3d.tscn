@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c3tldjwrcb7ot" path="res://level_manager.gd" id="5_4arys"]
 [ext_resource type="Script" uid="uid://qcq60aetsacd" path="res://game_manager.gd" id="5_i5arm"]
 [ext_resource type="Script" uid="uid://y62hmxvcic30" path="res://hud.gd" id="6_wc5p8"]
+[ext_resource type="PackedScene" uid="uid://bn81pe6726mrv" path="res://ladder.tscn" id="7_6iypd"]
 [ext_resource type="Script" uid="uid://re16kidftmvc" path="res://win_lose_green.gd" id="7_jsk3o"]
 [ext_resource type="PackedScene" uid="uid://0pusmkcmxmh" path="res://rising_platform.tscn" id="8_4arys"]
 [ext_resource type="Script" uid="uid://rtfm16fkr3ux" path="res://pause_menu.gd" id="8_6iypd"]
@@ -52,6 +53,9 @@ visible = false
 [node name="Floor (test)7" parent="TestingObjects" unique_id=1270351707 groups=["platform_burger_01"] instance=ExtResource("1_r3fl7")]
 transform = Transform3D(0.19999234, -0.0016318586, 0.00062320376, 0.0016236505, 0.19997653, 0.0025926041, -0.00064428645, -0.0025874455, 0.19998215, -6.147586, 4.5428343, 47.435623)
 visible = false
+
+[node name="Ladder" parent="TestingObjects" unique_id=1926364976 instance=ExtResource("7_6iypd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.906874, 2.6062932, 5.4734564)
 
 [node name="burger_pickup" parent="TestingObjects" unique_id=461418647 groups=["burger_pickup", "platform_burger_01"] instance=ExtResource("3_4arys")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5247011, 8.935295)
@@ -107,6 +111,7 @@ offset_left = 344.0
 offset_top = 574.0
 offset_right = 384.0
 offset_bottom = 597.0
+text = "100%"
 
 [node name="DamageFlash" type="ColorRect" parent="HUD" unique_id=1478104149]
 anchors_preset = 15
