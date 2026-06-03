@@ -109,6 +109,254 @@ _subresources={
 "use_external/fallback_path": "res://Assets/sci-fi-like Asset/materials/TilesMaterials/SingleDoor_mat.tres",
 "use_external/path": "uid://dmijl1xag0bfa"
 }
+},
+"nodes": {
+"PATH:Door_Fram": {
+"generate/physics": true
+},
+"PATH:Door_Fram/Door_Door": {
+"generate/physics": true
+},
+"PATH:Door_Hallway": {
+"generate/physics": true
+},
+"PATH:Door_Hallway/Door_Big_1": {
+"generate/physics": true
+},
+"PATH:Door_Hallway/Door_Big_2": {
+"generate/physics": true
+},
+"PATH:Door_MTN_Frame": {
+"generate/physics": true
+},
+"PATH:Door_MTN_Frame/Door_MTN": {
+"generate/physics": true
+},
+"PATH:Door_MTN_Frame/Door_MTN/Cube_095": {
+"generate/physics": true
+},
+"PATH:Post_Thin": {
+"generate/physics": true
+},
+"PATH:Post_Weird": {
+"generate/physics": true
+},
+"PATH:Post_Wide": {
+"generate/physics": true
+},
+"PATH:Room_1": {
+"generate/physics": true
+},
+"PATH:Room_1_LowCeiling": {
+"generate/physics": true
+},
+"PATH:Room_2": {
+"generate/physics": true
+},
+"PATH:Room_2_LowCeiling": {
+"generate/physics": true
+},
+"PATH:Room_3": {
+"generate/physics": true
+},
+"PATH:Room_3_LowCeiling": {
+"generate/physics": true
+},
+"PATH:Room_4_T": {
+"generate/physics": true
+},
+"PATH:Room_4_T_LowCeiling": {
+"generate/physics": true
+},
+"PATH:Room_5_Cross_LowCeiling": {
+"generate/physics": true
+},
+"PATH:Room_MTN_Corner_1": {
+"generate/physics": true
+},
+"PATH:Room_MTN_Corner_1_F": {
+"generate/physics": true
+},
+"PATH:Room_MTN_Corner_2": {
+"generate/physics": true
+},
+"PATH:Room_MTN_Corner_5": {
+"generate/physics": true
+},
+"PATH:Room_MTN_Door_Corner_A_1": {
+"generate/physics": true
+},
+"PATH:Room_MTN_Door_Corner_A_1_F": {
+"generate/physics": true
+},
+"PATH:Room_MTN_Door_Corner_A_2": {
+"generate/physics": true
+},
+"PATH:Room_MTN_Door_Corner_B_1": {
+"generate/physics": true
+},
+"PATH:Room_MTN_Door_Corner_B_1_F": {
+"generate/physics": true
+},
+"PATH:Room_MTN_Door_End_1": {
+"generate/physics": true
+},
+"PATH:Room_MTN_Door_End_1_F": {
+"generate/physics": true
+},
+"PATH:Room_MTN_Door_End_2": {
+"generate/physics": true
+},
+"PATH:Room_MTN_End": {
+"generate/physics": true
+},
+"PATH:Room_Stairs": {
+"generate/physics": true
+},
+"PATH:Room_Stairs_LowCeiling": {
+"generate/physics": true
+},
+"PATH:Room__5_Cross": {
+"generate/physics": true
+},
+"PATH:Wall_CornerDoor_A_1_F": {
+"generate/physics": true
+},
+"PATH:Wall_CornerDoor_B_1_F": {
+"generate/physics": true
+},
+"PATH:Wall_CornerDoor_C_1_F": {
+"generate/physics": true
+},
+"PATH:Wall_Corner_1": {
+"generate/physics": true
+},
+"PATH:Wall_Corner_1_F": {
+"generate/physics": true
+},
+"PATH:Wall_Corner_2": {
+"generate/physics": true
+},
+"PATH:Wall_DoorCorner_A_1": {
+"generate/physics": true
+},
+"PATH:Wall_DoorCorner_B_1": {
+"generate/physics": true
+},
+"PATH:Wall_DoorCorner_C_1": {
+"generate/physics": true
+},
+"PATH:Wall_DoorEntrance": {
+"generate/physics": true
+},
+"PATH:Wall_DoorEntrance_End_A_1": {
+"generate/physics": true
+},
+"PATH:Wall_DoorEntrance_End_A_1_F": {
+"generate/physics": true
+},
+"PATH:Wall_DoorEntrance_End_A_2": {
+"generate/physics": true
+},
+"PATH:Wall_DoorEntrance_End_B_1": {
+"generate/physics": true
+},
+"PATH:Wall_DoorEntrance_End_B_1_F": {
+"generate/physics": true
+},
+"PATH:Wall_DoorEntrance_End_B_2": {
+"generate/physics": true
+},
+"PATH:Wall_DoorEntrance_End_C": {
+"generate/physics": true
+},
+"PATH:Wall_Hallway_1": {
+"generate/physics": true
+},
+"PATH:Wall_Hallway_2": {
+"generate/physics": true
+},
+"PATH:Wall_Hallway_End_1": {
+"generate/physics": true
+},
+"PATH:Wall_Hallway_End_2": {
+"generate/physics": true
+},
+"PATH:Wall_MTNDoor": {
+"generate/physics": true
+},
+"PATH:Wall_MTNDoorCorner_A_1": {
+"generate/physics": true
+},
+"PATH:Wall_MTNDoorCorner_A_1_F": {
+"generate/physics": true
+},
+"PATH:Wall_MTNDoorCorner_B_1": {
+"generate/physics": true
+},
+"PATH:Wall_MTNDoorCorner_B_1_F": {
+"generate/physics": true
+},
+"PATH:Wall_MTNDoorCorner_C_1": {
+"generate/physics": true
+},
+"PATH:Wall_MTNDoorCorner_C_1_F": {
+"generate/physics": true
+},
+"PATH:Wall_MTNDoor_End_1": {
+"generate/physics": true
+},
+"PATH:Wall_MTNDoor_End_1_F": {
+"generate/physics": true
+},
+"PATH:Wall_MTNDoor_End_2": {
+"generate/physics": true
+},
+"PATH:Wall_Window": {
+"generate/physics": true
+},
+"PATH:Wall_WindowCorner_1_A": {
+"generate/physics": true
+},
+"PATH:Wall_WindowCorner_1_A_F": {
+"generate/physics": true
+},
+"PATH:Wall_WindowCorner_1_B": {
+"generate/physics": true
+},
+"PATH:Wall_WindowCorner_1_B_F": {
+"generate/physics": true
+},
+"PATH:Wall_WindowCorner_2_A": {
+"generate/physics": true
+},
+"PATH:Wall_WindowCorner_2_A_F": {
+"generate/physics": true
+},
+"PATH:Wall_WindowCorner_2_B": {
+"generate/physics": true
+},
+"PATH:Wall_WindowCorner_2_B_F": {
+"generate/physics": true
+},
+"PATH:Wall_WindowCorner_3_A": {
+"generate/physics": true
+},
+"PATH:Wall_WindowCorner_3_AF": {
+"generate/physics": true
+},
+"PATH:Wall_WindowCorner_3_B": {
+"generate/physics": true
+},
+"PATH:Wall_WindowCorner_3_B_F": {
+"generate/physics": true
+},
+"PATH:Wall_Window_A": {
+"generate/physics": true
+},
+"PATH:Wall_Window_B": {
+"generate/physics": true
+}
 }
 }
 gltf/naming_version=2

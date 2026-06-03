@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cbar6jdse14vq" path="res://Assets/sci-fi-like Asset/gltf/brugerjoint.glb" id="7_endm6"]
 [ext_resource type="PackedScene" uid="uid://kwrfb6xff5ay" path="res://Assets/sci-fi-like Asset/gltf/rock_platform.glb" id="8_6e3qa"]
 [ext_resource type="PackedScene" uid="uid://cvqg61htsxi6o" path="res://Assets/sci-fi-like Asset/scenes/Posts/post_wide.tscn" id="9_w18sb"]
+[ext_resource type="PackedScene" uid="uid://csqnxiysek266" path="res://Assets/sci-fi-like Asset/scenes/Stickers/stickers_arrow.tscn" id="10_rnsht"]
+[ext_resource type="PackedScene" uid="uid://dbr3wnq2tca7t" path="res://barrely.glb" id="11_y1754"]
 
 [node name="Tiles" type="Node3D" unique_id=1232835174]
 
@@ -38,8 +40,9 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 [node name="posts" type="GridMap" parent="." unique_id=454085827]
 mesh_library = ExtResource("4_7osof")
 data = {
-"cells": PackedInt32Array(7, 65529, 655363)
+"cells": PackedInt32Array(7, 65529, 655363, 65534, 65533, 1441796, 65533, 65534, 1)
 }
+metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="doors" type="GridMap" parent="." unique_id=1889737]
 mesh_library = ExtResource("5_rnsht")
@@ -51,7 +54,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.9
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.31722677, 1.1281443, 21.053709)
 
 [node name="brugerjoint" parent="." unique_id=277100519 instance=ExtResource("7_endm6")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 25.191353, 86.47689, -46.021816)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 25.181465, 86.39556, -45.94167)
 
 [node name="rock_platform" parent="." unique_id=1508698300 instance=ExtResource("8_6e3qa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.170546, 81.07089, -59.19436)
@@ -61,3 +64,21 @@ transform = Transform3D(-0.45864943, 0, 0.8886173, 0, 1, 0, -0.8886173, 0, -0.45
 
 [node name="Post_Wide" parent="." unique_id=1473780525 instance=ExtResource("9_w18sb")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.028549671, 1.1160419, 17.301193)
+
+[node name="stickers" type="Node3D" parent="." unique_id=779451565]
+transform = Transform3D(-2.9802322e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, -2.9802322e-08, 12.209127, 3.48732, -14.236397)
+
+[node name="Stickers_Arrow1" parent="stickers" unique_id=956126314 instance=ExtResource("10_rnsht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.750805, 0.27961826, 5.722046e-06)
+
+[node name="Stickers_Arrow2" parent="stickers" unique_id=1209211083 instance=ExtResource("10_rnsht")]
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, -14.032185, 0.18706179, 2.4689226)
+
+[node name="Stickers_Arrow3" parent="stickers" unique_id=18528438 instance=ExtResource("10_rnsht")]
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, -14.016889, 0.19384336, 8.771088)
+
+[node name="Stickers_Arrow3" parent="stickers/Stickers_Arrow3" unique_id=260585649 instance=ExtResource("10_rnsht")]
+transform = Transform3D(4.371139e-08, 3.8213714e-15, 1, 8.742278e-08, -1, 0, 1, 8.742278e-08, -4.371139e-08, -8.786848, 0.0052046776, 2.7661471)
+
+[node name="barrely" parent="." unique_id=1999475298 instance=ExtResource("11_y1754")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.9029448, 1.1999998, 0.64059734)
