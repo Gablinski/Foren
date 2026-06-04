@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmom71qk8b17p"
+uid="uid://br4tmkw5i7wmg"
 path.s3tc="res://.godot/imported/watertank_Water-Tank_Normal.jpg-e58f458cae01d1940a6c68317f888c40.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
@@ -29,8 +29,8 @@ compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://watertank_Water-Tank_Normal.jpg"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2
