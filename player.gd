@@ -25,9 +25,12 @@ extends CharacterBody3D
 @export var dash_cooldown    : float = 0.5
 
 ## Ladder
-@export var climb_speed      : float = 5.0
-@export var climb_boost      : float = 9.0   # speed when jumping while climbing
-@export var dismount_force   : float = 6.0   # force when jumping off sideways
+@export var climb_speed         : float = 5.0
+@export var climb_boost         : float = 9.0
+@export var dismount_upward     : float = 8.0   # upward force on ladder jump
+@export var dismount_backward   : float = 6.0   # backward push away from ladder
+@export var dismount_lock_time  : float = 0.25  # seconds before ladder can reattach
+@export var climb_boost_duration : float = 0.15  # how long the boost lasts before reattaching
 
 ## Mouse look
 @export var mouse_sensitivity : float = 0.18
@@ -69,9 +72,10 @@ var _yaw   : float = 0.0
 var _pitch : float = 0.0
 
 # Ladder state
-var _on_ladder       : bool      = false
-var _ladder_transform : Transform3D = Transform3D()
-
+var _on_ladder          : bool        = false
+var _ladder_transform   : Transform3D = Transform3D()
+var _dismount_lock_timer : float      = 0.0
+var _ladder_boost_timer : float = 0.0
 
 # ─────────────────────────────────────────────
 #  READY
@@ -86,13 +90,13 @@ func _ready() -> void:
 #  LADDER INTERFACE
 # ─────────────────────────────────────────────
 func enter_ladder(ladder_xform: Transform3D) -> void:
-	_on_ladder       = true
+	if _dismount_lock_timer > 0.0:
+		return
+	_on_ladder        = true
 	_ladder_transform = ladder_xform
-	velocity         = Vector3.ZERO
-
-func exit_ladder() -> void:
-	_on_ladder = false
-
+	# Don't zero velocity — preserve upward momentum when jumping into ladder
+	velocity.x = 0.0
+	velocity.z = 0.0
 
 # ─────────────────────────────────────────────
 #  INPUT
@@ -113,6 +117,20 @@ func _input(event: InputEvent) -> void:
 #  PHYSICS PROCESS
 # ─────────────────────────────────────────────
 func _physics_process(delta: float) -> void:
+	# Tick dismount lock
+	if _dismount_lock_timer > 0.0:
+		_dismount_lock_timer = max(_dismount_lock_timer - delta, 0.0)
+
+	# Tick boost — gravity applies during boost, reattach when done
+	if _ladder_boost_timer > 0.0:
+		_ladder_boost_timer = max(_ladder_boost_timer - delta, 0.0)
+		# Apply gravity during boost so arc feels natural
+		var g := _gravity * gravity_scale
+		velocity.y -= g * delta
+		velocity.y = max(velocity.y, -max_fall_speed)
+		move_and_slide()
+		return
+
 	if _on_ladder:
 		_handle_ladder(delta)
 		move_and_slide()
@@ -173,40 +191,44 @@ func _physics_process(delta: float) -> void:
 	_was_grounded = grounded
 
 
-# ─────────────────────────────────────────────
-#  LADDER MOVEMENT
-# ─────────────────────────────────────────────
 func _handle_ladder(_delta: float) -> void:
-	var vertical   := Input.get_axis("move_back", "move_forward")   # W = up, S = down
-	var jump_just  := Input.is_action_just_pressed("jump")
+	var jump_just := Input.is_action_just_pressed("jump")
 
-	# Dismount — jump while pressing a sideways/back direction
-	var lateral := Vector3(
-		Input.get_axis("move_left", "move_right"),
-		0.0,
-		Input.get_axis("move_forward", "move_back")
-	)
-	# If jumping while NOT pressing W (forward), dismount
-	if jump_just and lateral.length_squared() > 0.1 and not Input.is_action_pressed("move_forward"):
-		_on_ladder = false
-		# Launch in the direction the player is facing laterally
-		var launch := (transform.basis * lateral).normalized()
-		launch.y   = 0.4
-		velocity   = launch * dismount_force
-		return
+	if jump_just:
+		var look     := -global_transform.basis.z
+		var backward := Vector3(look.x, 0.0, look.z)
+		if backward.length_squared() > 0.001:
+			backward = backward.normalized()
 
-	# Boost jump — W + space while on ladder
-	if jump_just and Input.is_action_pressed("move_forward"):
-		velocity.y = climb_boost
-		velocity.x = 0.0
-		velocity.z = 0.0
-		return
+		if Input.is_action_pressed("move_forward"):
+			# Boost jump — exit ladder state temporarily, preserve X/Z, inject Y
+			var current_x := velocity.x
+			var current_z := velocity.z
+			_on_ladder          = false
+			_ladder_boost_timer = climb_boost_duration
+			_dismount_lock_timer = dismount_lock_time
+			velocity.x = current_x
+			velocity.z = current_z
+			velocity.y = climb_boost
+			return
+		else:
+			# Full dismount — launch backward away from ladder
+			velocity.x           = -backward.x * dismount_backward
+			velocity.z           = -backward.z * dismount_backward
+			velocity.y           = dismount_upward
+			_on_ladder           = false
+			_dismount_lock_timer = dismount_lock_time
+			return
 
-	# Normal climb — W moves up, S moves down, nothing = hang
+	# Normal climb
+	var vertical := Input.get_axis("move_back", "move_forward")
 	velocity.x = 0.0
 	velocity.z = 0.0
 	velocity.y = vertical * climb_speed
 
+# ─────────────────────────────────────────────
+#  MOVEMENT
+# ─────────────────────────────────────────────
 func _handle_movement(delta: float, grounded: bool) -> void:
 	var wish_dir := Vector3.ZERO
 	wish_dir.x = Input.get_axis("move_left",    "move_right")
@@ -261,6 +283,7 @@ func _handle_dash(delta: float) -> void:
 		_dashing       = true
 		_dash_timer    = dash_duration
 		_dash_cd_timer = dash_cooldown
+
 
 # ─────────────────────────────────────────────
 #  HEAD-BOB

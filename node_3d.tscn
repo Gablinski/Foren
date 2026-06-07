@@ -288,4 +288,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1114235, 4.2772064, 41.136
 mesh = SubResource("BoxMesh_jsk3o")
 
 [node name="RisingPlatform" parent="." unique_id=645753205 instance=ExtResource("8_4arys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0754452, -2.4372878, 18.721394)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67, -2.437, 18.721)

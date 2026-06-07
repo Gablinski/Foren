@@ -6,7 +6,7 @@
 size = Vector3(1.05, 60, 1.05)
 
 [sub_resource type="BoxMesh" id="BoxMesh_lqhsa"]
-size = Vector3(1, 60, 1)
+size = Vector3(0.75, 60, 0.75)
 
 [node name="Ladder" type="Area3D" unique_id=1926364976]
 script = ExtResource("1_cq4ai")
