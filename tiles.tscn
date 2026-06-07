@@ -65,6 +65,66 @@ transform = Transform3D(-0.45864943, 0, 0.8886173, 0, 1, 0, -0.8886173, 0, -0.45
 [node name="Post_Wide" parent="." unique_id=1473780525 instance=ExtResource("9_w18sb")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.028549671, 1.1160419, 17.301193)
 
+[node name="Corner_post1R" parent="." unique_id=1043090663 instance=ExtResource("9_w18sb")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.040769, 7.110521, 48.099716)
+
+[node name="Corner_post2R" parent="." unique_id=674920465 instance=ExtResource("9_w18sb")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 6.041, 13.020437, 48.1)
+
+[node name="Corner_post3R" parent="." unique_id=602131107 instance=ExtResource("9_w18sb")]
+transform = Transform3D(1, 0, 3.496911e-07, 0, 1, 0, -3.496911e-07, 0, 1, 6.041, 19.01136, 48.1)
+
+[node name="Corner_post4R" parent="." unique_id=1348184637 instance=ExtResource("9_w18sb")]
+transform = Transform3D(1, 0, 6.993822e-07, 0, 1, 0, -6.993822e-07, 0, 1, 6.041, 25.014675, 48.1)
+
+[node name="Corner_post5R" parent="." unique_id=1909807046 instance=ExtResource("9_w18sb")]
+transform = Transform3D(1, 0, 1.3987644e-06, 0, 1, 0, -1.3987644e-06, 0, 1, 6.041, 31.012203, 48.1)
+
+[node name="Corner_post1L" parent="Corner_post5R" unique_id=1633496739 instance=ExtResource("9_w18sb")]
+transform = Transform3D(-1, 0, -8.742279e-08, 0, 1, 0, 8.742279e-08, 0, -1, -17.881596, -23.92903, -0.034423828)
+
+[node name="Corner_post2L" parent="Corner_post5R" unique_id=712269499 instance=ExtResource("9_w18sb")]
+transform = Transform3D(1, 0, 1.7484558e-07, 0, 1, 0, -1.7484558e-07, 0, 1, -17.881596, -18.019594, -0.034423828)
+
+[node name="Corner_post3L" parent="Corner_post5R" unique_id=1897622232 instance=ExtResource("9_w18sb")]
+transform = Transform3D(1, 0, 3.4969116e-07, 0, 1, 0, -3.4969116e-07, 0, 1, -17.881596, -12.028669, -0.034423828)
+
+[node name="Corner_post4L" parent="Corner_post5R" unique_id=62061856 instance=ExtResource("9_w18sb")]
+transform = Transform3D(1, 0, 6.993821e-07, 0, 1, 0, -6.993821e-07, 0, 1, -17.881596, -6.0253544, -0.034423828)
+
+[node name="Corner_post5L" parent="Corner_post5R" unique_id=1034460067 instance=ExtResource("9_w18sb")]
+transform = Transform3D(1, 0, 1.3987644e-06, 0, 1, 0, -1.3987644e-06, 0, 1, -17.881596, -0.02782631, -0.034423828)
+
+[node name="Corner_post1R" parent="Corner_post5R" unique_id=103974057 instance=ExtResource("9_w18sb")]
+transform = Transform3D(-1, 0, -8.742279e-08, 0, 1, 0, 8.742279e-08, 0, -1, -0.0006585121, -23.911806, 17.995651)
+
+[node name="Corner_post2R" parent="Corner_post5R" unique_id=1275757217 instance=ExtResource("9_w18sb")]
+transform = Transform3D(1, 0, 1.7484558e-07, 0, 1, 0, -1.7484558e-07, 0, 1, -0.00042772293, -18.00189, 17.995934)
+
+[node name="Corner_post3R" parent="Corner_post5R" unique_id=1406412325 instance=ExtResource("9_w18sb")]
+transform = Transform3D(1, 0, 3.4969116e-07, 0, 1, 0, -3.4969116e-07, 0, 1, -0.00042772293, -12.010965, 17.995934)
+
+[node name="Corner_post4R" parent="Corner_post5R" unique_id=869798023 instance=ExtResource("9_w18sb")]
+transform = Transform3D(1, 0, 6.993821e-07, 0, 1, 0, -6.993821e-07, 0, 1, -0.00042772293, -6.0076504, 17.995934)
+
+[node name="Corner_post5R" parent="Corner_post5R" unique_id=115645438 instance=ExtResource("9_w18sb")]
+transform = Transform3D(1, 0, 1.3987644e-06, 0, 1, 0, -1.3987644e-06, 0, 1, -0.00042772293, -0.010122299, 17.995934)
+
+[node name="Corner_post1L" parent="Corner_post5R/Corner_post5R" unique_id=1212519729 instance=ExtResource("9_w18sb")]
+transform = Transform3D(-1, 0, -8.742279e-08, 0, 1, 0, 8.742279e-08, 0, -1, -17.881596, -23.92903, -0.034423828)
+
+[node name="Corner_post2L" parent="Corner_post5R/Corner_post5R" unique_id=640526429 instance=ExtResource("9_w18sb")]
+transform = Transform3D(1, 0, 1.7484558e-07, 0, 1, 0, -1.7484558e-07, 0, 1, -17.881596, -18.019594, -0.034423828)
+
+[node name="Corner_post3L" parent="Corner_post5R/Corner_post5R" unique_id=982487995 instance=ExtResource("9_w18sb")]
+transform = Transform3D(1, 0, 3.4969116e-07, 0, 1, 0, -3.4969116e-07, 0, 1, -17.881596, -12.028669, -0.034423828)
+
+[node name="Corner_post4L" parent="Corner_post5R/Corner_post5R" unique_id=1871484291 instance=ExtResource("9_w18sb")]
+transform = Transform3D(1, 0, 6.993821e-07, 0, 1, 0, -6.993821e-07, 0, 1, -17.881596, -6.0253544, -0.034423828)
+
+[node name="Corner_post5L" parent="Corner_post5R/Corner_post5R" unique_id=71618047 instance=ExtResource("9_w18sb")]
+transform = Transform3D(1, 0, 1.3987644e-06, 0, 1, 0, -1.3987644e-06, 0, 1, -17.881596, -0.02782631, -0.034423828)
+
 [node name="stickers" type="Node3D" parent="." unique_id=779451565]
 transform = Transform3D(-2.9802322e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, -2.9802322e-08, 12.209127, 3.48732, -14.236397)
 
@@ -81,4 +141,4 @@ transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, -1
 transform = Transform3D(4.371139e-08, 3.8213714e-15, 1, 8.742278e-08, -1, 0, 1, 8.742278e-08, -4.371139e-08, -8.786848, 0.0052046776, 2.7661471)
 
 [node name="barrely" parent="." unique_id=1999475298 instance=ExtResource("11_y1754")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.9029448, 1.1999998, 0.64059734)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.9029448, 1.1999998, 2.91906)
