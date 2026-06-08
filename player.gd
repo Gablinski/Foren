@@ -25,12 +25,11 @@ extends CharacterBody3D
 @export var dash_cooldown    : float = 0.5
 
 ## Ladder
-@export var climb_speed         : float = 5.0
-@export var climb_boost         : float = 9.0
-@export var dismount_upward     : float = 8.0   # upward force on ladder jump
-@export var dismount_backward   : float = 6.0   # backward push away from ladder
-@export var dismount_lock_time  : float = 0.25  # seconds before ladder can reattach
-@export var climb_boost_duration : float = 0.15  # how long the boost lasts before reattaching
+@export var climb_speed        : float = 5.0
+@export var climb_boost        : float = 12.0
+@export var dismount_upward    : float = 8.0
+@export var dismount_backward  : float = 6.0
+@export var dismount_lock_time : float = 0.25
 
 ## Mouse look
 @export var mouse_sensitivity : float = 0.18
@@ -72,10 +71,10 @@ var _yaw   : float = 0.0
 var _pitch : float = 0.0
 
 # Ladder state
-var _on_ladder          : bool        = false
-var _ladder_transform   : Transform3D = Transform3D()
-var _dismount_lock_timer : float      = 0.0
-var _ladder_boost_timer : float = 0.0
+var _on_ladder           : bool        = false
+var _ladder_transform    : Transform3D = Transform3D()
+var _dismount_lock_timer : float       = 0.0
+
 
 # ─────────────────────────────────────────────
 #  READY
@@ -94,9 +93,12 @@ func enter_ladder(ladder_xform: Transform3D) -> void:
 		return
 	_on_ladder        = true
 	_ladder_transform = ladder_xform
-	# Don't zero velocity — preserve upward momentum when jumping into ladder
 	velocity.x = 0.0
 	velocity.z = 0.0
+
+func exit_ladder() -> void:
+	_on_ladder = false
+
 
 # ─────────────────────────────────────────────
 #  INPUT
@@ -117,19 +119,8 @@ func _input(event: InputEvent) -> void:
 #  PHYSICS PROCESS
 # ─────────────────────────────────────────────
 func _physics_process(delta: float) -> void:
-	# Tick dismount lock
 	if _dismount_lock_timer > 0.0:
 		_dismount_lock_timer = max(_dismount_lock_timer - delta, 0.0)
-
-	# Tick boost — gravity applies during boost, reattach when done
-	if _ladder_boost_timer > 0.0:
-		_ladder_boost_timer = max(_ladder_boost_timer - delta, 0.0)
-		# Apply gravity during boost so arc feels natural
-		var g := _gravity * gravity_scale
-		velocity.y -= g * delta
-		velocity.y = max(velocity.y, -max_fall_speed)
-		move_and_slide()
-		return
 
 	if _on_ladder:
 		_handle_ladder(delta)
@@ -191,30 +182,24 @@ func _physics_process(delta: float) -> void:
 	_was_grounded = grounded
 
 
+# ─────────────────────────────────────────────
+#  LADDER MOVEMENT
+# ─────────────────────────────────────────────
 func _handle_ladder(_delta: float) -> void:
 	var jump_just := Input.is_action_just_pressed("jump")
 
 	if jump_just:
-		var look     := -global_transform.basis.z
-		var backward := Vector3(look.x, 0.0, look.z)
-		if backward.length_squared() > 0.001:
-			backward = backward.normalized()
+		var forward  := -global_transform.basis.z
+		var backward := Vector3(forward.x, 0.0, forward.z).normalized()
 
 		if Input.is_action_pressed("move_forward"):
-			# Boost jump — exit ladder state temporarily, preserve X/Z, inject Y
-			var current_x := velocity.x
-			var current_z := velocity.z
-			_on_ladder          = false
-			_ladder_boost_timer = climb_boost_duration
-			_dismount_lock_timer = dismount_lock_time
-			velocity.x = current_x
-			velocity.z = current_z
+			# Boost — inject Y, stay on ladder, normal climb resumes next frame
 			velocity.y = climb_boost
 			return
 		else:
-			# Full dismount — launch backward away from ladder
-			velocity.x           = -backward.x * dismount_backward
-			velocity.z           = -backward.z * dismount_backward
+			# Dismount — launch away from ladder
+			velocity.x           = backward.x * dismount_backward
+			velocity.z           = backward.z * dismount_backward
 			velocity.y           = dismount_upward
 			_on_ladder           = false
 			_dismount_lock_timer = dismount_lock_time
@@ -225,6 +210,7 @@ func _handle_ladder(_delta: float) -> void:
 	velocity.x = 0.0
 	velocity.z = 0.0
 	velocity.y = vertical * climb_speed
+
 
 # ─────────────────────────────────────────────
 #  MOVEMENT
