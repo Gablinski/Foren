@@ -10,6 +10,9 @@
 [ext_resource type="Script" uid="uid://re16kidftmvc" path="res://win_lose_green.gd" id="7_jsk3o"]
 [ext_resource type="PackedScene" uid="uid://0pusmkcmxmh" path="res://rising_platform.tscn" id="8_4arys"]
 [ext_resource type="Script" uid="uid://rtfm16fkr3ux" path="res://pause_menu.gd" id="8_6iypd"]
+[ext_resource type="Script" uid="uid://dj8ud7oafxrlp" path="res://auto_tween.gd" id="9_imku0"]
+[ext_resource type="Script" uid="uid://beg0sdtff03a5" path="res://button_animation.gd" id="10_tereu"]
+[ext_resource type="Script" uid="uid://d1gm5b5k36yf1" path="res://containertween.gd" id="11_cdqbm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i5arm"]
 
@@ -193,6 +196,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "QUIT"
 
+[node name="AutoTween" type="Node" parent="WinLoseGreen/Panel" unique_id=566148918]
+script = ExtResource("9_imku0")
+
 [node name="PauseMenu" type="CanvasLayer" parent="." unique_id=2012220508 groups=["pause_menu"]]
 process_mode = 3
 layer = 10
@@ -229,51 +235,31 @@ text = "Game Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ResumeButton" type="Button" parent="PauseMenu/Panel" unique_id=298917195]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -77.5
-offset_top = -22.5
-offset_right = 77.5
-offset_bottom = 22.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel" unique_id=454647076]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 235.0
+offset_right = 636.0
+offset_bottom = 336.0
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/Panel/VBoxContainer" unique_id=298917195]
+layout_mode = 2
 text = "RESUME GAME"
+script = ExtResource("10_tereu")
 
-[node name="RestartButton" type="Button" parent="PauseMenu/Panel" unique_id=1586076812]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -77.5
-offset_top = -72.0
-offset_right = 77.5
-offset_bottom = -27.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="RestartButton" type="Button" parent="PauseMenu/Panel/VBoxContainer" unique_id=1586076812]
+layout_mode = 2
 text = "RESTART"
+script = ExtResource("10_tereu")
 
-[node name="QuitButton" type="Button" parent="PauseMenu/Panel" unique_id=648960005]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -77.5
-offset_top = 28.0
-offset_right = 77.5
-offset_bottom = 73.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="QuitButton" type="Button" parent="PauseMenu/Panel/VBoxContainer" unique_id=648960005]
+layout_mode = 2
 text = "QUIT TO TITLE
 "
+script = ExtResource("10_tereu")
+
+[node name="containertween" type="Node" parent="PauseMenu/Panel" unique_id=612451338]
+script = ExtResource("11_cdqbm")
 
 [node name="WinZone" type="Area3D" parent="." unique_id=1546917394 groups=["win_zone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9676492, 7.60793)

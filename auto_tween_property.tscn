@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cb0f3tdef61vl"]
+
+[ext_resource type="Script" uid="uid://btx627xaya0b7" path="res://auto_tween_property.gd" id="1_iy00i"]
+
+[node name="AutoTweenProperty" type="Node" unique_id=42427812]
+script = ExtResource("1_iy00i")

@@ -6,12 +6,12 @@ var _paused    : bool = false
 var _game_over : bool = false
 
 @onready var panel          : Panel  = $Panel
-@onready var resume_button  : Button = $Panel/ResumeButton
-@onready var restart_button : Button = $Panel/RestartButton
-@onready var quit_button    : Button = $Panel/QuitButton
+@onready var resume_button  : Button = $Panel/VBoxContainer/ResumeButton
+@onready var restart_button : Button = $Panel/VBoxContainer/RestartButton
+@onready var quit_button    : Button = $Panel/VBoxContainer/QuitButton
 
 func _ready() -> void:
-	panel.visible = false
+	panel.modulate.a = 0.0  # hide visually but keep in tree
 	resume_button.pressed.connect(_on_resume)
 	restart_button.pressed.connect(_on_restart)
 	quit_button.pressed.connect(_on_quit)
@@ -34,18 +34,17 @@ func _input(event: InputEvent) -> void:
 
 func _pause() -> void:
 	_paused = true
-	panel.visible = true
+	panel.modulate.a = 0.0
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	resume_button.grab_focus()
-	panel.modulate.a = 0.0
 	var tween := create_tween()
 	tween.tween_property(panel, "modulate:a", 1.0, 0.2) \
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 func _on_resume() -> void:
 	_paused = false
-	panel.visible = false
+	panel.modulate.a = 0.0
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
