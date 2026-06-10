@@ -48,6 +48,11 @@ _subresources={
 "save_to_file/fallback_path": "",
 "save_to_file/path": ""
 }
+},
+"nodes": {
+"PATH:Room_5_Cross_LowCeiling_001": {
+"generate/physics": true
+}
 }
 }
 gltf/naming_version=2

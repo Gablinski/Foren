@@ -75,6 +75,20 @@ _subresources={
 "save_to_file/fallback_path": "",
 "save_to_file/path": ""
 }
+},
+"nodes": {
+"PATH:Room_1_LowCeiling_001": {
+"generate/physics": true
+},
+"PATH:Room_2_LowCeiling_001": {
+"generate/physics": true
+},
+"PATH:Room_3_001": {
+"generate/physics": true
+},
+"PATH:Room_3_LowCeiling_001": {
+"generate/physics": true
+}
 }
 }
 gltf/naming_version=2

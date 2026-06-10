@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cvqg61htsxi6o" path="res://Assets/sci-fi-like Asset/scenes/Posts/post_wide.tscn" id="9_w18sb"]
 [ext_resource type="PackedScene" uid="uid://csqnxiysek266" path="res://Assets/sci-fi-like Asset/scenes/Stickers/stickers_arrow.tscn" id="10_rnsht"]
 [ext_resource type="PackedScene" uid="uid://dbr3wnq2tca7t" path="res://barrely.glb" id="11_y1754"]
+[ext_resource type="PackedScene" uid="uid://exls4ptjrfp7" path="res://halftile.glb" id="14_w18sb"]
 
 [node name="Tiles" type="Node3D" unique_id=1232835174]
 
@@ -20,9 +21,9 @@
 mesh_library = ExtResource("2_d6bvg")
 cell_size = Vector3(6, 2, 6)
 data = {
-"cells": PackedInt32Array(0, 0, 1441795, 0, 1, 1441795, 0, 2, 1441795, 65535, 4, 655364, 0, 3, 1441797, 65535, 3, 1048578, 65535, 6, 1048576, 0, 6, 1048576, 65535, 65535, 0, 0, 65535, 0, -65536, 5, 1441795, -65536, 4, 1441795, 262143, 5, 1048579, 262143, 6, 1048579, 262143, 7, 1048579, 2, 65535, 1441792, 2, 65534, 1048579, 1, 65535, 3, 2, 65533, 1048579, 2, 65532, 1, 3, 65535, 655363, 4, 65535, 1441793, 4, 0, 1441795, 4, 1, 1048579, 3, 65532, 655363)
+"cells": PackedInt32Array(0, 0, 1441795, 0, 1, 1441795, 0, 2, 1441795, 65535, 4, 655364, 0, 3, 1441797, 65535, 3, 1048578, 65535, 6, 1048576, 65535, 65535, 0, 0, 65535, 0, 262143, 5, 1048579, 262143, 6, 1048579, 262143, 7, 1048579, 2, 65535, 1441792, 2, 65534, 1048579, 1, 65535, 3, 2, 65533, 1048579, 2, 65532, 1, 3, 65535, 655363, 4, 65535, 1441793, 4, 0, 1441795, 4, 1, 1048579, 3, 65532, 655363, 0, 6, 1048576)
 }
-metadata/_editor_floor_ = Vector3(0, 6, 0)
+metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="extra_floor" type="GridMap" parent="." unique_id=1884979385]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.5, 0.2, 42)
@@ -31,16 +32,16 @@ cell_size = Vector3(6, 2, 6)
 data = {
 "cells": PackedInt32Array(262136, 3, 524288, 65535, 65531, 0, 0, 65531, 0, 65534, 65531, 0, 65534, 65532, 0, 65535, 65532, 0, 0, 65532, 0, 0, 65533, 0, 65535, 65533, 0, 65534, 65533, 0, 262138, 1, 0, 262139, 1, 0, 262137, 1, 0, 262137, 2, 0, 262138, 2, 0, 262139, 2, 0, 262139, 3, 0, 262138, 3, 0, 262137, 3, 0)
 }
-metadata/_editor_floor_ = Vector3(0, 57, 0)
+metadata/_editor_floor_ = Vector3(0, -2, 0)
 
 [node name="extra_roof" type="GridMap" parent="." unique_id=392191268]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 44, 84)
 mesh_library = ExtResource("3_w18sb")
 cell_size = Vector3(6, 2, 6)
 data = {
-"cells": PackedInt32Array(2424827, 65500, 1048578, 2424830, 65524, 1048578, 2424830, 65526, 1048577, 2359296, 65526, 655361, 2359296, 65524, 1441793, 2359296, 65525, 1441795, 2424831, 65524, 655363, 2424830, 65525, 1048579, 2424831, 65526, 3, 2424831, 65525, 4)
+"cells": PackedInt32Array(2424827, 65500, 1048578, 2424830, 65524, 1048578, 2424830, 65526, 1048577, 2359296, 65526, 655361, 2359296, 65524, 1441793, 2359296, 65525, 1441795, 2424831, 65524, 655363, 2424830, 65525, 1048579, 2424831, 65526, 3, 2424831, 65525, 4, -327687, 65530, 1048578, -327685, 65530, 2, -327687, 65532, 655362, -327685, 65532, 1441794, -327685, 65531, 1048579, -327686, 65530, 655363, -327687, 65531, 1048579, -327686, 65532, 3, -327686, 65531, 4, -1376261, 65526, 1048579, -1376261, 65527, 1048579, -1376261, 65528, 1048579, -1441797, 65527, 1048576, -1441797, 65526, 1048576)
 }
-metadata/_editor_floor_ = Vector3(0, 36, 0)
+metadata/_editor_floor_ = Vector3(0, -23, 0)
 
 [node name="Walls" type="GridMap" parent="." unique_id=1605022476]
 mesh_library = ExtResource("1_k6t24")
@@ -53,7 +54,7 @@ metadata/_editor_floor_ = Vector3(0, 60, 0)
 mesh_library = ExtResource("3_d6bvg")
 cell_size = Vector3(2, 2.5, 2)
 data = {
-"cells": PackedInt32Array(1, 17, 1048577, 1, 18, 1048577, 0, 6, 1048584, 0, 4, 1048584, 1, 65533, 5)
+"cells": PackedInt32Array(0, 6, 1048584, 0, 4, 1048584, 1, 65533, 5)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
@@ -162,3 +163,9 @@ transform = Transform3D(4.371139e-08, 3.8213714e-15, 1, 8.742278e-08, -1, 0, 1, 
 
 [node name="barrely" parent="." unique_id=1999475298 instance=ExtResource("11_y1754")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.9029448, 1.1999998, 0.64059734)
+
+[node name="halftile" parent="." unique_id=1505478881 instance=ExtResource("14_w18sb")]
+transform = Transform3D(-2.047162e-08, -1.5308052e-08, 1, -0.1751037, 0.9366722, 0, -0.4683361, -0.3502074, -4.371139e-08, 23.815, -0.47, 32.14)
+
+[node name="halftile2" parent="." unique_id=538016578 instance=ExtResource("14_w18sb")]
+transform = Transform3D(-2.047162e-08, -1.5308052e-08, -1, -0.1751037, 0.9366722, 8.881784e-16, 0.4683361, 0.3502074, -4.371139e-08, -18.35, -0.47, 27.851)
