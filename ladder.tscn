@@ -6,13 +6,13 @@
 size = Vector3(0.001, 60, 2.402884)
 
 [sub_resource type="BoxMesh" id="BoxMesh_lqhsa"]
-size = Vector3(1, 60, 1)
+size = Vector3(0, 60, 1)
 
 [node name="Ladder" type="Area3D" unique_id=1926364976]
 script = ExtResource("1_cq4ai")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=207189274]
-transform = Transform3D(1, -8.720822e-06, 1.1678532e-05, 8.720822e-06, 1, -9.600864e-06, -1.1678532e-05, 9.600864e-06, 1, -2.9990807, 0.011564409, 0.061088383)
+transform = Transform3D(1, -8.720822e-06, 1.1678532e-05, 8.720822e-06, 1, -9.600864e-06, -1.1678532e-05, 9.600864e-06, 1, -0.5057937, 0.011564409, 0.061088383)
 shape = SubResource("BoxShape3D_efw3x")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1297464629]

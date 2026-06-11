@@ -9,10 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bn81pe6726mrv" path="res://ladder.tscn" id="7_6iypd"]
 [ext_resource type="Script" uid="uid://re16kidftmvc" path="res://win_lose_green.gd" id="7_jsk3o"]
 [ext_resource type="PackedScene" uid="uid://0pusmkcmxmh" path="res://rising_platform.tscn" id="8_4arys"]
-[ext_resource type="Script" uid="uid://rtfm16fkr3ux" path="res://pause_menu.gd" id="8_6iypd"]
 [ext_resource type="Script" uid="uid://dj8ud7oafxrlp" path="res://auto_tween.gd" id="9_imku0"]
-[ext_resource type="Script" uid="uid://beg0sdtff03a5" path="res://button_animation.gd" id="10_tereu"]
-[ext_resource type="Script" uid="uid://d1gm5b5k36yf1" path="res://containertween.gd" id="11_cdqbm"]
+[ext_resource type="PackedScene" uid="uid://cu4lu6by3qsp2" path="res://pause_menu.tscn" id="11_tereu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i5arm"]
 
@@ -103,10 +101,10 @@ theme_override_font_sizes/font_size = 30
 text = "TTT"
 
 [node name="HealthBar" type="ProgressBar" parent="HUD" unique_id=1928750429]
-offset_left = 368.0
-offset_top = 531.0
-offset_right = 683.0
-offset_bottom = 560.0
+offset_left = 343.0
+offset_top = 550.0
+offset_right = 674.0
+offset_bottom = 565.0
 show_percentage = false
 
 [node name="HealthLabel" type="Label" parent="HUD" unique_id=468478452]
@@ -199,68 +197,6 @@ text = "QUIT"
 [node name="AutoTween" type="Node" parent="WinLoseGreen/Panel" unique_id=566148918]
 script = ExtResource("9_imku0")
 
-[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=2012220508 groups=["pause_menu"]]
-process_mode = 3
-layer = 10
-script = ExtResource("8_6iypd")
-
-[node name="Panel" type="Panel" parent="PauseMenu" unique_id=1077884289]
-process_mode = 3
-custom_minimum_size = Vector2(400, 300)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PauseImage" type="TextureRect" parent="PauseMenu/Panel" unique_id=1729146556]
-layout_mode = 0
-offset_left = 145.0
-offset_top = 86.0
-offset_right = 193.0
-offset_bottom = 126.0
-
-[node name="TitleLabel" type="Label" parent="PauseMenu/Panel" unique_id=2044333605]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -146.5
-offset_top = 101.0
-offset_right = 146.5
-offset_bottom = 170.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 50
-text = "Game Menu"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel" unique_id=454647076]
-layout_mode = 0
-offset_left = 514.0
-offset_top = 235.0
-offset_right = 636.0
-offset_bottom = 336.0
-
-[node name="ResumeButton" type="Button" parent="PauseMenu/Panel/VBoxContainer" unique_id=298917195]
-layout_mode = 2
-text = "RESUME GAME"
-script = ExtResource("10_tereu")
-
-[node name="RestartButton" type="Button" parent="PauseMenu/Panel/VBoxContainer" unique_id=1586076812]
-layout_mode = 2
-text = "RESTART"
-script = ExtResource("10_tereu")
-
-[node name="QuitButton" type="Button" parent="PauseMenu/Panel/VBoxContainer" unique_id=648960005]
-layout_mode = 2
-text = "QUIT TO TITLE
-"
-script = ExtResource("10_tereu")
-
-[node name="containertween" type="Node" parent="PauseMenu/Panel" unique_id=612451338]
-script = ExtResource("11_cdqbm")
-
 [node name="WinZone" type="Area3D" parent="." unique_id=1546917394 groups=["win_zone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9676492, 7.60793)
 collision_layer = 3
@@ -275,3 +211,5 @@ mesh = SubResource("BoxMesh_jsk3o")
 
 [node name="RisingPlatform" parent="." unique_id=645753205 instance=ExtResource("8_4arys")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67, -2.437, 18.721)
+
+[node name="PauseMenu" parent="." unique_id=1871726847 instance=ExtResource("11_tereu")]

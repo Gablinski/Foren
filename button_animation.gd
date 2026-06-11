@@ -10,6 +10,7 @@ func _ready() -> void:
 	mouse_exited.connect(unhover)
 	pressed.connect(on_press)
 
+
 func hover() -> void:
 	if disabled:
 		return

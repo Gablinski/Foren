@@ -12,9 +12,13 @@ const COLOR_LOSE : Color = Color(1.0, 0.25, 0.25, 1.0)
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	panel.visible = false
+	panel.modulate.a = 0.0
+	panel.visible = true
 	restart_button.pressed.connect(_on_restart)
 	quit_button.pressed.connect(_on_quit)
+	# disable buttons until screen is actually shown
+	restart_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	quit_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	await get_tree().process_frame
 	var gm := get_tree().get_first_node_in_group("game_manager")
 	if gm:
@@ -36,9 +40,10 @@ func _show_screen() -> void:
 	var pm := get_tree().get_first_node_in_group("pause_menu")
 	if pm:
 		pm.set_game_over()
-	panel.visible = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	restart_button.grab_focus()
+	restart_button.mouse_filter = Control.MOUSE_FILTER_STOP
+	quit_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	panel.modulate.a = 0.0
 	var tween := create_tween()
 	tween.tween_property(panel, "modulate:a", 1.0, 0.4) \

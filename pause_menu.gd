@@ -11,7 +11,10 @@ var _game_over : bool = false
 @onready var quit_button    : Button = $Panel/VBoxContainer/QuitButton
 
 func _ready() -> void:
-	panel.modulate.a = 0.0  # hide visually but keep in tree
+	panel.modulate.a = 0.0
+	resume_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	restart_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	quit_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	resume_button.pressed.connect(_on_resume)
 	restart_button.pressed.connect(_on_restart)
 	quit_button.pressed.connect(_on_quit)
@@ -37,6 +40,9 @@ func _pause() -> void:
 	panel.modulate.a = 0.0
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	resume_button.mouse_filter = Control.MOUSE_FILTER_STOP
+	restart_button.mouse_filter = Control.MOUSE_FILTER_STOP
+	quit_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	resume_button.grab_focus()
 	var tween := create_tween()
 	tween.tween_property(panel, "modulate:a", 1.0, 0.2) \
@@ -45,6 +51,9 @@ func _pause() -> void:
 func _on_resume() -> void:
 	_paused = false
 	panel.modulate.a = 0.0
+	resume_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	restart_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	quit_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -54,6 +63,7 @@ func _on_restart() -> void:
 	get_tree().reload_current_scene()
 
 func _on_quit() -> void:
+	print("quit")
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().change_scene_to_file(main_menu_scene)
