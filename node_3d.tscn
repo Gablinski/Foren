@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bn81pe6726mrv" path="res://ladder.tscn" id="7_6iypd"]
 [ext_resource type="Script" uid="uid://re16kidftmvc" path="res://win_lose_green.gd" id="7_jsk3o"]
 [ext_resource type="PackedScene" uid="uid://0pusmkcmxmh" path="res://rising_platform.tscn" id="8_4arys"]
-[ext_resource type="Script" uid="uid://dj8ud7oafxrlp" path="res://auto_tween.gd" id="9_imku0"]
 [ext_resource type="PackedScene" uid="uid://cu4lu6by3qsp2" path="res://pause_menu.tscn" id="11_tereu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i5arm"]
@@ -194,9 +193,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "QUIT"
 
-[node name="AutoTween" type="Node" parent="WinLoseGreen/Panel" unique_id=566148918]
-script = ExtResource("9_imku0")
-
 [node name="WinZone" type="Area3D" parent="." unique_id=1546917394 groups=["win_zone"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9676492, 7.60793)
 collision_layer = 3
@@ -210,6 +206,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1114235, 4.2772064, 41.136
 mesh = SubResource("BoxMesh_jsk3o")
 
 [node name="RisingPlatform" parent="." unique_id=645753205 instance=ExtResource("8_4arys")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67, -2.437, 18.721)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.437, 18.721)
 
 [node name="PauseMenu" parent="." unique_id=1871726847 instance=ExtResource("11_tereu")]

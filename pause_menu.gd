@@ -12,6 +12,7 @@ var _game_over : bool = false
 
 func _ready() -> void:
 	panel.modulate.a = 0.0
+	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	resume_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	restart_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	quit_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -38,6 +39,10 @@ func _input(event: InputEvent) -> void:
 func _pause() -> void:
 	_paused = true
 	panel.modulate.a = 0.0
+	panel.mouse_filter = Control.MOUSE_FILTER_STOP
+	get_tree().paused = true
+	_paused = true
+	panel.modulate.a = 0.0
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	resume_button.mouse_filter = Control.MOUSE_FILTER_STOP
@@ -49,6 +54,9 @@ func _pause() -> void:
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 func _on_resume() -> void:
+	_paused = false
+	panel.modulate.a = 0.0
+	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_paused = false
 	panel.modulate.a = 0.0
 	resume_button.mouse_filter = Control.MOUSE_FILTER_IGNORE

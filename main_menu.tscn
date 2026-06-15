@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dod5gtapxv4v"]
 
 [ext_resource type="Script" uid="uid://bf8ctpe8cyav6" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://beg0sdtff03a5" path="res://button_animation.gd" id="2_7vrkn"]
 
 [node name="MainMenu" type="CanvasLayer" unique_id=1710865201]
 script = ExtResource("1_06t4h")
@@ -41,6 +42,7 @@ offset_right = 55.0
 offset_bottom = 256.0
 grow_horizontal = 2
 text = "START"
+script = ExtResource("2_7vrkn")
 
 [node name="SettingsButton" type="Button" parent="Panel" unique_id=174609315]
 layout_mode = 0
@@ -49,6 +51,7 @@ offset_top = 264.0
 offset_right = 631.0
 offset_bottom = 314.0
 text = "SETTINGS"
+script = ExtResource("2_7vrkn")
 
 [node name="QuitButton" type="Button" parent="Panel" unique_id=1280882278]
 layout_mode = 1
@@ -64,3 +67,4 @@ offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "QUIT"
+script = ExtResource("2_7vrkn")

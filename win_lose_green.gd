@@ -10,15 +10,18 @@ const COLOR_LOSE : Color = Color(1.0, 0.25, 0.25, 1.0)
 @onready var restart_button : Button = $Panel/RestartButton
 @onready var quit_button    : Button = $Panel/QuitButton
 
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	panel.modulate.a = 0.0
+	panel.process_mode = Node.PROCESS_MODE_ALWAYS
 	panel.visible = true
+	panel.modulate.a = 0.0
 	restart_button.pressed.connect(_on_restart)
 	quit_button.pressed.connect(_on_quit)
-	# disable buttons until screen is actually shown
 	restart_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	quit_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	restart_button.process_mode = Node.PROCESS_MODE_ALWAYS
+	quit_button.process_mode = Node.PROCESS_MODE_ALWAYS
 	await get_tree().process_frame
 	var gm := get_tree().get_first_node_in_group("game_manager")
 	if gm:
@@ -44,10 +47,14 @@ func _show_screen() -> void:
 	restart_button.grab_focus()
 	restart_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	quit_button.mouse_filter = Control.MOUSE_FILTER_STOP
+	panel.process_mode = Node.PROCESS_MODE_ALWAYS
 	panel.modulate.a = 0.0
 	var tween := create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(panel, "modulate:a", 1.0, 0.4) \
 		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	restart_button.process_mode = Node.PROCESS_MODE_ALWAYS
+	quit_button.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _on_restart() -> void:
 	get_tree().paused = false

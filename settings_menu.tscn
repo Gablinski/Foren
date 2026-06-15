@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dl4ev14lrst32"]
 
 [ext_resource type="Script" uid="uid://dmbkqwb8y8new" path="res://settings_menu.gd" id="1_ufg0w"]
+[ext_resource type="Script" uid="uid://beg0sdtff03a5" path="res://button_animation.gd" id="2_0cmel"]
 
 [node name="SettingsMenu" type="CanvasLayer" unique_id=1745313308]
 script = ExtResource("1_ufg0w")
@@ -42,3 +43,4 @@ offset_bottom = -5.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "BACK"
+script = ExtResource("2_0cmel")
