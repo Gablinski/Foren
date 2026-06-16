@@ -14,6 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://csqnxiysek266" path="res://Assets/sci-fi-like Asset/scenes/Stickers/stickers_arrow.tscn" id="10_rnsht"]
 [ext_resource type="PackedScene" uid="uid://dbr3wnq2tca7t" path="res://barrely.glb" id="11_y1754"]
 [ext_resource type="PackedScene" uid="uid://exls4ptjrfp7" path="res://halftile.glb" id="14_w18sb"]
+[ext_resource type="PackedScene" uid="uid://xm4itnhr7ene" path="res://flat_after_barrels.glb" id="15_8mo23"]
+[ext_resource type="PackedScene" uid="uid://bynrklb4xps4" path="res://metalpipe.glb" id="16_gjn3x"]
+[ext_resource type="PackedScene" uid="uid://cpp0iiw2eq64" path="res://watertank.glb" id="17_sxt1b"]
+[ext_resource type="PackedScene" uid="uid://lwv56whymvqw" path="res://woodplatform.glb" id="18_sxt1b"]
 
 [node name="Tiles" type="Node3D" unique_id=1232835174]
 
@@ -164,8 +168,29 @@ transform = Transform3D(4.371139e-08, 3.8213714e-15, 1, 8.742278e-08, -1, 0, 1, 
 [node name="barrely" parent="." unique_id=1999475298 instance=ExtResource("11_y1754")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.9029448, 1.1999998, 0.64059734)
 
+[node name="barrely" parent="barrely" unique_id=2046618197 instance=ExtResource("11_y1754")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.224014, 0.022958279, 26.640596)
+
+[node name="barrely2" parent="barrely" unique_id=675450309 instance=ExtResource("11_y1754")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.28746, 0.13350439, 29.534628)
+
+[node name="barrely3" parent="barrely" unique_id=470661614 instance=ExtResource("11_y1754")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.28746, 4.1335044, 28.349836)
+
 [node name="halftile" parent="." unique_id=1505478881 instance=ExtResource("14_w18sb")]
 transform = Transform3D(-2.047162e-08, -1.5308052e-08, 1, -0.1751037, 0.9366722, 0, -0.4683361, -0.3502074, -4.371139e-08, 23.815, -0.47, 32.14)
 
 [node name="halftile2" parent="." unique_id=538016578 instance=ExtResource("14_w18sb")]
 transform = Transform3D(-2.047162e-08, -1.5308052e-08, -1, -0.1751037, 0.9366722, 8.881784e-16, 0.4683361, 0.3502074, -4.371139e-08, -18.35, -0.47, 27.851)
+
+[node name="flat_after_barrels" parent="." unique_id=1364659275 instance=ExtResource("15_8mo23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.4, 1.1175823, 30)
+
+[node name="metalpipe" parent="." unique_id=1180893605 instance=ExtResource("16_gjn3x")]
+transform = Transform3D(0.9961947, 0, -0.08715574, 0, 1, 0, 0.08715574, 0, 0.9961947, 48.36703, -32.319664, -15.253658)
+
+[node name="watertank" parent="." unique_id=253871157 instance=ExtResource("17_sxt1b")]
+transform = Transform3D(-3.934025e-08, 0, 0.9, 0, 0.9, 0, -0.9, 0, -3.934025e-08, 39.52497, 1.2601991, 26.967897)
+
+[node name="woodplatform" parent="." unique_id=369160213 instance=ExtResource("18_sxt1b")]
+transform = Transform3D(-0.7, 0, -1.0569706e-07, 0, 0.7, 0, 1.0569706e-07, 0, -0.7, 47.337067, -20.360683, 27.978516)
