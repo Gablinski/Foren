@@ -56,12 +56,9 @@ func show() -> void:
 	show_started.emit()
 	if tween and tween.is_running():
 		tween.kill()
-
 	tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-
 	if start_delay > 0.0:
 		tween.tween_interval(start_delay)
-
 	match anim_type:
 		ANIM_TYPE.FADE:
 			tween.tween_property(target, "modulate:a", 1.0, duration)
@@ -70,7 +67,9 @@ func show() -> void:
 			if force_from:
 				target.scale = Vector2.ZERO
 			tween.tween_property(target, "scale", Vector2.ONE, duration).from(Vector2.ZERO)
-
+	tween.chain().tween_callback(func():
+		target.pivot_offset = Vector2.ZERO
+	)
 	if auto_hide_after > 0.0:
 		tween.chain().tween_interval(auto_hide_after)
 		tween.chain().tween_callback(hide)

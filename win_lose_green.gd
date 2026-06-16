@@ -10,12 +10,10 @@ const COLOR_LOSE : Color = Color(1.0, 0.25, 0.25, 1.0)
 @onready var restart_button : Button = $Panel/RestartButton
 @onready var quit_button    : Button = $Panel/QuitButton
 
-
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	panel.process_mode = Node.PROCESS_MODE_ALWAYS
-	panel.visible = true
-	panel.modulate.a = 0.0
+	panel.visible = false
 	restart_button.pressed.connect(_on_restart)
 	quit_button.pressed.connect(_on_quit)
 	restart_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -31,12 +29,25 @@ func _ready() -> void:
 func _on_game_won() -> void:
 	title_label.text     = "YOU WIN!"
 	title_label.modulate = COLOR_WIN
+	_animate_title()
 	_show_screen()
 
 func _on_game_lost() -> void:
 	title_label.text     = "YOU LOSE"
 	title_label.modulate = COLOR_LOSE
+	_animate_title()
 	_show_screen()
+
+func _animate_title() -> void:
+	title_label.pivot_offset = title_label.size / 2.0
+	var t := create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	t.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	t.tween_property(title_label, "scale:x", 1.2, 0.1)
+	t.parallel().tween_property(title_label, "scale:y", 1.2, 0.15)
+	t.parallel().tween_property(title_label, "rotation_degrees", 15.0 * [-1.0, 1.0].pick_random(), 0.1)
+	t.chain().tween_property(title_label, "scale:x", 1.0, 0.2).set_delay(0.25)
+	t.parallel().tween_property(title_label, "scale:y", 1.0, 0.3)
+	t.parallel().tween_property(title_label, "rotation_degrees", 0.0, 0.15)
 
 func _show_screen() -> void:
 	get_tree().paused = true
@@ -44,17 +55,19 @@ func _show_screen() -> void:
 	if pm:
 		pm.set_game_over()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	restart_button.grab_focus()
 	restart_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	quit_button.mouse_filter = Control.MOUSE_FILTER_STOP
-	panel.process_mode = Node.PROCESS_MODE_ALWAYS
-	panel.modulate.a = 0.0
-	var tween := create_tween()
-	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
-	tween.tween_property(panel, "modulate:a", 1.0, 0.4) \
-		.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	restart_button.process_mode = Node.PROCESS_MODE_ALWAYS
-	quit_button.process_mode = Node.PROCESS_MODE_ALWAYS
+	var buttons := [restart_button, quit_button]
+	for i in buttons.size():
+		var btn : Button = buttons[i]
+		btn.modulate.a = 0.0
+		var t := create_tween()
+		t.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+		t.tween_interval(0.15 + i * 0.08)
+		t.tween_property(btn, "modulate:a", 1.0, 0.2).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	panel.visible = true
+	await get_tree().create_timer(0.4, false, false, true).timeout
+	restart_button.grab_focus()
 
 func _on_restart() -> void:
 	get_tree().paused = false
