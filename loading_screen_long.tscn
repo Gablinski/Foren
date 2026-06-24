@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://br28dc87ti4nj"]
+
+[ext_resource type="Script" uid="uid://c2uif332uvd6" path="res://loading_screen_long.gd" id="1_ia1sv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_8ryub"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_04of0"]
+resource_name = "transition"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rtiki"]
+_data = {
+&"RESET": SubResource("Animation_8ryub"),
+&"transition": SubResource("Animation_04of0")
+}
+
+[node name="LoadingScreenLong" type="CanvasLayer" unique_id=1772059870]
+script = ExtResource("1_ia1sv")
+
+[node name="Panel" type="Panel" parent="." unique_id=398910017]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1654182729]
+libraries/ = SubResource("AnimationLibrary_rtiki")
+autoplay = &"transition"
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=375664643]
+offset_left = 180.0
+offset_top = 79.0
+offset_right = 456.0
+offset_bottom = 114.0
+
+[node name="Label" type="Label" parent="." unique_id=370472165]
+offset_left = 196.0
+offset_top = 76.0
+offset_right = 282.0
+offset_bottom = 115.0
+text = "label?"
