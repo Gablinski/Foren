@@ -19,7 +19,7 @@ func on_progress_changed(value: float) -> void:
 		update_value = value
 
 func _process(delta: float) -> void:
-	var target := 0.5 if update_value >= 1.0 else clamp(update_value + (0.9 - progress_bar.value) * delta * 0.5, 0.0, 0.9)
+	var target : float = 0.5 if update_value >= 1.0 else clamp(update_value + (0.9 - progress_bar.value) * delta * 0.5, 0.0, 0.9)
 	progress_bar.value = lerp(progress_bar.value, target, delta * 3.0)
 	percentage_label.text = str(int(progress_bar.value * 100))
 

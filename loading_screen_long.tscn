@@ -41,8 +41,11 @@ _data = {
 &"transition": SubResource("Animation_04of0")
 }
 
-[node name="LoadingScreenLong" type="CanvasLayer" unique_id=1772059870]
+[node name="LoadingScreenLong" type="CanvasLayer" unique_id=1772059870 node_paths=PackedStringArray("animation_player", "progress_bar", "percentage_label")]
 script = ExtResource("1_ia1sv")
+animation_player = NodePath("AnimationPlayer")
+progress_bar = NodePath("ProgressBar")
+percentage_label = NodePath("Label")
 
 [node name="Panel" type="Panel" parent="." unique_id=398910017]
 modulate = Color(1, 1, 1, 0)
