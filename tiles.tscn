@@ -226,5 +226,8 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 45.5
 [node name="bareltrolley" parent="." unique_id=1632965937 instance=ExtResource("21_38uyi")]
 transform = Transform3D(-2.6226834e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.6226834e-08, 15.773022, 1.2110353, 5.11797)
 
-[node name="Node3D" parent="." unique_id=1239740923 instance=ExtResource("22_jygf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9050028, -0.71691275, 23.225891)
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1669940488]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 5.2998013, 5.828232, 91.33774)
+
+[node name="lava_mesh" parent="." unique_id=1239740923 instance=ExtResource("22_jygf0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.299805, -0.94696236, 25.111778)

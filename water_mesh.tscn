@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cl25t57owbggl"]
 
 [ext_resource type="Shader" uid="uid://ct5nogncsvcfj" path="res://new_shader.gdshader" id="1_2vs5d"]
+[ext_resource type="Script" uid="uid://bdqvgyhm1pjei" path="res://lava_mesh.tscn.gd" id="2_jvgau"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
 size = Vector2(100, 100)
@@ -10,17 +11,18 @@ subdivide_depth = 100
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yf5fn"]
 render_priority = 0
 shader = ExtResource("1_2vs5d")
-shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
-shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
-shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
+shader_parameter/WATER_COL = Color(0.9490196, 0.54901963, 0, 1)
+shader_parameter/WATER2_COL = Color(0.8509804, 0.40784314, 0, 1)
+shader_parameter/FOAM_COL = Color(1, 0.8509804, 0.2, 1)
 shader_parameter/distortion_speed = 2.0
 shader_parameter/tile = Vector2(5, 5)
 shader_parameter/height = 2.0
 shader_parameter/wave_size = Vector2(2, 2)
 shader_parameter/wave_speed = 1.5
 
-[node name="Node3D" type="Node3D" unique_id=1239740923]
+[node name="lava_mesh" type="Node3D" unique_id=1239740923]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=663208729]
+[node name="lava_mesh" type="MeshInstance3D" parent="." unique_id=663208729]
 mesh = SubResource("PlaneMesh_g4v7s")
 surface_material_override/0 = SubResource("ShaderMaterial_yf5fn")
+script = ExtResource("2_jvgau")
