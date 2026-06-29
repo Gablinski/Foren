@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bfavderhxghqm" path="res://longplatform.glb" id="20_g03pp"]
 [ext_resource type="PackedScene" uid="uid://uk2cfsnj3myr" path="res://bareltrolley.glb" id="21_c4qf5"]
 [ext_resource type="PackedScene" uid="uid://cl25t57owbggl" path="res://water_mesh.tscn" id="22_powrf"]
+[ext_resource type="PackedScene" uid="uid://b3ft5eqy2gsvr" path="res://long_main_platform.glb" id="23_vreyb"]
 
 [node name="Tiles" type="Node3D" unique_id=1232835174]
 
@@ -179,6 +180,15 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.1799304, 1.1999998, 0
 [node name="barrely" parent="barrely" unique_id=2046618197 instance=ExtResource("13_ke56w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.05907, 0.022958279, 26.640596)
 
+[node name="barrely" parent="barrely/barrely" unique_id=817272472 instance=ExtResource("13_ke56w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.983963, 11.962467, 98.52577)
+
+[node name="barrely2" parent="barrely/barrely" unique_id=1619682724 instance=ExtResource("13_ke56w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.49677, 12.073013, 97.58893)
+
+[node name="barrely3" parent="barrely/barrely" unique_id=1937392687 instance=ExtResource("13_ke56w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.450653, 16.073013, 98.604866)
+
 [node name="barrely2" parent="barrely" unique_id=675450309 instance=ExtResource("13_ke56w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.122517, 0.13350439, 29.534628)
 
@@ -224,10 +234,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.299805, -0.94696236, 25.111
 [node name="platforms" type="Node3D" parent="." unique_id=167863628]
 
 [node name="woodplatform" parent="platforms" unique_id=369160213 instance=ExtResource("18_ixsyw")]
-transform = Transform3D(-0.7, 0, -1.0569706e-07, 0, 0.7, 0, 1.0569706e-07, 0, -0.7, 47.622196, -18.972893, 27.978516)
-
-[node name="corner_platform" parent="platforms" unique_id=1269092199 instance=ExtResource("19_h3ajs")]
-transform = Transform3D(-1.2, 0, -1.8119498e-07, 0, 1.2, 0, 1.8119498e-07, 0, -1.2, -48.919, 2.1549287, -3.2)
+transform = Transform3D(-0.7, 0, -1.0569706e-07, 0, 0.7, 0, 1.0569706e-07, 0, -0.7, 47.47394, -18.972893, 27.978516)
 
 [node name="woodplatform2" parent="platforms" unique_id=1174383369 instance=ExtResource("18_ixsyw")]
 transform = Transform3D(8.347416e-09, 0, 0.7, 0, 0.7, 0, -0.7, 0, 8.347416e-09, 19.975267, -18.55818, 37.94972)
@@ -240,3 +247,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.4, 1.1175823, 30)
 
 [node name="longplatform2" parent="platforms" unique_id=2090557611 instance=ExtResource("20_g03pp")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 45.5, -1.5, -41.1)
+
+[node name="corner_platform" parent="." unique_id=1800909295 instance=ExtResource("19_h3ajs")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -35.42437, -8.489186, -0.67186356)
+
+[node name="long_main_platform" parent="." unique_id=1130818867 instance=ExtResource("23_vreyb")]
+transform = Transform3D(-0.8, 0, 6.9938224e-08, 0, 0.8, 0, -6.9938224e-08, 0, -0.8, -48.83833, -0.82795715, 64.483505)
