@@ -178,7 +178,7 @@ transform = Transform3D(4.371139e-08, 3.8213714e-15, 1, 8.742278e-08, -1, 0, 1, 
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.1799304, 1.1999998, 0.64059734)
 
 [node name="barrely" parent="barrely" unique_id=2046618197 instance=ExtResource("13_ke56w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.05907, 0.022958279, 26.640596)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.996407, 0.022958279, 28.134424)
 
 [node name="barrely" parent="barrely/barrely" unique_id=817272472 instance=ExtResource("13_ke56w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.983963, 11.962467, 98.52577)
@@ -190,10 +190,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.49677, 12.073013, 97.5889
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.450653, 16.073013, 98.604866)
 
 [node name="barrely2" parent="barrely" unique_id=675450309 instance=ExtResource("13_ke56w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.122517, 0.13350439, 29.534628)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.122517, 0.13350439, 31.355371)
 
 [node name="barrely3" parent="barrely" unique_id=470661614 instance=ExtResource("13_ke56w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.122517, 4.1335044, 28.349836)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.20118, 4.1335044, 30.051252)
 
 [node name="barrely4" parent="barrely" unique_id=384363820 instance=ExtResource("13_ke56w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.784588, 0.045916557, 53.28119)
@@ -217,10 +217,10 @@ transform = Transform3D(1, -5.9604645e-08, 0, 1.4901161e-08, 1, 0, 3.5527137e-15
 transform = Transform3D(-0.75470954, -1.3121183, 1.6377297e-07, -0.32802957, 0.75470954, 3.0616107e-08, -4.094324e-08, -3.0616107e-08, -1, 8.034779, 1.502039, -42.165)
 
 [node name="metalpipe" parent="." unique_id=1180893605 instance=ExtResource("16_tdyy1")]
-transform = Transform3D(0.9961947, 0, -0.08715574, 0, 1, 0, 0.08715574, 0, 0.9961947, 47.965076, -31.693813, -15.253658)
+transform = Transform3D(0.9961947, 0, -0.08715574, 0, 1, 0, 0.08715574, 0, 0.9961947, 48.774845, -31.693813, -15.253658)
 
 [node name="watertank" parent="." unique_id=253871157 instance=ExtResource("17_t30w2")]
-transform = Transform3D(-3.934025e-08, 0, 0.9, 0, 0.9, 0, -0.9, 0, -3.934025e-08, 39.52497, 1.2601991, 26.967897)
+transform = Transform3D(-3.934025e-08, 0, 0.9, 0, 0.9, 0, -0.9, 0, -3.934025e-08, 39.65, 1.26, 26.912)
 
 [node name="bareltrolley" parent="." unique_id=1632965937 instance=ExtResource("21_c4qf5")]
 transform = Transform3D(-2.6226834e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.6226834e-08, 15.773022, 1.2110353, 5.11797)
@@ -243,13 +243,16 @@ transform = Transform3D(8.347416e-09, 0, 0.7, 0, 0.7, 0, -0.7, 0, 8.347416e-09, 
 transform = Transform3D(-3.059797e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.059797e-08, 19.927944, -18.568718, 42.186676)
 
 [node name="platform_after_barrels" parent="platforms" unique_id=1364659275 instance=ExtResource("15_5xoaq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.4, 1.1175823, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.4, 1.1175823, 31.691963)
 
 [node name="longplatform2" parent="platforms" unique_id=2090557611 instance=ExtResource("20_g03pp")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 45.5, -1.5, -41.1)
 
 [node name="corner_platform" parent="." unique_id=1800909295 instance=ExtResource("19_h3ajs")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -35.42437, -8.489186, -0.67186356)
+
+[node name="corner_platform" parent="corner_platform" unique_id=1394739944 instance=ExtResource("19_h3ajs")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -125.23093, -1.5794811, -42.867664)
 
 [node name="long_main_platform" parent="." unique_id=1130818867 instance=ExtResource("23_vreyb")]
 transform = Transform3D(-0.8, 0, 6.9938224e-08, 0, 0.8, 0, -6.9938224e-08, 0, -0.8, -48.83833, -0.82795715, 64.483505)
