@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Foren"
-run/main_scene="uid://dod5gtapxv4v"
+run/main_scene="uid://p8t2lexn5j67"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

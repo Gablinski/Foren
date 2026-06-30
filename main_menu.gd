@@ -2,7 +2,6 @@ extends CanvasLayer
 
 @export var game_scene     : String = "res://node_3d.tscn"
 @export var settings_scene : String = "res://settings_menu.tscn"
-
 @onready var start_button    : Button = $Panel/StartButton
 @onready var settings_button : Button = $Panel/SettingsButton
 @onready var quit_button     : Button = $Panel/QuitButton
@@ -16,10 +15,10 @@ func _ready() -> void:
 
 func _on_start() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	get_tree().change_scene_to_file(game_scene)
+	SceneLoader.load_scene(game_scene, "pregame")
 
 func _on_settings() -> void:
-	get_tree().change_scene_to_file(settings_scene)
+	SceneLoader.load_scene(settings_scene, "short")
 
 func _on_quit() -> void:
 	get_tree().quit()

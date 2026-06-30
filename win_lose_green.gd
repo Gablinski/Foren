@@ -72,9 +72,9 @@ func _show_screen() -> void:
 func _on_restart() -> void:
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	get_tree().reload_current_scene()
+	SceneLoader.load_scene(get_tree().current_scene.scene_file_path, "short")
 
 func _on_quit() -> void:
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	get_tree().change_scene_to_file(main_menu_scene)
+	SceneLoader.load_scene(main_menu_scene, "short")

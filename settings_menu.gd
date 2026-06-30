@@ -1,6 +1,5 @@
 ## For now just a placeholder with a back button.
 ## Add sliders, toggles etc. here later.
-
 extends CanvasLayer
 
 @export var main_menu_scene : String = "res://main_menu.tscn"
@@ -13,4 +12,4 @@ func _ready() -> void:
 	back_button.grab_focus()
 
 func _on_back() -> void:
-	get_tree().change_scene_to_file(main_menu_scene)
+	SceneLoader.load_scene(main_menu_scene, "short")
