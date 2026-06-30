@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cpeilnjoelfqd"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cpeilnjoelfqd"]
 
 [ext_resource type="Shader" uid="uid://46ltqeogisvy" path="res://Assets/sci-fi-like Asset/materials/TilesMaterials/EmissionShaders.tres" id="1_llb3s"]
 
@@ -7,7 +7,7 @@ render_priority = 0
 shader = ExtResource("1_llb3s")
 shader_parameter/point_size = 1.0
 shader_parameter/roughness = 1.0
-shader_parameter/metallic_texture_channel = Plane(1, 0, 0, 0)
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
 shader_parameter/specular = 0.5
 shader_parameter/metallic = 0.0
 shader_parameter/uv1_scale = Vector3(1, 1, 1)

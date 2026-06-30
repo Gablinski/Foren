@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://c2iol2o44s1fi" path="res://Assets/sci-fi-like Asset/scenes/Stickers/stickers_caution.tscn" id="33_onw6n"]
 [ext_resource type="PackedScene" uid="uid://bivo4egjc3m2p" path="res://Assets/sci-fi-like Asset/scenes/Stickers/stickers_3.tscn" id="34_m805w"]
 [ext_resource type="PackedScene" uid="uid://cm0h2wmiqkhrm" path="res://Assets/sci-fi-like Asset/scenes/Stickers/stickers_c.tscn" id="35_uvksb"]
+[ext_resource type="PackedScene" uid="uid://chk4v6gak7614" path="res://player.tscn" id="35_vxmdq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_br8xk"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -299,3 +300,6 @@ transform = Transform3D(-1.90913, 0, -8.74228e-08, 0, 1.64368, 0, 1.66901e-07, 0
 
 [node name="Stickers_C" parent="Stickers" unique_id=308574964 instance=ExtResource("35_uvksb")]
 transform = Transform3D(-1.50206, 0, -8.74228e-08, 0, 1.42009, 0, 1.31315e-07, 0, -1, 34.1133, 9.87204, 81.2972)
+
+[node name="Player" parent="." unique_id=1082028449 instance=ExtResource("35_vxmdq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.499506, 1.4507847, 0.50025034)
