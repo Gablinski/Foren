@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://detb76mk3kscn"]
+
+[ext_resource type="Script" uid="uid://ds2miovr824b8" path="res://burger_pickup.gd" id="1_gx4nq"]
+[ext_resource type="PackedScene" uid="uid://dqidxkxm53cqp" path="res://Burger_low-poly.glb" id="2_0duc7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ejlhg"]
+radius = 0.6
+
+[node name="BurgerPickup" type="Area3D" unique_id=461418647]
+collision_layer = 2
+script = ExtResource("1_gx4nq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=385228794]
+shape = SubResource("SphereShape3D_ejlhg")
+
+[node name="Burger_low-poly" parent="." unique_id=825376013 instance=ExtResource("2_0duc7")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.08416176, -0.16043335, 0)

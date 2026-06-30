@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cu4lu6by3qsp2"]
+
+[ext_resource type="Script" uid="uid://rtfm16fkr3ux" path="res://pause_menu.gd" id="1_05uyy"]
+[ext_resource type="Script" uid="uid://beg0sdtff03a5" path="res://button_animation.gd" id="2_p81d2"]
+[ext_resource type="Script" uid="uid://d1gm5b5k36yf1" path="res://containertween.gd" id="3_2nc7s"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1871726847 groups=["pause_menu"]]
+process_mode = 3
+layer = 10
+script = ExtResource("1_05uyy")
+
+[node name="Panel" type="Panel" parent="." unique_id=1149264934]
+process_mode = 3
+custom_minimum_size = Vector2(400, 300)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseImage" type="TextureRect" parent="Panel" unique_id=307273735]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 86.0
+offset_right = 193.0
+offset_bottom = 126.0
+
+[node name="TitleLabel" type="Label" parent="Panel" unique_id=385481269]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -146.5
+offset_top = 101.0
+offset_right = 146.5
+offset_bottom = 170.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Game Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=240364605]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 235.0
+offset_right = 636.0
+offset_bottom = 336.0
+
+[node name="ResumeButton" type="Button" parent="Panel/VBoxContainer" unique_id=117420649]
+layout_mode = 2
+text = "RESUME GAME"
+script = ExtResource("2_p81d2")
+
+[node name="RestartButton" type="Button" parent="Panel/VBoxContainer" unique_id=1213925079]
+layout_mode = 2
+text = "RESTART"
+script = ExtResource("2_p81d2")
+
+[node name="QuitButton" type="Button" parent="Panel/VBoxContainer" unique_id=1935333841]
+layout_mode = 2
+text = "QUIT TO TITLE
+"
+script = ExtResource("2_p81d2")
+
+[node name="containertween" type="Node" parent="Panel" unique_id=1228404786]
+script = ExtResource("3_2nc7s")

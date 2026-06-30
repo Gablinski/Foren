@@ -1,0 +1,222 @@
+[gd_scene format=3 uid="uid://c2c076r4ocxsd"]
+
+[ext_resource type="PackedScene" uid="uid://b5dwugt7kykfk" path="res://floor_(test).tscn" id="1_r3fl7"]
+[ext_resource type="PackedScene" uid="uid://chk4v6gak7614" path="res://player.tscn" id="2_jka67"]
+[ext_resource type="PackedScene" uid="uid://detb76mk3kscn" path="res://burger_pickup.tscn" id="3_4arys"]
+[ext_resource type="Script" uid="uid://c3tldjwrcb7ot" path="res://level_manager.gd" id="5_4arys"]
+[ext_resource type="Script" uid="uid://qcq60aetsacd" path="res://game_manager.gd" id="5_i5arm"]
+[ext_resource type="Script" uid="uid://y62hmxvcic30" path="res://hud.gd" id="6_wc5p8"]
+[ext_resource type="PackedScene" uid="uid://bn81pe6726mrv" path="res://ladder.tscn" id="7_6iypd"]
+[ext_resource type="Script" uid="uid://re16kidftmvc" path="res://win_lose_green.gd" id="7_jsk3o"]
+[ext_resource type="PackedScene" uid="uid://0pusmkcmxmh" path="res://rising_platform.tscn" id="8_4arys"]
+[ext_resource type="Script" uid="uid://dj8ud7oafxrlp" path="res://auto_tween.gd" id="9_cdqbm"]
+[ext_resource type="Script" uid="uid://btx627xaya0b7" path="res://auto_tween_property.gd" id="10_imku0"]
+[ext_resource type="PackedScene" uid="uid://cu4lu6by3qsp2" path="res://pause_menu.tscn" id="11_tereu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i5arm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wc5p8"]
+albedo_color = Color(0.4614938, 0.70217776, 0.33365488, 1)
+emission_enabled = true
+emission = Color(0, 0.3764706, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jsk3o"]
+material = SubResource("StandardMaterial3D_wc5p8")
+
+[node name="Node3D" type="Node3D" unique_id=1001239712]
+
+[node name="Player" parent="." unique_id=1082028449 groups=["player"] instance=ExtResource("2_jka67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43067098, 0)
+
+[node name="TestingObjects" type="Node" parent="." unique_id=1146520545]
+
+[node name="Floor (test)" parent="TestingObjects" unique_id=464303266 instance=ExtResource("1_r3fl7")]
+
+[node name="Floor (test)2" parent="TestingObjects" unique_id=1192771561 groups=["platform_burger_01"] instance=ExtResource("1_r3fl7")]
+transform = Transform3D(0.2, 0, 0, 0, -0.19439219, -0.047028437, 0, 0.047028437, -0.19439219, 0, 0.7701621, 14.252069)
+visible = false
+
+[node name="Floor (test)3" parent="TestingObjects" unique_id=1407943833 groups=["platform_burger_01"] instance=ExtResource("1_r3fl7")]
+transform = Transform3D(0.19999999, 0, 0, 0, -0.19273163, -0.05342749, 0, 0.05342749, -0.19273163, -6.8817167, 2.1825137, 19.355295)
+visible = false
+
+[node name="Floor (test)4" parent="TestingObjects" unique_id=749615128 groups=["platform_burger_01"] instance=ExtResource("1_r3fl7")]
+transform = Transform3D(0.19999999, 0, 0, 0, -0.19273163, -0.05342749, 0, 0.05342749, -0.19273163, -1.1701024, 3.612555, 24.893879)
+visible = false
+
+[node name="Floor (test)5" parent="TestingObjects" unique_id=1254723120 groups=["platform_burger_01"] instance=ExtResource("1_r3fl7")]
+transform = Transform3D(0.19999234, -0.0016318586, 0.00062320376, 0.0016236505, 0.19997653, 0.0025926041, -0.00064428645, -0.0025874455, 0.19998215, -6.147586, 4.5428343, 32.16483)
+visible = false
+
+[node name="Floor (test)6" parent="TestingObjects" unique_id=2070721813 groups=["platform_burger_01"] instance=ExtResource("1_r3fl7")]
+transform = Transform3D(0.19999234, -0.0016318586, 0.00062320376, 0.0016236505, 0.19997653, 0.0025926041, -0.00064428645, -0.0025874455, 0.19998215, -1.287818, 4.5428343, 38.84461)
+visible = false
+
+[node name="Floor (test)7" parent="TestingObjects" unique_id=1270351707 groups=["platform_burger_01"] instance=ExtResource("1_r3fl7")]
+transform = Transform3D(0.19999234, -0.0016318586, 0.00062320376, 0.0016236505, 0.19997653, 0.0025926041, -0.00064428645, -0.0025874455, 0.19998215, -6.147586, 4.5428343, 47.435623)
+visible = false
+
+[node name="Ladder" parent="TestingObjects" unique_id=1926364976 instance=ExtResource("7_6iypd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.906874, 2.6062932, 5.4734564)
+
+[node name="burger_pickup" parent="TestingObjects" unique_id=461418647 groups=["burger_pickup", "platform_burger_01"] instance=ExtResource("3_4arys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5247011, 8.935295)
+
+[node name="GameManager" type="Node" parent="." unique_id=1486230476 groups=["game_manager"]]
+script = ExtResource("5_i5arm")
+
+[node name="LevelManager" type="Node" parent="." unique_id=997800945]
+script = ExtResource("5_4arys")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=2005732275]
+script = ExtResource("6_wc5p8")
+
+[node name="BurgerCounter" type="Label" parent="HUD" unique_id=1315027889]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -174.0
+offset_top = -87.0
+offset_right = 24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "BURGERS: 0/5
+"
+
+[node name="TimerLabel" type="Label" parent="HUD" unique_id=1987531519]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 43.0
+offset_top = -87.0
+offset_right = 94.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "TTT"
+
+[node name="HealthBar" type="ProgressBar" parent="HUD" unique_id=1928750429]
+offset_left = 343.0
+offset_top = 550.0
+offset_right = 674.0
+offset_bottom = 565.0
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="HUD" unique_id=468478452]
+offset_left = 344.0
+offset_top = 574.0
+offset_right = 384.0
+offset_bottom = 597.0
+text = "100%"
+
+[node name="DamageFlash" type="ColorRect" parent="HUD" unique_id=1478104149]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WinLoseGreen" type="CanvasLayer" parent="." unique_id=42042863]
+script = ExtResource("7_jsk3o")
+
+[node name="Panel" type="Panel" parent="WinLoseGreen" unique_id=272343350 node_paths=PackedStringArray("target")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_cdqbm")
+target = NodePath(".")
+duration = 0.3
+
+[node name="WinLoseImage" type="TextureRect" parent="WinLoseGreen/Panel" unique_id=1949840048]
+layout_mode = 0
+offset_left = -231.0
+offset_top = -113.0
+offset_right = -183.0
+offset_bottom = -73.0
+
+[node name="TitleLabel" type="Label" parent="WinLoseGreen/Panel" unique_id=1067900973]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 146.0
+offset_right = 100.0
+offset_bottom = 215.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "you lose"
+
+[node name="Control" type="Control" parent="WinLoseGreen/Panel/TitleLabel" unique_id=520527405]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_imku0")
+
+[node name="SubLabel" type="Label" parent="WinLoseGreen/Panel" unique_id=295846634]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.0
+offset_top = 230.0
+offset_right = -12.0
+offset_bottom = 253.0
+grow_horizontal = 2
+text = ":D"
+
+[node name="RestartButton" type="Button" parent="WinLoseGreen/Panel" unique_id=1150224423]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6206597
+anchor_top = 0.6157407
+anchor_right = 0.6440972
+anchor_bottom = 0.625
+offset_left = -55.0
+offset_top = -25.0
+offset_right = 55.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RESTART"
+metadata/_edit_use_anchors_ = true
+
+[node name="QuitButton" type="Button" parent="WinLoseGreen/Panel" unique_id=1805276859]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = 22.0
+offset_right = 55.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT"
+
+[node name="WinZone" type="Area3D" parent="." unique_id=1546917394 groups=["win_zone"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9676492, 7.60793)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WinZone" unique_id=165940296]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.11, 4.277, 41.13)
+shape = SubResource("BoxShape3D_i5arm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WinZone" unique_id=1232463696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1114235, 4.2772064, 41.136444)
+mesh = SubResource("BoxMesh_jsk3o")
+
+[node name="RisingPlatform" parent="." unique_id=645753205 instance=ExtResource("8_4arys")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.437, 18.721)
+
+[node name="PauseMenu" parent="." unique_id=1871726847 instance=ExtResource("11_tereu")]
