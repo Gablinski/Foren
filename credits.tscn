@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bqyygian1tr64"]
 
+[ext_resource type="Script" uid="uid://oarvirlkyji" path="res://credits.gd" id="1_nm7lk"]
+
 [sub_resource type="Animation" id="Animation_t5rx0"]
 resource_name = "FadeIn"
 tracks/0/type = "value"
@@ -52,7 +54,10 @@ _data = {
 &"RESET": SubResource("Animation_nm7lk")
 }
 
-[node name="Credits" type="CanvasLayer" unique_id=1241258299]
+[node name="Credits" type="CanvasLayer" unique_id=1241258299 node_paths=PackedStringArray("animation_player")]
+layer = 10
+script = ExtResource("1_nm7lk")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=907164369]
 anchors_preset = 15

@@ -21,7 +21,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_04of0"]
-resource_name = "transition"
+resource_name = "Transition"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -38,10 +38,11 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rtiki"]
 _data = {
 &"RESET": SubResource("Animation_8ryub"),
-&"transition": SubResource("Animation_04of0")
+&"Transition": SubResource("Animation_04of0")
 }
 
 [node name="LoadingScreenLong" type="CanvasLayer" unique_id=1772059870 node_paths=PackedStringArray("animation_player", "progress_bar", "percentage_label")]
+layer = 10
 script = ExtResource("1_ia1sv")
 animation_player = NodePath("AnimationPlayer")
 progress_bar = NodePath("ProgressBar")
@@ -58,7 +59,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1654182729]
 libraries/ = SubResource("AnimationLibrary_rtiki")
-autoplay = &"transition"
+autoplay = &"Transition"
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=375664643]
 offset_left = 180.0

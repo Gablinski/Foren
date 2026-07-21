@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://be8yi4hpli7vm"]
 
 [ext_resource type="Script" uid="uid://b5pagse8uf358" path="res://pregame_loading.gd" id="1_tg5gj"]
+[ext_resource type="Texture2D" uid="uid://b7arw6ikw37an" path="res://icon.svg" id="2_28n2m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
 bg_color = Color(0, 0, 0, 1)
@@ -21,7 +22,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_04of0"]
-resource_name = "transition"
+resource_name = "Transition"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -38,10 +39,11 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_28n2m"]
 _data = {
 &"RESET": SubResource("Animation_8ryub"),
-&"transition": SubResource("Animation_04of0")
+&"Transition": SubResource("Animation_04of0")
 }
 
 [node name="PregameLoading" type="CanvasLayer" unique_id=1111309115 node_paths=PackedStringArray("animation_player", "progress_bar", "percentage_label", "spinner")]
+layer = 10
 script = ExtResource("1_tg5gj")
 animation_player = NodePath("AnimationPlayer")
 progress_bar = NodePath("ProgressBar")
@@ -59,7 +61,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1284234270]
 libraries/ = SubResource("AnimationLibrary_28n2m")
-autoplay = &"transition"
+autoplay = &"Transition"
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1492530378]
 offset_left = 163.0
@@ -70,12 +72,13 @@ offset_bottom = 212.0
 [node name="Label" type="Label" parent="." unique_id=1361687382]
 offset_left = 184.0
 offset_top = 262.0
-offset_right = 260.0
-offset_bottom = 285.0
+offset_right = 255.0
+offset_bottom = 329.0
 text = "LABRL"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=357047702]
-offset_left = 95.0
-offset_top = 116.0
-offset_right = 135.0
-offset_bottom = 156.0
+offset_left = 506.0
+offset_top = 239.0
+offset_right = 546.0
+offset_bottom = 279.0
+texture = ExtResource("2_28n2m")

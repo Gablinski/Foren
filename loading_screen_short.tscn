@@ -21,7 +21,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_k754l"]
-resource_name = "transition"
+resource_name = "Transition"
 length = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -39,10 +39,11 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1sbex"]
 _data = {
 &"RESET": SubResource("Animation_22cjb"),
-&"transition": SubResource("Animation_k754l")
+&"Transition": SubResource("Animation_k754l")
 }
 
 [node name="LoadingScreenShort" type="CanvasLayer" unique_id=866792837 node_paths=PackedStringArray("animation_player")]
+layer = 10
 script = ExtResource("1_rq41v")
 animation_player = NodePath("AnimationPlayer")
 
@@ -57,4 +58,4 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=426316373]
 libraries/ = SubResource("AnimationLibrary_1sbex")
-autoplay = &"transition"
+autoplay = &"Transition"
