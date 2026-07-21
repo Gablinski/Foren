@@ -22,6 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://bfavderhxghqm" path="res://longplatform.glb" id="20_g5a20"]
 [ext_resource type="PackedScene" uid="uid://uk2cfsnj3myr" path="res://bareltrolley.glb" id="21_38uyi"]
 [ext_resource type="PackedScene" uid="uid://cl25t57owbggl" path="res://water_mesh.tscn" id="22_jygf0"]
+[ext_resource type="PackedScene" uid="uid://cik2lpf644xy8" path="res://base_platform.glb" id="23_ryv5w"]
+[ext_resource type="PackedScene" uid="uid://chk4v6gak7614" path="res://player.tscn" id="24_glg8d"]
+[ext_resource type="PackedScene" uid="uid://bi14cabq7ujru" path="res://ground_platform.glb" id="25_4mq60"]
+[ext_resource type="PackedScene" uid="uid://cxu3lshrthasa" path="res://big_crate.glb" id="26_rkejw"]
 
 [node name="Tiles" type="Node3D" unique_id=1232835174]
 
@@ -226,8 +230,34 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 45.5
 [node name="bareltrolley" parent="." unique_id=1632965937 instance=ExtResource("21_38uyi")]
 transform = Transform3D(-2.6226834e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.6226834e-08, 15.773022, 1.2110353, 5.11797)
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1669940488]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 5.2998013, 5.828232, 91.33774)
-
 [node name="lava_mesh" parent="." unique_id=1239740923 instance=ExtResource("22_jygf0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.299805, -0.94696236, 25.111778)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=644602902]
+transform = Transform3D(1, 0, 0, 0, -0.02529034, 0.99968016, 0, -0.99968016, -0.02529034, -0.664984, 48.338974, 59.346367)
+light_energy = 7.625
+light_volumetric_fog_energy = 12.795
+light_size = 0.441
+area_range = 62.025
+
+[node name="base_platform" parent="." unique_id=1055936238 instance=ExtResource("23_ryv5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.61792, -2.6377707, 48.271984)
+
+[node name="Player" parent="." unique_id=1082028449 instance=ExtResource("24_glg8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4898853, 8.8536, 48.901794)
+jump_height = 3.0
+
+[node name="ground_platform" parent="." unique_id=1822981671 instance=ExtResource("25_4mq60")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.978, 6.7, 71.824)
+
+[node name="ground_platform2" parent="." unique_id=199754147 instance=ExtResource("25_4mq60")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.281, 0.78, 36.505)
+
+[node name="big_crate" parent="." unique_id=1969536165 instance=ExtResource("26_rkejw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.943336, 7.1121464, 59.03899)
+
+[node name="big_crate2" parent="." unique_id=1432180519 instance=ExtResource("26_rkejw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.355835, 7.112, 59.517494)
+
+[node name="big_crate3" parent="." unique_id=529100084 instance=ExtResource("26_rkejw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.372574, 10.144512, 59.674706)
