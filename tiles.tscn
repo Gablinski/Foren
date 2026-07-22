@@ -26,6 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://chk4v6gak7614" path="res://player.tscn" id="24_glg8d"]
 [ext_resource type="PackedScene" uid="uid://bi14cabq7ujru" path="res://ground_platform.glb" id="25_4mq60"]
 [ext_resource type="PackedScene" uid="uid://cxu3lshrthasa" path="res://big_crate.glb" id="26_rkejw"]
+[ext_resource type="PackedScene" uid="uid://dp2jphkvtwahf" path="res://lava_base.glb" id="27_rkejw"]
+[ext_resource type="PackedScene" uid="uid://b8gv82leqkpql" path="res://wide_metal.glb" id="28_8tkme"]
 
 [node name="Tiles" type="Node3D" unique_id=1232835174]
 
@@ -261,3 +263,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.355835, 7.112, 59.517494)
 
 [node name="big_crate3" parent="." unique_id=529100084 instance=ExtResource("26_rkejw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.372574, 10.144512, 59.674706)
+
+[node name="lava_base" parent="." unique_id=493259348 instance=ExtResource("27_rkejw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 34.195576, -1.4817924, -46.61419)
+
+[node name="wide_metal" parent="." unique_id=1435173330 instance=ExtResource("28_8tkme")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.144253, 15.204968, 57.02797)
