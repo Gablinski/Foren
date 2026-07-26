@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b8gv82leqkpql"
-path="res://.godot/imported/wide_metal.glb-513b91dfb25c620f397cd662611624f3.scn"
+uid="uid://ctr3f5567nkoy"
+path="res://.godot/imported/black_platform.glb-581466214656006eab606977c2d8c61a.scn"
 
 [deps]
 
-source_file="res://wide_metal.glb"
-dest_files=["res://.godot/imported/wide_metal.glb-513b91dfb25c620f397cd662611624f3.scn"]
+source_file="res://black_platform.glb"
+dest_files=["res://.godot/imported/black_platform.glb-581466214656006eab606977c2d8c61a.scn"]
 
 [params]
 
@@ -41,7 +41,7 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
-"PATH:Cube_015": {
+"PATH:Plane_010": {
 "generate/physics": true
 }
 }

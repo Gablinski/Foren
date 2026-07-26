@@ -31,6 +31,9 @@
 [ext_resource type="PackedScene" uid="uid://blgkeryo1rpkw" path="res://black_metal_platform.glb" id="29_0bd87"]
 [ext_resource type="PackedScene" uid="uid://p3hvmi772sqj" path="res://flat_platform.glb" id="30_khnvu"]
 [ext_resource type="PackedScene" uid="uid://bic8x3255nie3" path="res://black_metal_short.glb" id="31_ceiah"]
+[ext_resource type="PackedScene" uid="uid://ctr3f5567nkoy" path="res://black_platform.glb" id="32_ceiah"]
+[ext_resource type="PackedScene" uid="uid://bn81pe6726mrv" path="res://ladder.tscn" id="33_b7lvl"]
+[ext_resource type="PackedScene" uid="uid://bhd2wi1ph52rn" path="res://short_blackplatform.glb" id="34_b7lvl"]
 
 [node name="Tiles" type="Node3D" unique_id=1232835174]
 
@@ -249,7 +252,7 @@ area_range = 62.025
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.20234, -2.6377707, 48.271984)
 
 [node name="Player" parent="." unique_id=1082028449 instance=ExtResource("24_glg8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4898853, 8.8536, 48.901794)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2528358, 28.995632, 54.9477)
 jump_height = 3.0
 
 [node name="ground_platform" parent="." unique_id=1822981671 instance=ExtResource("25_4mq60")]
@@ -288,5 +291,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.917767, 16.8435, 47.623894
 [node name="black_metal_short" parent="." unique_id=734497968 instance=ExtResource("31_ceiah")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.523, 15.5, -16.945105)
 
-[node name="black_metal_short2" parent="." unique_id=2091019035 instance=ExtResource("31_ceiah")]
+[node name="black_metal_short3" parent="." unique_id=2091019035 instance=ExtResource("31_ceiah")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -13.149, 18.5, -16.876106)
+
+[node name="Node3D" type="Node3D" parent="." unique_id=411765647]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.6726055, 5.684407, 113.359825)
+
+[node name="black_metal_platform" parent="Node3D" unique_id=2004768022 instance=ExtResource("29_0bd87")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -67.54045, 15.085022, 57.856445)
+
+[node name="flat_platform" parent="Node3D" unique_id=1431478374 instance=ExtResource("30_khnvu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.431015, 13.780758, 47.623894)
+
+[node name="flat_platform2" parent="Node3D" unique_id=1103793811 instance=ExtResource("30_khnvu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.212673, 15.423253, 47.623894)
+
+[node name="flat_platform3" parent="Node3D" unique_id=216548941 instance=ExtResource("30_khnvu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.917767, 16.8435, 47.623894)
+
+[node name="black_metal_short" parent="Node3D" unique_id=364255591 instance=ExtResource("31_ceiah")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.523, 15.5, -16.945105)
+
+[node name="black_metal_short3" parent="Node3D" unique_id=57589476 instance=ExtResource("31_ceiah")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -13.149, 18.5, -16.876106)
+
+[node name="black_platform" parent="." unique_id=232588975 instance=ExtResource("32_ceiah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.92737, 6.3901443, 48.35728)
+
+[node name="Ladder" parent="." unique_id=1926364976 instance=ExtResource("33_b7lvl")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.52191305, 18.899164, 48.907623)
+
+[node name="short_blackplatform" parent="." unique_id=607541598 instance=ExtResource("34_b7lvl")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.887192, 15.836052, -32.60484)
+
+[node name="short_blackplatform2" parent="." unique_id=210371492 instance=ExtResource("34_b7lvl")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.1559157, 15.83, -32.6)
