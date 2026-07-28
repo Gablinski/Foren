@@ -9,4 +9,4 @@ func _ready() -> void:
 	await get_tree().create_timer(display_duration).timeout
 	animation_player.play("FadeOut")
 	await animation_player.animation_finished
-	SceneLoader.load_scene("res://main_menu.tscn", "long")
+	SceneLoader.load_scene("res://main_menu.tscn", "short")
