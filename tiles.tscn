@@ -37,6 +37,8 @@
 [ext_resource type="PackedScene" uid="uid://bc5d0yklglgkm" path="res://short_blackplatform_supports.glb" id="35_6r5al"]
 [ext_resource type="PackedScene" uid="uid://basho5ws6lttr" path="res://black_metal_support.glb" id="36_515i1"]
 [ext_resource type="PackedScene" uid="uid://eyveygys6opt" path="res://big_pipe.glb" id="37_515i1"]
+[ext_resource type="PackedScene" uid="uid://qcp87dplmv2g" path="res://angled_platform_.glb" id="38_suf1n"]
+[ext_resource type="PackedScene" uid="uid://cwivuy5cdrldd" path="res://angled_platform_inv.glb" id="39_m8ja4"]
 
 [node name="Tiles" type="Node3D" unique_id=1232835174]
 
@@ -245,11 +247,34 @@ transform = Transform3D(-2.6226834e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.6226834e-
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.299805, -0.94696236, 25.111778)
 
 [node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=644602902]
-transform = Transform3D(1, 0, 0, 0, -0.02529034, 0.99968016, 0, -0.99968016, -0.02529034, -0.664984, 48.338974, 59.346367)
-light_energy = 7.625
-light_volumetric_fog_energy = 12.795
-light_size = 0.441
-area_range = 62.025
+transform = Transform3D(1, 0, 0, 0, -0.02529034, 0.99968016, 0, -0.99968016, -0.02529034, -0.664984, 41.730263, 59.346367)
+light_energy = 1.922
+light_indirect_energy = 6.885
+light_volumetric_fog_energy = 39.245
+light_size = 1.0
+area_range = 52.606
+area_attenuation = 0.72
+area_size = Vector2(1, 5)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="AreaLight3D" unique_id=22789051]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.664984, 3.512455, 23.150242)
+light_energy = 1.922
+light_indirect_energy = 6.885
+light_volumetric_fog_energy = 39.245
+light_size = 1.0
+area_range = 52.606
+area_attenuation = 0.72
+area_size = Vector2(1, 5)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="AreaLight3D/AreaLight3D" unique_id=1167076525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66386485, 3.4179344, 26.887112)
+light_energy = 1.922
+light_indirect_energy = 6.885
+light_volumetric_fog_energy = 39.245
+light_size = 1.0
+area_range = 52.606
+area_attenuation = 0.72
+area_size = Vector2(1, 5)
 
 [node name="base_platform" parent="." unique_id=1055936238 instance=ExtResource("23_ryv5w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.20234, -2.6377707, 48.271984)
@@ -298,7 +323,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.5
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -13.149, 18.5, -16.876106)
 
 [node name="Node3D" type="Node3D" parent="." unique_id=411765647]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.6726055, 5.684407, 114.432274)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6.6726055, 5.684407, 113.891495)
 
 [node name="black_metal_platform" parent="Node3D" unique_id=2004768022 instance=ExtResource("29_0bd87")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -67.54045, 15.085022, 57.856445)
@@ -321,6 +346,12 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -13.
 [node name="black_platform" parent="." unique_id=232588975 instance=ExtResource("32_ceiah")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.92737, 6.3901443, 48.35728)
 
+[node name="black_platform2" parent="." unique_id=2042828677 instance=ExtResource("32_ceiah")]
+transform = Transform3D(0.7071067, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071067, 57.443535, 20.383204, 103.12229)
+
+[node name="black_platform2" parent="black_platform2" unique_id=2133902727 instance=ExtResource("32_ceiah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.011101, 8.018148, -1.126915)
+
 [node name="Ladder" parent="." unique_id=1926364976 instance=ExtResource("33_b7lvl")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.52191305, 18.899164, 48.907623)
 
@@ -331,7 +362,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.88
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.1559157, 15.83, -32.6)
 
 [node name="short_blackplatform_supports" parent="." unique_id=465434903 instance=ExtResource("35_6r5al")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.87423, 17.918083, 60.529392)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.87423, 18.152157, 60.529392)
 
 [node name="black_metal_support" parent="." unique_id=1900592329 instance=ExtResource("36_515i1")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.264993, 15.7639885, 140.59293)
@@ -349,4 +380,10 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -86.
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -86.1, 6.447, 37.3)
 
 [node name="big_pipe" parent="." unique_id=1980483709 instance=ExtResource("37_515i1")]
-transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, -28.875813, -15.351269, 100.19878)
+transform = Transform3D(-1.7484556e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.7484556e-08, -22.800545, -3.612341, 92.71037)
+
+[node name="angled_platform_3" parent="." unique_id=1280658686 instance=ExtResource("38_suf1n")]
+transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, -59.019657, 25.488766, -11.901695)
+
+[node name="angled_platform_inv" parent="." unique_id=1049573152 instance=ExtResource("39_m8ja4")]
+transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, -60.06588, 26.571459, -16.407368)

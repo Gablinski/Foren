@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://eyveygys6opt"
-path="res://.godot/imported/big_pipe.glb-692b67735d25ac44ba6d6629b12b1dbc.scn"
+uid="uid://qcp87dplmv2g"
+path="res://.godot/imported/angled_platform_.glb-8023661ada7f98c28076f6a09b319df8.scn"
 
 [deps]
 
-source_file="res://big_pipe.glb"
-dest_files=["res://.godot/imported/big_pipe.glb-692b67735d25ac44ba6d6629b12b1dbc.scn"]
+source_file="res://angled_platform_.glb"
+dest_files=["res://.godot/imported/angled_platform_.glb-8023661ada7f98c28076f6a09b319df8.scn"]
 
 [params]
 
@@ -41,25 +41,7 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
-"PATH:pCylinder53_rust_metal_0_004": {
-"generate/physics": true
-},
-"PATH:pCylinder53_rust_metal_0_005": {
-"generate/physics": true
-},
-"PATH:pCylinder53_rust_metal_0_010": {
-"generate/physics": true
-},
-"PATH:pCylinder53_rust_metal_0_011": {
-"generate/physics": true
-},
-"PATH:pCylinder55_rust_metal_0_002": {
-"generate/physics": true
-},
-"PATH:pCylinder57_rust_metal_0_002": {
-"generate/physics": true
-},
-"PATH:pCylinder57_rust_metal_0_003": {
+"PATH:Plane_021": {
 "generate/physics": true
 }
 }
