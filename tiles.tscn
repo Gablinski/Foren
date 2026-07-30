@@ -276,6 +276,66 @@ area_range = 52.606
 area_attenuation = 0.72
 area_size = Vector2(1, 5)
 
+[node name="AreaLight3D" type="AreaLight3D" parent="AreaLight3D/AreaLight3D/AreaLight3D" unique_id=1419040166]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66386485, -4.6632767, 36.358185)
+light_energy = 1.922
+light_indirect_energy = 6.885
+light_volumetric_fog_energy = 39.245
+light_size = 1.0
+area_range = 52.606
+area_attenuation = 0.72
+area_size = Vector2(1, 5)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="AreaLight3D/AreaLight3D/AreaLight3D/AreaLight3D" unique_id=253510109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6883574, 51.902527, -115.49145)
+light_energy = 1.922
+light_indirect_energy = 6.885
+light_volumetric_fog_energy = 39.245
+light_size = 1.0
+area_range = 52.606
+area_attenuation = 0.72
+area_size = Vector2(1, 5)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="AreaLight3D/AreaLight3D/AreaLight3D/AreaLight3D/AreaLight3D" unique_id=936913449]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.803306, 15.513822, 3.8232198)
+light_energy = 1.922
+light_indirect_energy = 6.885
+light_volumetric_fog_energy = 39.245
+light_size = 1.0
+area_range = 52.606
+area_attenuation = 0.72
+area_size = Vector2(1, 5)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="AreaLight3D/AreaLight3D/AreaLight3D/AreaLight3D/AreaLight3D/AreaLight3D" unique_id=1635636066]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.460391, -14.670912, 3.9389143)
+light_energy = 1.922
+light_indirect_energy = 6.885
+light_volumetric_fog_energy = 39.245
+light_size = 1.0
+area_range = 52.606
+area_attenuation = 0.72
+area_size = Vector2(1, 5)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="AreaLight3D/AreaLight3D/AreaLight3D/AreaLight3D/AreaLight3D/AreaLight3D/AreaLight3D" unique_id=1417247913]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.567442, -27.179716, -4.274686)
+light_energy = 1.922
+light_indirect_energy = 6.885
+light_volumetric_fog_energy = 39.245
+light_size = 1.0
+area_range = 52.606
+area_attenuation = 0.72
+area_size = Vector2(1, 5)
+
+[node name="AreaLight3D" type="AreaLight3D" parent="AreaLight3D/AreaLight3D/AreaLight3D/AreaLight3D/AreaLight3D/AreaLight3D/AreaLight3D/AreaLight3D" unique_id=1767473051]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.014526, 9.753723, 16.724411)
+light_energy = 1.922
+light_indirect_energy = 6.885
+light_volumetric_fog_energy = 39.245
+light_size = 1.0
+area_range = 52.606
+area_attenuation = 0.72
+area_size = Vector2(1, 5)
+
 [node name="base_platform" parent="." unique_id=1055936238 instance=ExtResource("23_ryv5w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.20234, -2.6377707, 48.271984)
 
@@ -350,7 +410,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.92737, 6.3901443, 48.35728
 transform = Transform3D(0.7071067, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071067, 57.443535, 20.383204, 103.12229)
 
 [node name="black_platform2" parent="black_platform2" unique_id=2133902727 instance=ExtResource("32_ceiah")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.011101, 8.018148, -1.126915)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.01403, 8.022337, -1.1298447)
 
 [node name="Ladder" parent="." unique_id=1926364976 instance=ExtResource("33_b7lvl")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.52191305, 18.899164, 48.907623)
