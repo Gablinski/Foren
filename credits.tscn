@@ -69,3 +69,10 @@ grow_vertical = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1399842503]
 libraries/ = SubResource("AnimationLibrary_c1t8d")
+
+[node name="Label" type="Label" parent="." unique_id=1348687285]
+offset_left = 534.0
+offset_top = 316.0
+offset_right = 653.0
+offset_bottom = 373.0
+text = "loading..."

@@ -63,7 +63,7 @@ offset_left = 269.0
 offset_top = 193.0
 offset_right = 758.0
 offset_bottom = 216.0
-text = "LABEL TESTING FOR THIS LONG SCREEN LOADING THING SCENE"
+text = "Loading..."
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1654182729]
 libraries/ = SubResource("AnimationLibrary_rtiki")
