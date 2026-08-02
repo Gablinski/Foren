@@ -1,19 +1,17 @@
 [gd_scene format=3 uid="uid://bn81pe6726mrv"]
 
 [ext_resource type="Script" uid="uid://bgnrmon7irmcg" path="res://ladder.gd" id="1_cq4ai"]
+[ext_resource type="PackedScene" uid="uid://c8a0rlbkqw1ws" path="res://ladder_mesh.glb" id="2_lqhsa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_efw3x"]
-size = Vector3(0.001, 60, 2.402884)
-
-[sub_resource type="BoxMesh" id="BoxMesh_lqhsa"]
-size = Vector3(0, 60, 1)
+size = Vector3(0.001, 10, 2.403)
 
 [node name="Ladder" type="Area3D" unique_id=1926364976]
 script = ExtResource("1_cq4ai")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=207189274]
-transform = Transform3D(1, -8.720822e-06, 1.1678532e-05, 8.720822e-06, 1, -9.600864e-06, -1.1678532e-05, 9.600864e-06, 1, -0.5057937, 0.011564409, 0.061088383)
+transform = Transform3D(1, -8.720822e-06, 1.1678532e-05, 8.720822e-06, 1, -9.600864e-06, -1.1678532e-05, 9.600864e-06, 1, -0.5057937, 13.72968, 0.061088383)
 shape = SubResource("BoxShape3D_efw3x")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1297464629]
-mesh = SubResource("BoxMesh_lqhsa")
+[node name="ladder_mesh" parent="." unique_id=112424755 instance=ExtResource("2_lqhsa")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 43.04142, -31.634768, 8.775211)

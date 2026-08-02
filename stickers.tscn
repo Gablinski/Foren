@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://kvoo35f6llwq"]
+
+[ext_resource type="PackedScene" uid="uid://pgibo5kjytl5" path="res://Assets/sci-fi-like Asset/scenes/Stickers/stickers_9.tscn" id="1_auryw"]
+[ext_resource type="PackedScene" uid="uid://brr7av8bojutp" path="res://Assets/sci-fi-like Asset/scenes/Panels/panel_card_slider.tscn" id="2_s8wjk"]
+[ext_resource type="PackedScene" uid="uid://csqnxiysek266" path="res://Assets/sci-fi-like Asset/scenes/Stickers/stickers_arrow.tscn" id="3_ol4uo"]
+[ext_resource type="PackedScene" uid="uid://c2iol2o44s1fi" path="res://Assets/sci-fi-like Asset/scenes/Stickers/stickers_caution.tscn" id="4_evu1j"]
+[ext_resource type="PackedScene" uid="uid://bivo4egjc3m2p" path="res://Assets/sci-fi-like Asset/scenes/Stickers/stickers_3.tscn" id="5_l3lia"]
+[ext_resource type="PackedScene" uid="uid://cm0h2wmiqkhrm" path="res://Assets/sci-fi-like Asset/scenes/Stickers/stickers_c.tscn" id="6_pibuw"]
+
+[node name="Stickers" type="Node3D" unique_id=753898703]
+
+[node name="Stickers_9" parent="." unique_id=2068753098 instance=ExtResource("1_auryw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 53.8567, 3, 21.2985)
+
+[node name="Panel_CardSlider" parent="." unique_id=1952921654 instance=ExtResource("2_s8wjk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 54.3407, 2.40007, 21.3525)
+
+[node name="Stickers_Arrow" parent="." unique_id=1452655699 instance=ExtResource("3_ol4uo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40.7314, 2.8729, 15.8744)
+
+[node name="Stickers_Caution" parent="." unique_id=997046707 instance=ExtResource("4_evu1j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.121, 3.36014, 21.6996)
+
+[node name="Stickers_3" parent="." unique_id=492219848 instance=ExtResource("5_l3lia")]
+transform = Transform3D(-1.90913, 0, -8.74228e-08, 0, 1.64368, 0, 1.66901e-07, 0, -1, 34.8626, 9.88638, 81.2927)
+
+[node name="Stickers_C" parent="." unique_id=959662441 instance=ExtResource("6_pibuw")]
+transform = Transform3D(-1.50206, 0, -8.74228e-08, 0, 1.42009, 0, 1.31315e-07, 0, -1, 34.1133, 9.87204, 81.2972)
