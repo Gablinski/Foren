@@ -23,6 +23,10 @@ SceneLoader="*uid://j1r1jvfi650f"
 
 window/stretch/mode="canvas_items"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 move_forward={
