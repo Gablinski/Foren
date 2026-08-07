@@ -52,9 +52,6 @@ _subresources={
 },
 "PATH:pCylinder57_rust_metal_0_004": {
 "generate/physics": true
-},
-"PATH:pCylinder57_rust_metal_0_005": {
-"generate/physics": true
 }
 }
 }
