@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://w0vgscwg0w52"]
+
+[ext_resource type="Script" uid="uid://bgnrmon7irmcg" path="res://ladder.gd" id="1_kfi8i"]
+[ext_resource type="PackedScene" uid="uid://cqeostth1c5kf" path="res://short_ladder.glb" id="2_wwhcp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_efw3x"]
+size = Vector3(0.001, 1.082489, 1.609417)
+
+[node name="short_ladder" type="Area3D" unique_id=1926364976]
+script = ExtResource("1_kfi8i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=207189274]
+transform = Transform3D(1, -8.720822e-06, 1.1678532e-05, 8.720822e-06, 1, -9.600864e-06, -1.1678532e-05, 9.600864e-06, 1, -0.31745592, 15.036583, 0.09482473)
+shape = SubResource("BoxShape3D_efw3x")
+
+[node name="short_ladder" parent="." unique_id=1861775518 instance=ExtResource("2_wwhcp")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.5568666, -35.836117, 28.195671)

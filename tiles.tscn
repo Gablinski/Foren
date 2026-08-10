@@ -41,6 +41,8 @@
 [ext_resource type="PackedScene" uid="uid://ct4j31ukf64mg" path="res://small_pipe.glb" id="40_m8ja4"]
 [ext_resource type="PackedScene" uid="uid://781friv1n4vo" path="res://corner_platform_b.glb" id="41_vbmue"]
 [ext_resource type="PackedScene" uid="uid://cjk10q267u4js" path="res://small_crate.glb" id="42_edjiw"]
+[ext_resource type="PackedScene" uid="uid://bhnre1tvyf3al" path="res://end_extension.glb" id="42_jlbcp"]
+[ext_resource type="PackedScene" uid="uid://w0vgscwg0w52" path="res://short_ladder.tscn" id="43_jlbcp"]
 
 [node name="Tiles" type="Node3D" unique_id=1232835174]
 
@@ -102,13 +104,13 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.9
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.35402548, 1.1281443, 21.053709)
 
 [node name="brugerjoint" parent="." unique_id=277100519 instance=ExtResource("7_endm6")]
-transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -3.8143518, 90.09, -7.007121)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -3.8143518, 65.87533, -7.007121)
 
 [node name="rock_platform" parent="." unique_id=1508698300 instance=ExtResource("8_6e3qa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.829, 88.09, -19.411549)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.829, 63.875328, -19.411549)
 
 [node name="rock_platform2" parent="." unique_id=1395447366 instance=ExtResource("8_6e3qa")]
-transform = Transform3D(-0.45864943, 0, 0.8886173, 0, 1, 0, -0.8886173, 0, -0.45864943, -47.081154, 88.09811, 69.72134)
+transform = Transform3D(-0.45864943, 0, 0.8886173, 0, 1, 0, -0.8886173, 0, -0.45864943, -47.081154, 63.88344, 69.72134)
 
 [node name="Post_Wide" parent="." unique_id=1473780525 instance=ExtResource("9_w18sb")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.028549671, 1.2291424, 17.301193)
@@ -222,7 +224,7 @@ transform = Transform3D(0.9961947, 0, -0.08715574, 0, 1, 0, 0.08715574, 0, 0.996
 transform = Transform3D(-0.9892723, 0, -0.14608312, 0, 1, 0, 0.14608312, 0, -0.9892723, -57.967506, 63.049488, 114.955734)
 
 [node name="metalpipe" parent="metalpipe/metalpipe" unique_id=234741757 instance=ExtResource("16_gjn3x")]
-transform = Transform3D(-0.013649143, 0, -0.9999068, 0, 1, 0, 0.9999068, 0, -0.013649143, 15.773922, 14.170551, 65.283104)
+transform = Transform3D(-0.013649151, 0, -0.9999068, 0, 1, 0, 0.9999068, 0, -0.013649151, 15.773914, 13.755093, 65.28309)
 
 [node name="watertank" parent="." unique_id=253871157 instance=ExtResource("17_sxt1b")]
 transform = Transform3D(-3.934025e-08, 0, 0.9, 0, 0.9, 0, -0.9, 0, -3.934025e-08, 39.52497, 1.2601991, 26.967897)
@@ -403,7 +405,7 @@ area_size = Vector2(1, 5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.20234, -2.6377707, 48.271984)
 
 [node name="Player" parent="." unique_id=1082028449 instance=ExtResource("24_glg8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2528358, 28.995632, 54.9477)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.493052, 64.296585, 60.141083)
 jump_height = 3.0
 
 [node name="ground_platform" parent="." unique_id=1822981671 instance=ExtResource("25_4mq60")]
@@ -500,7 +502,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.01403, 8.022337, -1.12984
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.52191305, 18.899164, 48.907623)
 
 [node name="Ladder" parent="Ladder" unique_id=2054120574 instance=ExtResource("33_b7lvl")]
-transform = Transform3D(1.1924882e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924882e-08, -13.16473, 42.057274, 4.9076214)
+transform = Transform3D(1.1924882e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924882e-08, -13.16473, 41.88929, 4.9076214)
 
 [node name="short_blackplatform" parent="." unique_id=607541598 instance=ExtResource("34_b7lvl")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.887192, 15.836052, -32.60484)
@@ -586,9 +588,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.8, 58.19157, 64.525)
 [node name="short_blackplatform6" parent="short_blackplatform6" unique_id=1498370376 instance=ExtResource("34_b7lvl")]
 transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, -153.49821, 7.4644814, -75.68376)
 
-[node name="short_blackplatform7" parent="." unique_id=259903685 instance=ExtResource("34_b7lvl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.7, 88.76, 57.67, 58.842)
-
 [node name="corner_platform_b2" parent="." unique_id=1822894023 instance=ExtResource("41_vbmue")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -66.37414, 61.61326, 36.1134)
 
@@ -633,3 +632,15 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 0.5, 0, 1, 0, -4.371139e-08, 16
 
 [node name="small_crate" parent="." unique_id=1648685866 instance=ExtResource("42_edjiw")]
 transform = Transform3D(0.9882284, 0, 0.15298584, 0, 1, 0, -0.15298584, 0, 0.9882284, 50.5, 6.621, 47)
+
+[node name="end_extension" parent="." unique_id=1908526263 instance=ExtResource("42_jlbcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.98875, 76.26498, 58.257053)
+
+[node name="end_extension2" parent="." unique_id=672318576 instance=ExtResource("42_jlbcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.67996, 76.26, 63.25)
+
+[node name="short_ladder" parent="." unique_id=602284684 instance=ExtResource("43_jlbcp")]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -9.594988, 78.32343, 64.04581)
+
+[node name="short_ladder2" parent="short_ladder" unique_id=491094013 instance=ExtResource("43_jlbcp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.4445877, 3.3781738, -4.1766596)
