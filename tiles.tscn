@@ -43,6 +43,13 @@
 [ext_resource type="PackedScene" uid="uid://cjk10q267u4js" path="res://small_crate.glb" id="42_edjiw"]
 [ext_resource type="PackedScene" uid="uid://bhnre1tvyf3al" path="res://end_extension.glb" id="42_jlbcp"]
 [ext_resource type="PackedScene" uid="uid://w0vgscwg0w52" path="res://short_ladder.tscn" id="43_jlbcp"]
+[ext_resource type="Script" uid="uid://qcq60aetsacd" path="res://game_manager.gd" id="44_wksfl"]
+[ext_resource type="Script" uid="uid://c3tldjwrcb7ot" path="res://level_manager.gd" id="45_gdti8"]
+[ext_resource type="Script" uid="uid://y62hmxvcic30" path="res://hud.gd" id="46_uwd6o"]
+[ext_resource type="Script" uid="uid://re16kidftmvc" path="res://win_lose_green.gd" id="47_peg0u"]
+[ext_resource type="Script" uid="uid://dj8ud7oafxrlp" path="res://auto_tween.gd" id="48_v00c4"]
+[ext_resource type="Script" uid="uid://btx627xaya0b7" path="res://auto_tween_property.gd" id="49_1m7kx"]
+[ext_resource type="PackedScene" uid="uid://cu4lu6by3qsp2" path="res://pause_menu.tscn" id="50_1png3"]
 
 [node name="Tiles" type="Node3D" unique_id=1232835174]
 
@@ -644,3 +651,147 @@ transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, -9.5
 
 [node name="short_ladder2" parent="short_ladder" unique_id=491094013 instance=ExtResource("43_jlbcp")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.4445877, 3.3781738, -4.1766596)
+
+[node name="GameManager" type="Node" parent="." unique_id=747437421 groups=["game_manager"]]
+script = ExtResource("44_wksfl")
+
+[node name="LevelManager" type="Node" parent="." unique_id=926278765]
+script = ExtResource("45_gdti8")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1398342663]
+script = ExtResource("46_uwd6o")
+
+[node name="BurgerCounter" type="Label" parent="HUD" unique_id=50923740]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -174.0
+offset_top = -87.0
+offset_right = 24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "BURGERS: 0/5
+"
+
+[node name="TimerLabel" type="Label" parent="HUD" unique_id=1371029455]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 43.0
+offset_top = -87.0
+offset_right = 94.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "TTT"
+
+[node name="HealthBar" type="ProgressBar" parent="HUD" unique_id=413609631]
+offset_left = 343.0
+offset_top = 550.0
+offset_right = 674.0
+offset_bottom = 565.0
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="HUD" unique_id=484324893]
+offset_left = 344.0
+offset_top = 574.0
+offset_right = 384.0
+offset_bottom = 597.0
+text = "100%"
+
+[node name="DamageFlash" type="ColorRect" parent="HUD" unique_id=407706599]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WinLoseGreen" type="CanvasLayer" parent="." unique_id=673926723]
+script = ExtResource("47_peg0u")
+
+[node name="Panel" type="Panel" parent="WinLoseGreen" unique_id=1550892417 node_paths=PackedStringArray("target")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("48_v00c4")
+target = NodePath(".")
+duration = 0.3
+
+[node name="WinLoseImage" type="TextureRect" parent="WinLoseGreen/Panel" unique_id=1326187423]
+layout_mode = 0
+offset_left = -231.0
+offset_top = -113.0
+offset_right = -183.0
+offset_bottom = -73.0
+
+[node name="TitleLabel" type="Label" parent="WinLoseGreen/Panel" unique_id=1009369161]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 146.0
+offset_right = 100.0
+offset_bottom = 215.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "you lose"
+
+[node name="Control" type="Control" parent="WinLoseGreen/Panel/TitleLabel" unique_id=1136641045]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("49_1m7kx")
+
+[node name="SubLabel" type="Label" parent="WinLoseGreen/Panel" unique_id=1441993967]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.0
+offset_top = 230.0
+offset_right = -12.0
+offset_bottom = 253.0
+grow_horizontal = 2
+text = ":D"
+
+[node name="RestartButton" type="Button" parent="WinLoseGreen/Panel" unique_id=1384715866]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6206597
+anchor_top = 0.6157407
+anchor_right = 0.6440972
+anchor_bottom = 0.625
+offset_left = -55.0
+offset_top = -25.0
+offset_right = 55.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RESTART"
+metadata/_edit_use_anchors_ = true
+
+[node name="QuitButton" type="Button" parent="WinLoseGreen/Panel" unique_id=63623552]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = 22.0
+offset_right = 55.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT"
+
+[node name="PauseMenu" parent="." unique_id=1871726847 instance=ExtResource("50_1png3")]

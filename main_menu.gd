@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@export var game_scene     : String = "res://node_3d.tscn"
+@export var game_scene     : String = "res://tiles.tscn"
 @export var settings_scene : String = "res://settings_menu.tscn"
 @onready var start_button    : Button = $Panel/StartButton
 @onready var settings_button : Button = $Panel/SettingsButton
