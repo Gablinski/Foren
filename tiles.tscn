@@ -51,6 +51,16 @@
 [ext_resource type="Script" uid="uid://btx627xaya0b7" path="res://auto_tween_property.gd" id="49_1m7kx"]
 [ext_resource type="PackedScene" uid="uid://cu4lu6by3qsp2" path="res://pause_menu.tscn" id="50_1png3"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_wksfl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wc5p8"]
+albedo_color = Color(0.4614938, 0.70217776, 0.33365488, 1)
+emission_enabled = true
+emission = Color(0, 0.3764706, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gdti8"]
+material = SubResource("StandardMaterial3D_wc5p8")
+
 [node name="Tiles" type="Node3D" unique_id=1232835174]
 
 [node name="Rooms" type="GridMap" parent="." unique_id=1733246766]
@@ -411,10 +421,6 @@ area_size = Vector2(1, 5)
 [node name="base_platform" parent="." unique_id=1055936238 instance=ExtResource("23_ryv5w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.20234, -2.6377707, 48.271984)
 
-[node name="Player" parent="." unique_id=1082028449 instance=ExtResource("24_glg8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.493052, 64.296585, 60.141083)
-jump_height = 3.0
-
 [node name="ground_platform" parent="." unique_id=1822981671 instance=ExtResource("25_4mq60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.978, 6.7, 71.824)
 
@@ -761,7 +767,6 @@ offset_top = 230.0
 offset_right = -12.0
 offset_bottom = 253.0
 grow_horizontal = 2
-text = ":D"
 
 [node name="RestartButton" type="Button" parent="WinLoseGreen/Panel" unique_id=1384715866]
 layout_mode = 1
@@ -795,3 +800,19 @@ grow_vertical = 2
 text = "QUIT"
 
 [node name="PauseMenu" parent="." unique_id=1871726847 instance=ExtResource("50_1png3")]
+
+[node name="WinZone" type="Area3D" parent="." unique_id=1058580625 groups=["win_zone"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.576406, 5.1753197, 8.899475)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WinZone" unique_id=1689251305]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.11, 4.277, 41.13)
+shape = SubResource("BoxShape3D_wksfl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WinZone" unique_id=1133025938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1114235, 4.2772064, 41.136444)
+mesh = SubResource("BoxMesh_gdti8")
+
+[node name="Player" parent="." unique_id=1082028449 instance=ExtResource("24_glg8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.423594, 17.42537, 57.763416)
+jump_height = 3.0

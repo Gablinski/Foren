@@ -7,6 +7,7 @@ const COLOR_LOSE : Color = Color(1.0, 0.25, 0.25, 1.0)
 
 @onready var panel          : Panel  = $Panel
 @onready var title_label    : Label  = $Panel/TitleLabel
+@onready var sub_label      : Label  = $Panel/SubLabel
 @onready var restart_button : Button = $Panel/RestartButton
 @onready var quit_button    : Button = $Panel/QuitButton
 
@@ -26,15 +27,19 @@ func _ready() -> void:
 		gm.game_won.connect(_on_game_won)
 		gm.game_lost.connect(_on_game_lost)
 
-func _on_game_won() -> void:
+func _on_game_won(time_elapsed: float) -> void:
+	var seconds : int = int(time_elapsed)
+	var milliseconds : int = int((time_elapsed - seconds) * 100)
 	title_label.text     = "YOU WIN!"
 	title_label.modulate = COLOR_WIN
+	sub_label.text       = "Time: %02d:%02d" % [seconds, milliseconds]
 	_animate_title()
 	_show_screen()
 
 func _on_game_lost() -> void:
 	title_label.text     = "YOU LOSE"
 	title_label.modulate = COLOR_LOSE
+	sub_label.text       = ""
 	_animate_title()
 	_show_screen()
 
