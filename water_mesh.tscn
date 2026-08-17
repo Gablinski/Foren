@@ -4,7 +4,11 @@
 [ext_resource type="Script" uid="uid://ca3gdo5mpf778" path="res://lava_mesh.gd" id="1_co82r"]
 [ext_resource type="Script" uid="uid://bdqvgyhm1pjei" path="res://lava_mesh.tscn.gd" id="2_jvgau"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32ywf"]
+cull_mode = 2
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_32ywf")
 size = Vector2(100, 100)
 subdivide_width = 100
 subdivide_depth = 100
@@ -28,6 +32,7 @@ size = Vector3(100.00006, 512.3653, 99.99997)
 script = ExtResource("1_co82r")
 
 [node name="lava_mesh" type="MeshInstance3D" parent="." unique_id=663208729]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.139018, 0)
 mesh = SubResource("PlaneMesh_g4v7s")
 surface_material_override/0 = SubResource("ShaderMaterial_yf5fn")
 script = ExtResource("2_jvgau")
