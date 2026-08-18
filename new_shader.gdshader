@@ -4,6 +4,7 @@
 // as well as vertex displacement
 
 shader_type spatial;
+render_mode cull_disabled;
 
 uniform vec4 WATER_COL : source_color =  vec4(0.95, 0.55, 0.0, 1.0);
 uniform vec4 WATER2_COL : source_color =  vec4(0.85, 0.40, 0.0, 1.0);

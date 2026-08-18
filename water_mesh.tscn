@@ -26,17 +26,16 @@ shader_parameter/wave_size = Vector2(2, 2)
 shader_parameter/wave_speed = 1.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w2ku2"]
-size = Vector3(100.00006, 512.3653, 99.99997)
+size = Vector3(100, 245.6653, 100)
 
 [node name="lava_mesh" type="Area3D" unique_id=802327261]
 script = ExtResource("1_co82r")
 
 [node name="lava_mesh" type="MeshInstance3D" parent="." unique_id=663208729]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.139018, 0)
 mesh = SubResource("PlaneMesh_g4v7s")
 surface_material_override/0 = SubResource("ShaderMaterial_yf5fn")
 script = ExtResource("2_jvgau")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=194595594]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4332275e-05, -255.87015, -8.010864e-05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -123.00208, 0)
 shape = SubResource("BoxShape3D_w2ku2")
