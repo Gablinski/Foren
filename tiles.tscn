@@ -115,10 +115,10 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 [node name="doors" type="GridMap" parent="." unique_id=1889737]
 mesh_library = ExtResource("5_rnsht")
 
-[node name="Door_Hallway2" parent="doors" unique_id=1267765370 instance=ExtResource("6_y1754")]
+[node name="Door_Hallway2" parent="doors" unique_id=1267765370 groups=["door_burger_01"] instance=ExtResource("6_y1754")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.994852, 1.2066038, -3.0084589)
 
-[node name="Door_Hallway3" parent="doors" unique_id=1975134491 instance=ExtResource("6_y1754")]
+[node name="Door_Hallway3" parent="doors" unique_id=1975134491 groups=["door_burger_02"] instance=ExtResource("6_y1754")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.35402548, 1.1281443, 21.053709)
 
 [node name="brugerjoint" parent="." unique_id=277100519 instance=ExtResource("7_endm6")]
@@ -815,8 +815,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1114235, 4.2772064, 41.136
 mesh = SubResource("BoxMesh_gdti8")
 
 [node name="Player" parent="." unique_id=1082028449 instance=ExtResource("24_glg8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.423594, 17.42537, 57.763416)
+transform = Transform3D(0.9049608, 0, 0.42549485, 0, 1, 0, -0.42549485, 0, 0.9049608, 19.550539, 5.414525, -22.257366)
 jump_height = 3.0
 
-[node name="burger_pickup" parent="." unique_id=461418647 groups=["burger_pickup", "platform_burger_01"] instance=ExtResource("51_gdti8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.099762, 9.944494, 27.789661)
+[node name="BurgerPickup" parent="." unique_id=547221889 groups=["burger_01", "burger_pickup"] instance=ExtResource("51_gdti8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.600502, 9.794922, 28.036076)
+
+[node name="BurgerPickup2" parent="." unique_id=461418647 groups=["burger_02", "burger_pickup"] instance=ExtResource("51_gdti8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8770814, 1.4957492, 39.645172)
+burger_id = "burger_02"
+
+[node name="BurgerPickup3" parent="." unique_id=54254496 instance=ExtResource("51_gdti8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.807519, 14.962164, 56.581097)
+burger_id = "burger_03"

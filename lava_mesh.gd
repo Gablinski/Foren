@@ -3,7 +3,7 @@ extends Area3D
 @export var rise_speed = 0.5          # how fast it rises
 @export var rise_every_minutes = 0.5  # how long it waits before rising again
 @export var max_height = 10.0         # stops at this Y position
-@export var pause_duration = 10.0     # how many seconds it pauses at the top
+@export var pause_duration = 30.0     # how many seconds it pauses at the top
 
 @export var start_delay: float = 3.0
 @export var rise_on_start: bool = true
