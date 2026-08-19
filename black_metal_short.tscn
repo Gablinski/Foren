@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://k2u8us5kf83t"]
+
+[ext_resource type="PackedScene" uid="uid://bic8x3255nie3" path="res://black_metal_short.glb" id="1_dvk6g"]
+
+[node name="black_metal_short" unique_id=341703347 instance=ExtResource("1_dvk6g")]
