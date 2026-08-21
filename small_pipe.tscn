@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cjpkxx65rx4l6"]
+
+[ext_resource type="PackedScene" uid="uid://ct4j31ukf64mg" path="res://small_pipe.glb" id="1_so1ug"]
+
+[node name="small_pipe" unique_id=607736232 instance=ExtResource("1_so1ug")]
+
+[node name="CollisionShape3D" parent="pCylinder53_rust_metal_0_012/StaticBody3D" parent_id_path=PackedInt32Array(313535696) index="0" unique_id=1153201982]
+disabled = true
+
+[node name="CollisionShape3D" parent="pCylinder53_rust_metal_0_013/StaticBody3D" parent_id_path=PackedInt32Array(1880090926) index="0" unique_id=417538772]
+disabled = true
+
+[node name="CollisionShape3D" parent="pCylinder53_rust_metal_0_015/StaticBody3D" parent_id_path=PackedInt32Array(532001100) index="0" unique_id=1873246609]
+disabled = true
+
+[node name="CollisionShape3D" parent="pCylinder57_rust_metal_0_004/StaticBody3D" parent_id_path=PackedInt32Array(2054104428) index="0" unique_id=569820016]
+disabled = true

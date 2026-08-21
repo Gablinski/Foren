@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b8gh63y7xjt1n"]
+
+[ext_resource type="PackedScene" uid="uid://b8gv82leqkpql" path="res://wide_metal.glb" id="1_sr83v"]
+
+[node name="wide_metal" unique_id=931144312 instance=ExtResource("1_sr83v")]
+
+[node name="CollisionShape3D" parent="Cube_015/StaticBody3D" parent_id_path=PackedInt32Array(1693173825) index="0" unique_id=1403977439]
+disabled = true

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b1ew8xpd24gjc"]
+
+[ext_resource type="PackedScene" uid="uid://bhd2wi1ph52rn" path="res://short_blackplatform.glb" id="1_k7nq7"]
+
+[node name="short_blackplatform" unique_id=182816827 instance=ExtResource("1_k7nq7")]
+
+[node name="CollisionShape3D" parent="Plane_013/StaticBody3D" parent_id_path=PackedInt32Array(52926288) index="0" unique_id=24158368]
+disabled = true

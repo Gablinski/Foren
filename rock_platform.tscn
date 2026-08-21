@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bmdb03he5jw5y"]
+
+[ext_resource type="PackedScene" uid="uid://kwrfb6xff5ay" path="res://Assets/sci-fi-like Asset/gltf/rock_platform.glb" id="1_tcp42"]
+
+[node name="rock_platform" unique_id=632980099 instance=ExtResource("1_tcp42")]
+
+[node name="CollisionShape3D" parent="pCube222_grey_crack_0_001/StaticBody3D" parent_id_path=PackedInt32Array(70289153) index="0" unique_id=871196020]
+disabled = true

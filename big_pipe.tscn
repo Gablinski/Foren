@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b4sulf0xvdujn"]
+
+[ext_resource type="PackedScene" uid="uid://eyveygys6opt" path="res://big_pipe.glb" id="1_8bn2y"]
+
+[node name="big_pipe" unique_id=1309875239 instance=ExtResource("1_8bn2y")]
+
+[node name="CollisionShape3D" parent="pCylinder53_rust_metal_0_004/StaticBody3D" parent_id_path=PackedInt32Array(2035855093) index="0" unique_id=72627835]
+disabled = true
+
+[node name="CollisionShape3D" parent="pCylinder53_rust_metal_0_005/StaticBody3D" parent_id_path=PackedInt32Array(1036291556) index="0" unique_id=1528666346]
+disabled = true
+
+[node name="CollisionShape3D" parent="pCylinder53_rust_metal_0_010/StaticBody3D" parent_id_path=PackedInt32Array(419967109) index="0" unique_id=654132537]
+disabled = true
+
+[node name="CollisionShape3D" parent="pCylinder53_rust_metal_0_011/StaticBody3D" parent_id_path=PackedInt32Array(63253246) index="0" unique_id=1025646546]
+disabled = true
+
+[node name="CollisionShape3D" parent="pCylinder55_rust_metal_0_002/StaticBody3D" parent_id_path=PackedInt32Array(746102006) index="0" unique_id=636147420]
+disabled = true
+
+[node name="CollisionShape3D" parent="pCylinder57_rust_metal_0_002/StaticBody3D" parent_id_path=PackedInt32Array(915680483) index="0" unique_id=283833837]
+disabled = true
+
+[node name="CollisionShape3D" parent="pCylinder57_rust_metal_0_003/StaticBody3D" parent_id_path=PackedInt32Array(664178238) index="0" unique_id=1606208687]
+disabled = true

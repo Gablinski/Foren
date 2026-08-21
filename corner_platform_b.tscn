@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b66jn714kqqc"]
+
+[ext_resource type="PackedScene" uid="uid://781friv1n4vo" path="res://corner_platform_b.glb" id="1_752aj"]
+
+[node name="corner_platform_b" unique_id=405951940 instance=ExtResource("1_752aj")]
+
+[node name="CollisionShape3D" parent="Plane_025/StaticBody3D" parent_id_path=PackedInt32Array(1940446021) index="0" unique_id=847017413]
+disabled = true
