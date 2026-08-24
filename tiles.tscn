@@ -543,9 +543,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.87423, 18.152157, 60.52939
 
 [node name="black_metal_support" parent="." unique_id=1900592329 groups=["platform_burger_05"] instance=ExtResource("36_515i1")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -15.264993, 15.7639885, 140.59293)
+visible = false
 
 [node name="black_metal_support2" parent="." unique_id=1171609162 groups=["platform_burger_05"] instance=ExtResource("36_515i1")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -19.73061, 15.763816, 140.5)
+visible = false
 
 [node name="black_metal_support3" parent="." unique_id=300548158 instance=ExtResource("36_515i1")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -86.13603, 6.446762, 49.097466)
@@ -697,7 +699,7 @@ offset_right = 24.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 30
-text = "BURGERS: 0/5
+text = "BURGERS: 0/9
 "
 
 [node name="TimerLabel" type="Label" parent="HUD" unique_id=1371029455]
