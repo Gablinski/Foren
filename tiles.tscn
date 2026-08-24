@@ -53,6 +53,7 @@
 [ext_resource type="PackedScene" uid="uid://detb76mk3kscn" path="res://burger_pickup.tscn" id="51_gdti8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wksfl"]
+size = Vector3(26.376959, 17.37258, 16.542503)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wc5p8"]
 transparency = 1
@@ -818,20 +819,23 @@ text = "QUIT"
 
 [node name="PauseMenu" parent="." unique_id=1871726847 instance=ExtResource("50_1png3")]
 
-[node name="WinZone" type="Area3D" parent="." unique_id=1058580625 groups=["player", "win_zone"]]
+[node name="WinZone" type="Area3D" parent="." unique_id=1058580625 groups=["win_zone"]]
+process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.576406, 96.58364, -17.18636)
 collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WinZone" unique_id=1689251305]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.11, 4.277, 41.13)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8495278, -0.45645905, 34.81932)
 shape = SubResource("BoxShape3D_wksfl")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="WinZone" unique_id=1133025938]
+process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.096927, -0.3882599, 35.160976)
 mesh = SubResource("BoxMesh_gdti8")
 
 [node name="Player" parent="." unique_id=1082028449 instance=ExtResource("24_glg8d")]
 transform = Transform3D(0.9049608, 0, 0.42549485, 0, 1, 0, -0.42549485, 0, 0.9049608, -3.4245996, 98.96082, 50.861874)
+collision_layer = 3
 jump_height = 3.0
 
 [node name="BurgerPickup" parent="." unique_id=547221889 groups=["burger_01", "burger_pickup"] instance=ExtResource("51_gdti8")]

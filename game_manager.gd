@@ -21,9 +21,13 @@ func _ready() -> void:
 	var pickups := get_tree().get_nodes_in_group("burger_pickup")
 	for pickup in pickups:
 		pickup.collected.connect(_on_burger_collected)
+	
 	var win_zones := get_tree().get_nodes_in_group("win_zone")
+	print("Found win zones: ", win_zones.size())
 	for zone in win_zones:
+		print("Win zone found: ", zone.name)
 		zone.body_entered.connect(_on_win_zone_entered)
+	
 	var player := get_tree().get_first_node_in_group("player")
 	if player:
 		var health := player.get_node_or_null("PlayerHealth") as Node
@@ -50,6 +54,7 @@ func _on_burger_collected(_id: String) -> void:
 	emit_signal("burger_count_changed", burgers_collected, total_burgers)
 
 func _on_win_zone_entered(body: Node3D) -> void:
+	print("body entered win zone: ", body.name, " game_active: ", game_active)
 	if not game_active:
 		return
 	if body.is_in_group("player"):
