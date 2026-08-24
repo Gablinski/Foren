@@ -6,7 +6,7 @@
 ## Handles: burger collection count, stopwatch timer, win/lose state.
 extends Node
 
-@export var total_burgers : int = 30
+@export var total_burgers : int = 9
 
 signal burger_count_changed(current: int, total: int)
 signal timer_updated(time_elapsed: float)

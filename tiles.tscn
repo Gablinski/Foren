@@ -834,7 +834,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.096927, -0.3882599, 35.1609
 mesh = SubResource("BoxMesh_gdti8")
 
 [node name="Player" parent="." unique_id=1082028449 instance=ExtResource("24_glg8d")]
-transform = Transform3D(0.9049608, 0, 0.42549485, 0, 1, 0, -0.42549485, 0, 0.9049608, -3.4245996, 98.96082, 50.861874)
+transform = Transform3D(0.9049608, 0, 0.42549485, 0, 1, 0, -0.42549485, 0, 0.9049608, 20.91674, 2.8409674, -20.936708)
 collision_layer = 3
 jump_height = 3.0
 
