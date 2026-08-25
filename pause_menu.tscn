@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cu4lu6by3qsp2"]
 
 [ext_resource type="Script" uid="uid://rtfm16fkr3ux" path="res://pause_menu.gd" id="1_05uyy"]
+[ext_resource type="FontFile" uid="uid://44vbw5hly7qk" path="res://Datafont.ttf" id="2_2nc7s"]
 [ext_resource type="Script" uid="uid://beg0sdtff03a5" path="res://button_animation.gd" id="2_p81d2"]
 [ext_resource type="Script" uid="uid://d1gm5b5k36yf1" path="res://containertween.gd" id="3_2nc7s"]
 
@@ -35,6 +36,7 @@ offset_top = 101.0
 offset_right = 146.5
 offset_bottom = 170.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_2nc7s")
 theme_override_font_sizes/font_size = 50
 text = "Game Menu"
 horizontal_alignment = 1
@@ -49,16 +51,25 @@ offset_bottom = 336.0
 
 [node name="ResumeButton" type="Button" parent="Panel/VBoxContainer" unique_id=117420649]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.65882355, 0.84705883, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.49803922, 0.65882355, 0.8, 1)
+theme_override_fonts/font = ExtResource("2_2nc7s")
 text = "RESUME GAME"
 script = ExtResource("2_p81d2")
 
 [node name="RestartButton" type="Button" parent="Panel/VBoxContainer" unique_id=1213925079]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.65882355, 0.84705883, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.49803922, 0.65882355, 0.8, 1)
+theme_override_fonts/font = ExtResource("2_2nc7s")
 text = "RESTART"
 script = ExtResource("2_p81d2")
 
 [node name="QuitButton" type="Button" parent="Panel/VBoxContainer" unique_id=1935333841]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.65882355, 0.84705883, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.49803922, 0.65882355, 0.8, 1)
+theme_override_fonts/font = ExtResource("2_2nc7s")
 text = "QUIT TO TITLE
 "
 script = ExtResource("2_p81d2")

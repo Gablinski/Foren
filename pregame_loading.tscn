@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://be8yi4hpli7vm"]
 
 [ext_resource type="Script" uid="uid://b5pagse8uf358" path="res://pregame_loading.gd" id="1_tg5gj"]
-[ext_resource type="Texture2D" uid="uid://b7arw6ikw37an" path="res://icon.svg" id="2_28n2m"]
+[ext_resource type="FontFile" uid="uid://44vbw5hly7qk" path="res://Datafont.ttf" id="2_0y0kl"]
+[ext_resource type="Texture2D" uid="uid://n2wqdt8pke73" path="res://forenpixel.png" id="2_28n2m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
 bg_color = Color(0, 0, 0, 1)
@@ -62,35 +63,39 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
 
 [node name="ProgressBar" type="ProgressBar" parent="Panel" unique_id=1492530378]
 layout_mode = 0
-offset_left = 163.0
-offset_top = 185.0
-offset_right = 276.0
-offset_bottom = 212.0
+offset_left = 509.0
+offset_top = 403.0
+offset_right = 622.0
+offset_bottom = 430.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="Panel" unique_id=1361687382]
 layout_mode = 0
-offset_left = 184.0
-offset_top = 262.0
-offset_right = 255.0
-offset_bottom = 329.0
-text = "LABRL"
+offset_left = 527.0
+offset_top = 459.0
+offset_right = 600.0
+offset_bottom = 526.0
+theme_override_fonts/font = ExtResource("2_0y0kl")
+text = "LOADING...
+"
 
 [node name="TextureRect" type="TextureRect" parent="Panel" unique_id=357047702]
 layout_mode = 0
-offset_left = 506.0
-offset_top = 239.0
-offset_right = 634.0
-offset_bottom = 367.0
+offset_left = 497.0
+offset_top = 256.0
+offset_right = 635.0
+offset_bottom = 380.0
 texture = ExtResource("2_28n2m")
+expand_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1284234270]
 libraries/ = SubResource("AnimationLibrary_28n2m")
 autoplay = &"Transition"
 
 [node name="Label" type="Label" parent="." unique_id=1405139111]
-offset_left = 438.0
-offset_top = 232.0
-offset_right = 760.0
-offset_bottom = 255.0
+offset_left = 555.0
+offset_top = 339.0
+offset_right = 569.0
+offset_bottom = 362.0
+theme_override_fonts/font = ExtResource("2_0y0kl")
 text = "..."

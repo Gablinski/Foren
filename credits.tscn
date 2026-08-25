@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bqyygian1tr64"]
 
 [ext_resource type="Script" uid="uid://oarvirlkyji" path="res://credits.gd" id="1_nm7lk"]
+[ext_resource type="FontFile" uid="uid://44vbw5hly7qk" path="res://Datafont.ttf" id="2_c1t8d"]
 
 [sub_resource type="Animation" id="Animation_t5rx0"]
 resource_name = "FadeIn"
@@ -75,4 +76,5 @@ offset_left = 534.0
 offset_top = 316.0
 offset_right = 653.0
 offset_bottom = 373.0
+theme_override_fonts/font = ExtResource("2_c1t8d")
 text = "loading..."

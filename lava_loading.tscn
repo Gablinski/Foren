@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cuc58u4f006wc"]
+
+[ext_resource type="Script" uid="uid://ca3gdo5mpf778" path="res://lava_mesh.gd" id="1_s12a1"]
+[ext_resource type="Shader" uid="uid://ct5nogncsvcfj" path="res://new_shader.gdshader" id="2_rr8up"]
+[ext_resource type="Script" uid="uid://bdqvgyhm1pjei" path="res://lava_mesh.tscn.gd" id="3_3c414"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32ywf"]
+cull_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_32ywf")
+size = Vector2(100, 100)
+subdivide_width = 100
+subdivide_depth = 100
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yf5fn"]
+render_priority = 0
+shader = ExtResource("2_rr8up")
+shader_parameter/WATER_COL = Color(0.9490196, 0.54901963, 0, 1)
+shader_parameter/WATER2_COL = Color(0.8509804, 0.40784314, 0, 1)
+shader_parameter/FOAM_COL = Color(1, 0.8509804, 0.2, 1)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(5, 5)
+shader_parameter/height = 2.0
+shader_parameter/wave_size = Vector2(2, 2)
+shader_parameter/wave_speed = 1.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w2ku2"]
+size = Vector3(100, 245.6653, 100)
+
+[node name="lava_mesh" type="Area3D" unique_id=802327261]
+script = ExtResource("1_s12a1")
+
+[node name="lava_mesh" type="MeshInstance3D" parent="." unique_id=663208729]
+transform = Transform3D(8, 0, 0, 0, 4, 0, 0, 0, 4, -2.3633194, -0.31622076, 0)
+mesh = SubResource("PlaneMesh_g4v7s")
+surface_material_override/0 = SubResource("ShaderMaterial_yf5fn")
+script = ExtResource("3_3c414")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=194595594]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -123.00208, 0)
+shape = SubResource("BoxShape3D_w2ku2")
