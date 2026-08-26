@@ -694,9 +694,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -174.0
+offset_left = -88.0
 offset_top = -78.0
-offset_right = 24.0
+offset_right = 110.0
 offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -711,10 +711,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 43.0
-offset_top = -80.0
-offset_right = 94.0
-offset_bottom = -38.0
+offset_left = 115.0
+offset_top = -78.0
+offset_right = 166.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("46_peg0u")
@@ -722,18 +722,19 @@ theme_override_font_sizes/font_size = 30
 text = "TTT"
 
 [node name="HealthBar" type="ProgressBar" parent="HUD" unique_id=413609631]
-offset_left = 343.0
+offset_left = 417.0
 offset_top = 550.0
-offset_right = 674.0
+offset_right = 748.0
 offset_bottom = 565.0
 show_percentage = false
 
 [node name="HealthLabel" type="Label" parent="HUD" unique_id=484324893]
-offset_left = 344.0
-offset_top = 574.0
-offset_right = 384.0
-offset_bottom = 597.0
+offset_left = 409.0
+offset_top = 571.0
+offset_right = 467.0
+offset_bottom = 602.0
 theme_override_fonts/font = ExtResource("46_peg0u")
+theme_override_font_sizes/font_size = 30
 text = "100%"
 
 [node name="DamageFlash" type="ColorRect" parent="HUD" unique_id=407706599]
@@ -788,10 +789,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -31.0
-offset_top = 230.0
-offset_right = -12.0
-offset_bottom = 253.0
+offset_left = -25.0
+offset_top = 193.0
+offset_right = -6.0
+offset_bottom = 216.0
 grow_horizontal = 2
 
 [node name="RestartButton" type="Button" parent="WinLoseGreen/Panel" unique_id=1384715866]

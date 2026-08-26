@@ -3,11 +3,60 @@
 [ext_resource type="Script" uid="uid://bf8ctpe8cyav6" path="res://main_menu.gd" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://beg0sdtff03a5" path="res://button_animation.gd" id="2_7vrkn"]
 [ext_resource type="FontFile" uid="uid://44vbw5hly7qk" path="res://Datafont.ttf" id="2_fu7sn"]
+[ext_resource type="Script" uid="uid://cq1hrbb6sdwlo" path="res://texture_rect.gd" id="2_jix8l"]
 
-[sub_resource type="ImageTexture" id="ImageTexture_j1j63"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_peg0u"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_57mho"]
-texture = SubResource("ImageTexture_j1j63")
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_t40gy"]
+frames = 49
+frame_1/duration = 1.0
+frame_2/duration = 1.0
+frame_3/duration = 1.0
+frame_4/duration = 1.0
+frame_5/duration = 1.0
+frame_6/duration = 1.0
+frame_7/duration = 1.0
+frame_8/duration = 1.0
+frame_9/duration = 1.0
+frame_10/duration = 1.0
+frame_11/duration = 1.0
+frame_12/duration = 1.0
+frame_13/duration = 1.0
+frame_14/duration = 1.0
+frame_15/duration = 1.0
+frame_16/duration = 1.0
+frame_17/duration = 1.0
+frame_18/duration = 1.0
+frame_19/duration = 1.0
+frame_20/duration = 1.0
+frame_21/duration = 1.0
+frame_22/duration = 1.0
+frame_23/duration = 1.0
+frame_24/duration = 1.0
+frame_25/duration = 1.0
+frame_26/duration = 1.0
+frame_27/duration = 1.0
+frame_28/duration = 1.0
+frame_29/duration = 1.0
+frame_30/duration = 1.0
+frame_31/duration = 1.0
+frame_32/duration = 1.0
+frame_33/duration = 1.0
+frame_34/duration = 1.0
+frame_35/duration = 1.0
+frame_36/duration = 1.0
+frame_37/duration = 1.0
+frame_38/duration = 1.0
+frame_39/duration = 1.0
+frame_40/duration = 1.0
+frame_41/duration = 1.0
+frame_42/duration = 1.0
+frame_43/duration = 1.0
+frame_44/duration = 1.0
+frame_45/duration = 1.0
+frame_46/duration = 1.0
+frame_47/duration = 1.0
+frame_48/duration = 1.0
 
 [node name="MainMenu" type="CanvasLayer" unique_id=1710865201]
 script = ExtResource("1_06t4h")
@@ -18,7 +67,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_57mho")
+theme_override_styles/panel = SubResource("StyleBoxFlat_peg0u")
+
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=1673322720]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 649.0
+texture = SubResource("AnimatedTexture_t40gy")
+script = ExtResource("2_jix8l")
 
 [node name="MainMenuImage" type="TextureRect" parent="Panel" unique_id=439687027]
 layout_mode = 0

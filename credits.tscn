@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://oarvirlkyji" path="res://credits.gd" id="1_nm7lk"]
 [ext_resource type="FontFile" uid="uid://44vbw5hly7qk" path="res://Datafont.ttf" id="2_c1t8d"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t40gy"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ImageTexture" id="ImageTexture_ihfyu"]
+
 [sub_resource type="Animation" id="Animation_t5rx0"]
 resource_name = "FadeIn"
 tracks/0/type = "value"
@@ -61,12 +66,18 @@ script = ExtResource("1_nm7lk")
 animation_player = NodePath("AnimationPlayer")
 display_duration = 5.0
 
+[node name="Panel" type="Panel" parent="." unique_id=1935073275]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_t40gy")
+
 [node name="TextureRect" type="TextureRect" parent="." unique_id=907164369]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = SubResource("ImageTexture_ihfyu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1399842503]
 libraries/ = SubResource("AnimationLibrary_c1t8d")
@@ -78,3 +89,21 @@ offset_right = 653.0
 offset_bottom = 373.0
 theme_override_fonts/font = ExtResource("2_c1t8d")
 text = "loading..."
+
+[node name="Label" type="Label" parent="Label" unique_id=1063402835]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -73.0
+offset_top = 175.0
+offset_right = 25.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_c1t8d")
+text = "Created by 
+quji.xx
+gablinski"
