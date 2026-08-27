@@ -52,6 +52,7 @@
 [ext_resource type="Script" uid="uid://btx627xaya0b7" path="res://auto_tween_property.gd" id="49_1m7kx"]
 [ext_resource type="PackedScene" uid="uid://cu4lu6by3qsp2" path="res://pause_menu.tscn" id="50_1png3"]
 [ext_resource type="PackedScene" uid="uid://detb76mk3kscn" path="res://burger_pickup.tscn" id="51_gdti8"]
+[ext_resource type="Shader" uid="uid://kgjsu8n7pyom" path="res://SourceCode (1)/SourceCode/shader/main.gdshader" id="53_peg0u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wksfl"]
 size = Vector3(26.376959, 17.37258, 16.542503)
@@ -66,13 +67,55 @@ emission = Color(0, 0.3764706, 0, 1)
 material = SubResource("StandardMaterial3D_wc5p8")
 size = Vector3(25.724838, 16.830444, 17.28235)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_osicj"]
+shader = ExtResource("53_peg0u")
+shader_parameter/sky_day = Color(1.6364455e-06, 0.32951304, 0.7603859, 1)
+shader_parameter/horizon_day = Color(0.036181908, 0.06912657, 0.069387406, 1)
+shader_parameter/horizon_sunset = Color(0.9490196, 0.3019608, 0.12156863, 1)
+shader_parameter/sky_sunset = Color(0.41960785, 0.050980393, 0.78431374, 1)
+shader_parameter/horizon_night = Color(0.1, 0.15, 0.2, 1)
+shader_parameter/sky_night = Color(0.05, 0.1, 0.15, 1)
+shader_parameter/day_night_mix = 1.4901200051653518e-08
+shader_parameter/use_directional_light = false
+shader_parameter/horizon_exponent = 3.5
+shader_parameter/sunset_amount_exponent = 0.7
+shader_parameter/night_amount_exponent = 4.0
+shader_parameter/cloud_color = Color(0.8, 0.8, 0.8, 1)
+shader_parameter/cloud_tiling = Vector2(1, 1)
+shader_parameter/wind_speed = Vector2(0.5, 0.5)
+shader_parameter/cloud_density = 0.7
+shader_parameter/cloud_depth = 2.0
+shader_parameter/cloud_shape_exponent = 2.0
+shader_parameter/cloud_occlude_exponent = 1.0
+shader_parameter/sun_scale = 0.05
+shader_parameter/sun_strength = 15.0
+shader_parameter/sun_color = Color(1, 0.9, 0, 1)
+shader_parameter/moon_scale = 0.03
+shader_parameter/moon_strength = 15.0
+shader_parameter/moon_color = Color(0.5, 0.55, 0.7, 1)
+
+[sub_resource type="Sky" id="Sky_3c2fn"]
+sky_material = SubResource("ShaderMaterial_osicj")
+
+[sub_resource type="Environment" id="Environment_fdm2o"]
+background_mode = 2
+sky = SubResource("Sky_3c2fn")
+ambient_light_source = 3
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.9993908, 0.3213512, 0.46636543, 1)
+fog_density = 1.0
+fog_sky_affect = 0.0
+fog_depth_begin = 20.0
+fog_depth_end = 50.0
+
 [node name="Tiles" type="Node3D" unique_id=1232835174]
 
 [node name="Rooms" type="GridMap" parent="." unique_id=1733246766]
 mesh_library = ExtResource("2_d6bvg")
 cell_size = Vector3(6, 2, 6)
 data = {
-"cells": PackedInt32Array(0, 0, 1441795, 0, 1, 1441795, 0, 2, 1441795, 65535, 4, 655364, 0, 3, 1441797, 65535, 3, 1048578, 65535, 6, 1048576, 65535, 65535, 0, 0, 65535, 0, 262143, 5, 1048579, 262143, 6, 1048579, 262143, 7, 1048579, 2, 65535, 1441792, 2, 65534, 1048579, 1, 65535, 3, 2, 65533, 1048579, 2, 65532, 1, 3, 65535, 655363, 4, 65535, 1441793, 4, 0, 1441795, 4, 1, 1048579, 3, 65532, 655363, 0, 6, 1048576)
+"cells": PackedInt32Array(0, 0, 1441795, 0, 1, 1441795, 0, 2, 1441795, 65535, 4, 655364, 0, 3, 1441797, 65535, 3, 1048578, 65535, 6, 1048576, 65535, 65535, 655363, 0, 65535, 5, 262143, 5, 1048579, 262143, 6, 1048579, 262143, 7, 1048579, 2, 65535, 655365, 1, 65535, 3, 2, 65533, 1048579, 2, 65532, 1, 3, 65535, 655363, 4, 65535, 1441793, 4, 0, 1441795, 4, 1, 1048579, 3, 65532, 655363, 0, 6, 1048576, 2, 65534, 1441795)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
@@ -638,7 +681,7 @@ transform = Transform3D(0.963065, -0.26926935, 0, 0.26926935, 0.963065, 0, 0, 0,
 transform = Transform3D(-1, 0, -3.774895e-08, 0, 2, 0, 1.509958e-07, 0, -0.25, -68.36981, 56.39662, 65.679344)
 
 [node name="black_platform4" parent="." unique_id=905852503 instance=ExtResource("32_ceiah")]
-transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.3, 62.601192, 56.39662, 48.272446)
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 0.3, 62.64475, 56.434196, 48.229584)
 
 [node name="big_crate7" parent="." unique_id=1043763377 instance=ExtResource("26_rkejw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.18111, 1.2632389, 11.375313)
@@ -882,3 +925,6 @@ burger_id = "burger_08"
 [node name="BurgerPickup9" parent="." unique_id=440801607 groups=["burger_09", "burger_pickup"] instance=ExtResource("51_gdti8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5731933, 97.38098, 53.162914)
 burger_id = "burger_09"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1913393451]
+environment = SubResource("Environment_fdm2o")

@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dmbkqwb8y8new" path="res://settings_menu.gd" id="1_ufg0w"]
 [ext_resource type="Script" uid="uid://beg0sdtff03a5" path="res://button_animation.gd" id="2_0cmel"]
+[ext_resource type="FontFile" uid="uid://44vbw5hly7qk" path="res://Datafont.ttf" id="2_d0eu6"]
+[ext_resource type="Texture2D" uid="uid://dxslt8jdv0x0o" path="res://WAJAJACAT.png" id="4_fiqec"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1t8d"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="SettingsMenu" type="CanvasLayer" unique_id=1745313308]
 script = ExtResource("1_ufg0w")
@@ -12,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c1t8d")
 
 [node name="SettingsLabel" type="Label" parent="Panel" unique_id=1239178212]
 layout_mode = 1
@@ -20,14 +26,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -24.0
-offset_top = -47.5
-offset_right = 24.0
-offset_bottom = -24.5
+offset_left = -77.0
+offset_top = 95.5
+offset_right = 77.0
+offset_bottom = 144.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "no settings  
-         :)"
+theme_override_fonts/font = ExtResource("2_d0eu6")
+theme_override_font_sizes/font_size = 25
+text = "COMING SOON..."
+horizontal_alignment = 1
 
 [node name="BackButton" type="Button" parent="Panel" unique_id=2050959279]
 layout_mode = 1
@@ -42,5 +50,23 @@ offset_right = -5.0
 offset_bottom = -5.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_d0eu6")
+theme_override_font_sizes/font_size = 25
 text = "BACK"
 script = ExtResource("2_0cmel")
+
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=1604844579]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.5
+offset_top = -91.5
+offset_right = 107.5
+offset_bottom = 91.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_fiqec")
+expand_mode = 1

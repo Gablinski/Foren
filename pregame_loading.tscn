@@ -62,29 +62,50 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
 
 [node name="ProgressBar" type="ProgressBar" parent="Panel" unique_id=1492530378]
-layout_mode = 0
-offset_left = 509.0
-offset_top = 403.0
-offset_right = 622.0
-offset_bottom = 430.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = 109.5
+offset_right = 56.5
+offset_bottom = 136.5
+grow_horizontal = 2
+grow_vertical = 2
 show_percentage = false
 
 [node name="Label" type="Label" parent="Panel" unique_id=1361687382]
-layout_mode = 0
-offset_left = 527.0
-offset_top = 459.0
-offset_right = 600.0
-offset_bottom = 526.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.5
+offset_top = 88.5
+offset_right = 36.5
+offset_bottom = 155.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_0y0kl")
 text = "LOADING...
 "
 
 [node name="TextureRect" type="TextureRect" parent="Panel" unique_id=357047702]
-layout_mode = 0
-offset_left = 497.0
-offset_top = 256.0
-offset_right = 635.0
-offset_bottom = 380.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = -62.0
+offset_right = 69.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_28n2m")
 expand_mode = 1
 
@@ -93,9 +114,16 @@ libraries/ = SubResource("AnimationLibrary_28n2m")
 autoplay = &"Transition"
 
 [node name="Label" type="Label" parent="." unique_id=1405139111]
-offset_left = 555.0
-offset_top = 339.0
-offset_right = 569.0
-offset_bottom = 362.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.5
+offset_top = -11.5
+offset_right = 7.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_0y0kl")
 text = "..."

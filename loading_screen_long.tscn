@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://br28dc87ti4nj"]
 
 [ext_resource type="Script" uid="uid://c2uif332uvd6" path="res://loading_screen_long.gd" id="1_ia1sv"]
+[ext_resource type="FontFile" uid="uid://44vbw5hly7qk" path="res://Datafont.ttf" id="2_04of0"]
 [ext_resource type="Texture2D" uid="uid://cyc6tuchjkqd1" path="res://zrzi7i5t9bze1.jpeg" id="2_8ryub"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
@@ -64,12 +65,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -113.0
-offset_top = -11.5
-offset_right = 113.0
-offset_bottom = 11.5
+offset_left = -162.0
+offset_top = 94.0
+offset_right = 162.0
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_04of0")
+theme_override_font_sizes/font_size = 25
 text = "A game dedicated to forsen..."
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1654182729]
@@ -83,9 +86,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -76.5
-offset_top = 49.0
+offset_top = -83.5
 offset_right = 76.5
-offset_bottom = 216.0
+offset_bottom = 83.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_8ryub")
