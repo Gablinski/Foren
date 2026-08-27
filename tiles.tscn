@@ -107,7 +107,7 @@ fog_light_color = Color(0.9993908, 0.3213512, 0.46636543, 1)
 fog_density = 1.0
 fog_sky_affect = 0.0
 fog_depth_begin = 20.0
-fog_depth_end = 50.0
+fog_depth_end = 40.0
 
 [node name="Tiles" type="Node3D" unique_id=1232835174]
 
@@ -566,7 +566,6 @@ transform = Transform3D(0.7071067, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.70710
 
 [node name="black_platform2" parent="black_platform2" unique_id=2133902727 groups=["platform_burger_07"] instance=ExtResource("32_ceiah")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.01403, 8.022337, -1.1298447)
-visible = false
 
 [node name="Ladder" parent="." unique_id=1926364976 instance=ExtResource("33_b7lvl")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.52191305, 18.899164, 48.907623)
@@ -624,12 +623,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.2, -0.08641815, 7.93441, -8.86
 
 [node name="corner_platform_b" parent="." unique_id=360490637 groups=["platform_burger_08"] instance=ExtResource("41_vbmue")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -66.56383, 38.84112, 36.725983)
+visible = false
 
-[node name="black_metal_support6" parent="." unique_id=96473046 instance=ExtResource("36_515i1")]
+[node name="black_metal_support6" parent="." unique_id=96473046 groups=["platform_burger_08"] instance=ExtResource("36_515i1")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.664269, 35.69498, 140.93382)
+visible = false
 
-[node name="black_metal_support7" parent="." unique_id=1451089401 instance=ExtResource("36_515i1")]
+[node name="black_metal_support7" parent="." unique_id=1451089401 groups=["platform_burger_08"] instance=ExtResource("36_515i1")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9, 35.69, 140.9)
+visible = false
 
 [node name="big_crate4" parent="." unique_id=1701907980 groups=["platform_burger_08"] instance=ExtResource("26_rkejw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.59179, 56.102234, 46.720665)
@@ -644,7 +646,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -73.
 [node name="short_blackplatform3" parent="short_blackplatform3/short_blackplatform3" unique_id=1654867329 instance=ExtResource("34_b7lvl")]
 transform = Transform3D(-4.371138e-08, 0, 1, 0, 2, 0, -1, 0, -4.371138e-08, -76.72651, 2.6665344, -105.23035)
 
-[node name="short_blackplatform5" parent="." unique_id=276201613 groups=["platform_burger_09"] instance=ExtResource("34_b7lvl")]
+[node name="short_blackplatform5" parent="." unique_id=276201613 instance=ExtResource("34_b7lvl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.75989, 42.645676, 65.029465)
 
 [node name="black_metal_support8" parent="." unique_id=783062528 instance=ExtResource("36_515i1")]
@@ -745,7 +747,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("46_peg0u")
 theme_override_font_sizes/font_size = 30
-text = "BURGERS: 0/9
+text = "BURGERS: 0/8
 "
 
 [node name="TimerLabel" type="Label" parent="HUD" unique_id=1371029455]
@@ -754,9 +756,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 115.0
+offset_left = 119.0
 offset_top = -78.0
-offset_right = 166.0
+offset_right = 170.0
 offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -899,7 +901,7 @@ jump_height = 3.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.600502, 9.794922, 28.036076)
 
 [node name="BurgerPickup2" parent="." unique_id=461418647 groups=["burger_02", "burger_pickup"] instance=ExtResource("51_gdti8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8770814, 1.4957492, 39.645172)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9720882, 1.4957492, 38.987362)
 burger_id = "burger_02"
 
 [node name="BurgerPickup3" parent="." unique_id=54254496 groups=["burger_03", "burger_pickup"] instance=ExtResource("51_gdti8")]
